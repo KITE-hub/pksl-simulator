@@ -1,26 +1,51 @@
 {
   "name": "pksl",
   "version": "0.1.0",
+  "homepage": "https://KITE-hub.github.io/pksl-simulator/",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.6",
+    "@mui/material": "^6.1.6",
+    "@mui/x-data-grid": "^7.22.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/file-saver": "^2.0.7",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.114",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
+    "chart.js": "^4.4.6",
+    "file-saver": "^2.0.5",
+    "jstat": "^1.9.6",
     "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/App.tsx",
+    "lintCalc": "eslint ./src/component/Calculator.tsx",
+    "fix": "eslint --fix ./src/App.tsx",
+    "fixCalc": "eslint --fix ./src/component/Calculator.tsx",
+    "fixChart": "eslint --fix ./src/component/Chart.tsx",
+    "fixGrid": "eslint --fix ./src/component/Grid.tsx",
+    "format": "prettier --write ./src/App.tsx",
+    "formatCalc": "prettier --write ./src/component/Calculator.tsx",
+    "formatChart": "prettier --write ./src/component/Chart.tsx",
+    "formatGrid": "prettier --write ./src/component/Grid.tsx",
+    "formatDesc": "prettier --write ./src/component/Description.tsx",
+    "tailwind": "tailwindcss -i ./src/App.css -o ./src/dist.css --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +64,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "gh-pages": "^6.2.0",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.14"
   }
 }

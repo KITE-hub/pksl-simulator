@@ -1,0 +1,1890 @@
+[
+    {
+        "sleepType": "すやすや",
+        "energy": 0,
+        "internalID": 1,
+        "pokemonName": "ピカチュウ",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 0,
+        "internalID": 2,
+        "pokemonName": "ピカチュウ",
+        "rarity": 2,
+        "np": 2280000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 0,
+        "internalID": 4,
+        "pokemonName": "イーブイ",
+        "rarity": 1,
+        "np": 418000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 0,
+        "internalID": 10,
+        "pokemonName": "ニャース",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 0,
+        "internalID": 11,
+        "pokemonName": "ニャース",
+        "rarity": 2,
+        "np": 2280000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 13,
+        "pokemonName": "ピチュー",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 14,
+        "pokemonName": "ピチュー",
+        "rarity": 2,
+        "np": 1558000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 16,
+        "pokemonName": "フシギダネ",
+        "rarity": 1,
+        "np": 418000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 17,
+        "pokemonName": "フシギダネ",
+        "rarity": 2,
+        "np": 2812000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 0,
+        "internalID": 31,
+        "pokemonName": "プリン",
+        "rarity": 1,
+        "np": 304000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 34,
+        "pokemonName": "ゼニガメ",
+        "rarity": 1,
+        "np": 418000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 35,
+        "pokemonName": "ゼニガメ",
+        "rarity": 2,
+        "np": 2812000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 0,
+        "internalID": 46,
+        "pokemonName": "ヤドン",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 0,
+        "internalID": 47,
+        "pokemonName": "ヤドン",
+        "rarity": 2,
+        "np": 2090000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 67,
+        "pokemonName": "トゲピー",
+        "rarity": 1,
+        "np": 418000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 68,
+        "pokemonName": "トゲピー",
+        "rarity": 2,
+        "np": 2812000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 76,
+        "pokemonName": "アーボ",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 77,
+        "pokemonName": "アーボ",
+        "rarity": 2,
+        "np": 1558000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 103,
+        "pokemonName": "マンキー",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 104,
+        "pokemonName": "マンキー",
+        "rarity": 2,
+        "np": 2090000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 106,
+        "pokemonName": "マダツボミ",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 107,
+        "pokemonName": "マダツボミ",
+        "rarity": 2,
+        "np": 1824000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 109,
+        "pokemonName": "ウツドン",
+        "rarity": 1,
+        "np": 1824000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 112,
+        "pokemonName": "ププリン",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 113,
+        "pokemonName": "ププリン",
+        "rarity": 2,
+        "np": 1558000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 118,
+        "pokemonName": "ウソッキー",
+        "rarity": 1,
+        "np": 570000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 119,
+        "pokemonName": "ウソッキー",
+        "rarity": 2,
+        "np": 3154000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 121,
+        "pokemonName": "コダック",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 122,
+        "pokemonName": "コダック",
+        "rarity": 2,
+        "np": 1558000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 127,
+        "pokemonName": "ドードー",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 128,
+        "pokemonName": "ドードー",
+        "rarity": 2,
+        "np": 1558000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 139,
+        "pokemonName": "チコリータ",
+        "rarity": 1,
+        "np": 418000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 140,
+        "pokemonName": "チコリータ",
+        "rarity": 2,
+        "np": 2812000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 0,
+        "internalID": 148,
+        "pokemonName": "ソーナンス",
+        "rarity": 1,
+        "np": 570000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 157,
+        "pokemonName": "チルット",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 158,
+        "pokemonName": "チルット",
+        "rarity": 2,
+        "np": 1824000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 160,
+        "pokemonName": "ソーナノ",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 161,
+        "pokemonName": "ソーナノ",
+        "rarity": 2,
+        "np": 1558000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 298,
+        "pokemonName": "リオル",
+        "rarity": 1,
+        "np": 76000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 299,
+        "pokemonName": "リオル",
+        "rarity": 2,
+        "np": 2280000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 436,
+        "pokemonName": "ピィ",
+        "rarity": 1,
+        "np": 418000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 437,
+        "pokemonName": "ピィ",
+        "rarity": 2,
+        "np": 2812000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 0,
+        "internalID": 440,
+        "pokemonName": "ピッピ",
+        "rarity": 1,
+        "np": 950000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 472,
+        "pokemonName": "ミニリュウ",
+        "rarity": 1,
+        "np": 570000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 0,
+        "internalID": 484,
+        "pokemonName": "ラルトス",
+        "rarity": 1,
+        "np": 304000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 500,
+        "pokemonName": "ヌイコグマ",
+        "rarity": 1,
+        "np": 570000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 0,
+        "internalID": 534,
+        "pokemonName": "ニャオハ",
+        "rarity": 1,
+        "np": 950000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 0,
+        "internalID": 558,
+        "pokemonName": "クワッス",
+        "rarity": 1,
+        "np": 950000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 12938,
+        "internalID": 5,
+        "pokemonName": "イーブイ",
+        "rarity": 2,
+        "np": 2812000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 12938,
+        "internalID": 32,
+        "pokemonName": "プリン",
+        "rarity": 2,
+        "np": 2508000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 12938,
+        "internalID": 149,
+        "pokemonName": "ソーナンス",
+        "rarity": 2,
+        "np": 3154000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 12938,
+        "internalID": 441,
+        "pokemonName": "ピッピ",
+        "rarity": 2,
+        "np": 3914000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 12938,
+        "internalID": 485,
+        "pokemonName": "ラルトス",
+        "rarity": 2,
+        "np": 10830000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 29756,
+        "internalID": 19,
+        "pokemonName": "フシギソウ",
+        "rarity": 1,
+        "np": 3154000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 29756,
+        "internalID": 37,
+        "pokemonName": "カメール",
+        "rarity": 1,
+        "np": 3154000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 29756,
+        "internalID": 142,
+        "pokemonName": "ベイリーフ",
+        "rarity": 1,
+        "np": 3154000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 29756,
+        "internalID": 181,
+        "pokemonName": "オコリザル",
+        "rarity": 1,
+        "np": 3154000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 29756,
+        "internalID": 241,
+        "pokemonName": "トゲチック",
+        "rarity": 1,
+        "np": 2090000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 29756,
+        "internalID": 473,
+        "pokemonName": "ミニリュウ",
+        "rarity": 2,
+        "np": 12692000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 48515,
+        "internalID": 199,
+        "pokemonName": "ドードリオ",
+        "rarity": 1,
+        "np": 1824000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 48515,
+        "internalID": 211,
+        "pokemonName": "メタモン",
+        "rarity": 1,
+        "np": 5472000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 48515,
+        "internalID": 535,
+        "pokemonName": "ニャオハ",
+        "rarity": 2,
+        "np": 11780000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 48515,
+        "internalID": 559,
+        "pokemonName": "クワッス",
+        "rarity": 2,
+        "np": 11780000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 71156,
+        "internalID": 15,
+        "pokemonName": "ピチュー",
+        "rarity": 3,
+        "np": 6574000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 71156,
+        "internalID": 69,
+        "pokemonName": "トゲピー",
+        "rarity": 3,
+        "np": 9918000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 71156,
+        "internalID": 78,
+        "pokemonName": "アーボ",
+        "rarity": 3,
+        "np": 6574000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 71156,
+        "internalID": 105,
+        "pokemonName": "マンキー",
+        "rarity": 3,
+        "np": 7714000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 71156,
+        "internalID": 108,
+        "pokemonName": "マダツボミ",
+        "rarity": 3,
+        "np": 7144000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 71156,
+        "internalID": 110,
+        "pokemonName": "ウツドン",
+        "rarity": 2,
+        "np": 5054000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 71156,
+        "internalID": 114,
+        "pokemonName": "ププリン",
+        "rarity": 3,
+        "np": 6574000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 71156,
+        "internalID": 124,
+        "pokemonName": "ヤドラン",
+        "rarity": 1,
+        "np": 3154000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 71156,
+        "internalID": 129,
+        "pokemonName": "ドードー",
+        "rarity": 3,
+        "np": 6574000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 71156,
+        "internalID": 159,
+        "pokemonName": "チルット",
+        "rarity": 3,
+        "np": 7144000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 71156,
+        "internalID": 162,
+        "pokemonName": "ソーナノ",
+        "rarity": 3,
+        "np": 6574000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 71156,
+        "internalID": 175,
+        "pokemonName": "ペルシアン",
+        "rarity": 1,
+        "np": 3154000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 71156,
+        "internalID": 488,
+        "pokemonName": "キルリア",
+        "rarity": 1,
+        "np": 4636000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 71156,
+        "internalID": 501,
+        "pokemonName": "ヌイコグマ",
+        "rarity": 2,
+        "np": 11780000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 97031,
+        "internalID": 12,
+        "pokemonName": "ニャース",
+        "rarity": 3,
+        "np": 8322000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 18,
+        "pokemonName": "フシギダネ",
+        "rarity": 3,
+        "np": 9918000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 97031,
+        "internalID": 36,
+        "pokemonName": "ゼニガメ",
+        "rarity": 3,
+        "np": 9918000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 97031,
+        "internalID": 48,
+        "pokemonName": "ヤドン",
+        "rarity": 3,
+        "np": 7714000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 123,
+        "pokemonName": "コダック",
+        "rarity": 3,
+        "np": 6574000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 141,
+        "pokemonName": "チコリータ",
+        "rarity": 3,
+        "np": 9918000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 295,
+        "pokemonName": "チルタリス",
+        "rarity": 1,
+        "np": 4256000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 328,
+        "pokemonName": "フシギダネ",
+        "rarity": 4,
+        "np": 13490000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 97031,
+        "internalID": 334,
+        "pokemonName": "ゼニガメ",
+        "rarity": 4,
+        "np": 13490000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 342,
+        "pokemonName": "アーボ",
+        "rarity": 4,
+        "np": 9120000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 97031,
+        "internalID": 344,
+        "pokemonName": "ピカチュウ",
+        "rarity": 4,
+        "np": 11780000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 97031,
+        "internalID": 346,
+        "pokemonName": "プリン",
+        "rarity": 4,
+        "np": 12692000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 97031,
+        "internalID": 348,
+        "pokemonName": "ニャース",
+        "rarity": 4,
+        "np": 11780000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 350,
+        "pokemonName": "コダック",
+        "rarity": 4,
+        "np": 9120000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 352,
+        "pokemonName": "マンキー",
+        "rarity": 4,
+        "np": 10830000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 356,
+        "pokemonName": "マダツボミ",
+        "rarity": 4,
+        "np": 9918000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 357,
+        "pokemonName": "ウツドン",
+        "rarity": 4,
+        "np": 20824000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 97031,
+        "internalID": 364,
+        "pokemonName": "ドードー",
+        "rarity": 4,
+        "np": 9120000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 97031,
+        "internalID": 372,
+        "pokemonName": "イーブイ",
+        "rarity": 4,
+        "np": 13490000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 379,
+        "pokemonName": "チコリータ",
+        "rarity": 4,
+        "np": 13490000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 97031,
+        "internalID": 388,
+        "pokemonName": "ピチュー",
+        "rarity": 4,
+        "np": 9120000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 97031,
+        "internalID": 389,
+        "pokemonName": "ププリン",
+        "rarity": 4,
+        "np": 9120000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 97031,
+        "internalID": 390,
+        "pokemonName": "トゲピー",
+        "rarity": 4,
+        "np": 13490000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 97031,
+        "internalID": 412,
+        "pokemonName": "チルット",
+        "rarity": 4,
+        "np": 9918000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 97031,
+        "internalID": 415,
+        "pokemonName": "ソーナノ",
+        "rarity": 4,
+        "np": 9120000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 97031,
+        "internalID": 420,
+        "pokemonName": "リオル",
+        "rarity": 4,
+        "np": 11780000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 97031,
+        "internalID": 438,
+        "pokemonName": "ピィ",
+        "rarity": 3,
+        "np": 9918000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 476,
+        "pokemonName": "ハクリュー",
+        "rarity": 1,
+        "np": 4636000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 97031,
+        "internalID": 487,
+        "pokemonName": "ラルトス",
+        "rarity": 4,
+        "np": 22154000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 97031,
+        "internalID": 508,
+        "pokemonName": "デデンネ",
+        "rarity": 1,
+        "np": 7144000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 97031,
+        "internalID": 538,
+        "pokemonName": "ニャローテ",
+        "rarity": 1,
+        "np": 4256000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 97031,
+        "internalID": 562,
+        "pokemonName": "ウェルカモ",
+        "rarity": 1,
+        "np": 4256000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 130668,
+        "internalID": 3,
+        "pokemonName": "ピカチュウ",
+        "rarity": 3,
+        "np": 8322000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 130668,
+        "internalID": 20,
+        "pokemonName": "フシギソウ",
+        "rarity": 2,
+        "np": 7714000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 130668,
+        "internalID": 38,
+        "pokemonName": "カメール",
+        "rarity": 2,
+        "np": 7714000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 130668,
+        "internalID": 120,
+        "pokemonName": "ウソッキー",
+        "rarity": 3,
+        "np": 10830000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 130668,
+        "internalID": 143,
+        "pokemonName": "ベイリーフ",
+        "rarity": 2,
+        "np": 7714000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 130668,
+        "internalID": 182,
+        "pokemonName": "オコリザル",
+        "rarity": 2,
+        "np": 7714000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 130668,
+        "internalID": 242,
+        "pokemonName": "トゲチック",
+        "rarity": 2,
+        "np": 5472000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 130668,
+        "internalID": 300,
+        "pokemonName": "リオル",
+        "rarity": 3,
+        "np": 8322000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 130668,
+        "internalID": 515,
+        "pokemonName": "キュワワー",
+        "rarity": 1,
+        "np": 7714000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 171420,
+        "internalID": 6,
+        "pokemonName": "イーブイ",
+        "rarity": 3,
+        "np": 9918000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 171420,
+        "internalID": 33,
+        "pokemonName": "プリン",
+        "rarity": 3,
+        "np": 9120000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 171420,
+        "internalID": 150,
+        "pokemonName": "ソーナンス",
+        "rarity": 3,
+        "np": 10830000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 171420,
+        "internalID": 200,
+        "pokemonName": "ドードリオ",
+        "rarity": 2,
+        "np": 5054000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 171420,
+        "internalID": 212,
+        "pokemonName": "メタモン",
+        "rarity": 2,
+        "np": 12692000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 171420,
+        "internalID": 335,
+        "pokemonName": "カメール",
+        "rarity": 4,
+        "np": 28766000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 171420,
+        "internalID": 380,
+        "pokemonName": "ベイリーフ",
+        "rarity": 4,
+        "np": 28766000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 171420,
+        "internalID": 391,
+        "pokemonName": "トゲチック",
+        "rarity": 4,
+        "np": 22154000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 171420,
+        "internalID": 442,
+        "pokemonName": "ピッピ",
+        "rarity": 3,
+        "np": 12692000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 171420,
+        "internalID": 486,
+        "pokemonName": "ラルトス",
+        "rarity": 3,
+        "np": 18050000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 219936,
+        "internalID": 125,
+        "pokemonName": "ヤドラン",
+        "rarity": 2,
+        "np": 7714000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 219936,
+        "internalID": 176,
+        "pokemonName": "ペルシアン",
+        "rarity": 2,
+        "np": 7714000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 219936,
+        "internalID": 327,
+        "pokemonName": "メタモン",
+        "rarity": 10,
+        "np": 40926000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 219936,
+        "internalID": 365,
+        "pokemonName": "ドードリオ",
+        "rarity": 4,
+        "np": 20824000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 219936,
+        "internalID": 371,
+        "pokemonName": "メタモン",
+        "rarity": 4,
+        "np": 40926000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 219936,
+        "internalID": 474,
+        "pokemonName": "ミニリュウ",
+        "rarity": 3,
+        "np": 20824000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 219936,
+        "internalID": 489,
+        "pokemonName": "キルリア",
+        "rarity": 2,
+        "np": 15466000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 272333,
+        "internalID": 296,
+        "pokemonName": "チルタリス",
+        "rarity": 2,
+        "np": 9918000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 272333,
+        "internalID": 477,
+        "pokemonName": "ハクリュー",
+        "rarity": 2,
+        "np": 15466000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 272333,
+        "internalID": 504,
+        "pokemonName": "キテルグマ",
+        "rarity": 1,
+        "np": 6004000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 272333,
+        "internalID": 509,
+        "pokemonName": "デデンネ",
+        "rarity": 2,
+        "np": 25536000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 272333,
+        "internalID": 536,
+        "pokemonName": "ニャオハ",
+        "rarity": 3,
+        "np": 33478000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 272333,
+        "internalID": 539,
+        "pokemonName": "ニャローテ",
+        "rarity": 2,
+        "np": 19570000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 272333,
+        "internalID": 560,
+        "pokemonName": "クワッス",
+        "rarity": 3,
+        "np": 33478000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 272333,
+        "internalID": 563,
+        "pokemonName": "ウェルカモ",
+        "rarity": 2,
+        "np": 19570000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 328610,
+        "internalID": 111,
+        "pokemonName": "ウツドン",
+        "rarity": 3,
+        "np": 15466000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 328610,
+        "internalID": 187,
+        "pokemonName": "ウツボット",
+        "rarity": 1,
+        "np": 9918000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 328610,
+        "internalID": 329,
+        "pokemonName": "フシギソウ",
+        "rarity": 4,
+        "np": 28766000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 328610,
+        "internalID": 349,
+        "pokemonName": "ペルシアン",
+        "rarity": 4,
+        "np": 28766000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 328610,
+        "internalID": 353,
+        "pokemonName": "オコリザル",
+        "rarity": 4,
+        "np": 28766000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 328610,
+        "internalID": 362,
+        "pokemonName": "ヤドン",
+        "rarity": 4,
+        "np": 10830000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 328610,
+        "internalID": 363,
+        "pokemonName": "ヤドラン",
+        "rarity": 4,
+        "np": 28766000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 328610,
+        "internalID": 395,
+        "pokemonName": "ウソッキー",
+        "rarity": 4,
+        "np": 14326000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 328610,
+        "internalID": 399,
+        "pokemonName": "ソーナンス",
+        "rarity": 4,
+        "np": 14326000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 328610,
+        "internalID": 413,
+        "pokemonName": "チルタリス",
+        "rarity": 4,
+        "np": 33478000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 328610,
+        "internalID": 439,
+        "pokemonName": "ピィ",
+        "rarity": 4,
+        "np": 13490000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 328610,
+        "internalID": 443,
+        "pokemonName": "ピッピ",
+        "rarity": 4,
+        "np": 16644000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 328610,
+        "internalID": 475,
+        "pokemonName": "ミニリュウ",
+        "rarity": 4,
+        "np": 25536000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 328610,
+        "internalID": 491,
+        "pokemonName": "キルリア",
+        "rarity": 4,
+        "np": 48070000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 328610,
+        "internalID": 502,
+        "pokemonName": "ヌイコグマ",
+        "rarity": 3,
+        "np": 19570000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 328610,
+        "internalID": 503,
+        "pokemonName": "ヌイコグマ",
+        "rarity": 4,
+        "np": 25536000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 328610,
+        "internalID": 511,
+        "pokemonName": "デデンネ",
+        "rarity": 4,
+        "np": 68666000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 328610,
+        "internalID": 516,
+        "pokemonName": "キュワワー",
+        "rarity": 2,
+        "np": 27132000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 328610,
+        "internalID": 537,
+        "pokemonName": "ニャオハ",
+        "rarity": 4,
+        "np": 38304000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 328610,
+        "internalID": 561,
+        "pokemonName": "クワッス",
+        "rarity": 4,
+        "np": 38304000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 388122,
+        "internalID": 444,
+        "pokemonName": "ピクシー",
+        "rarity": 1,
+        "np": 14326000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 452809,
+        "internalID": 21,
+        "pokemonName": "フシギソウ",
+        "rarity": 3,
+        "np": 22154000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 452809,
+        "internalID": 39,
+        "pokemonName": "カメール",
+        "rarity": 3,
+        "np": 22154000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 452809,
+        "internalID": 144,
+        "pokemonName": "ベイリーフ",
+        "rarity": 3,
+        "np": 22154000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 452809,
+        "internalID": 183,
+        "pokemonName": "オコリザル",
+        "rarity": 3,
+        "np": 22154000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 452809,
+        "internalID": 243,
+        "pokemonName": "トゲチック",
+        "rarity": 3,
+        "np": 16644000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 522025,
+        "internalID": 64,
+        "pokemonName": "フシギバナ",
+        "rarity": 1,
+        "np": 14326000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 522025,
+        "internalID": 91,
+        "pokemonName": "カメックス",
+        "rarity": 1,
+        "np": 14326000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 522025,
+        "internalID": 201,
+        "pokemonName": "ドードリオ",
+        "rarity": 3,
+        "np": 15466000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 522025,
+        "internalID": 213,
+        "pokemonName": "メタモン",
+        "rarity": 3,
+        "np": 31806000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 522025,
+        "internalID": 232,
+        "pokemonName": "メガニウム",
+        "rarity": 1,
+        "np": 14326000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 522025,
+        "internalID": 247,
+        "pokemonName": "エーフィ",
+        "rarity": 1,
+        "np": 13490000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 522025,
+        "internalID": 268,
+        "pokemonName": "リーフィア",
+        "rarity": 1,
+        "np": 13490000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 522025,
+        "internalID": 505,
+        "pokemonName": "キテルグマ",
+        "rarity": 2,
+        "np": 19570000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 596086,
+        "internalID": 126,
+        "pokemonName": "ヤドラン",
+        "rarity": 3,
+        "np": 22154000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 596086,
+        "internalID": 177,
+        "pokemonName": "ペルシアン",
+        "rarity": 3,
+        "np": 22154000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 596086,
+        "internalID": 188,
+        "pokemonName": "ウツボット",
+        "rarity": 2,
+        "np": 20824000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 596086,
+        "internalID": 490,
+        "pokemonName": "キルリア",
+        "rarity": 3,
+        "np": 38304000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 675330,
+        "internalID": 297,
+        "pokemonName": "チルタリス",
+        "rarity": 3,
+        "np": 27132000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 675330,
+        "internalID": 358,
+        "pokemonName": "ウツボット",
+        "rarity": 4,
+        "np": 59052000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 675330,
+        "internalID": 445,
+        "pokemonName": "ピクシー",
+        "rarity": 2,
+        "np": 28766000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 675330,
+        "internalID": 478,
+        "pokemonName": "ハクリュー",
+        "rarity": 3,
+        "np": 38304000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 675330,
+        "internalID": 479,
+        "pokemonName": "ハクリュー",
+        "rarity": 4,
+        "np": 48070000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 675330,
+        "internalID": 492,
+        "pokemonName": "サーナイト",
+        "rarity": 1,
+        "np": 20824000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 675330,
+        "internalID": 510,
+        "pokemonName": "デデンネ",
+        "rarity": 3,
+        "np": 55594000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 675330,
+        "internalID": 518,
+        "pokemonName": "キュワワー",
+        "rarity": 4,
+        "np": 73112000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 675330,
+        "internalID": 540,
+        "pokemonName": "ニャローテ",
+        "rarity": 3,
+        "np": 52706000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 675330,
+        "internalID": 541,
+        "pokemonName": "ニャローテ",
+        "rarity": 4,
+        "np": 65702000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 675330,
+        "internalID": 542,
+        "pokemonName": "マスカーニャ",
+        "rarity": 1,
+        "np": 27132000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 675330,
+        "internalID": 564,
+        "pokemonName": "ウェルカモ",
+        "rarity": 3,
+        "np": 52706000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 675330,
+        "internalID": 565,
+        "pokemonName": "ウェルカモ",
+        "rarity": 4,
+        "np": 65702000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 675330,
+        "internalID": 566,
+        "pokemonName": "ウェーニバル",
+        "rarity": 1,
+        "np": 27132000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 760123,
+        "internalID": 517,
+        "pokemonName": "キュワワー",
+        "rarity": 3,
+        "np": 59052000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 850851,
+        "internalID": 65,
+        "pokemonName": "フシギバナ",
+        "rarity": 2,
+        "np": 28766000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 850851,
+        "internalID": 92,
+        "pokemonName": "カメックス",
+        "rarity": 2,
+        "np": 28766000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 850851,
+        "internalID": 233,
+        "pokemonName": "メガニウム",
+        "rarity": 2,
+        "np": 28766000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 850851,
+        "internalID": 248,
+        "pokemonName": "エーフィ",
+        "rarity": 2,
+        "np": 27132000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 850851,
+        "internalID": 269,
+        "pokemonName": "リーフィア",
+        "rarity": 2,
+        "np": 27132000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 850851,
+        "internalID": 496,
+        "pokemonName": "エルレイド",
+        "rarity": 1,
+        "np": 31806000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 958702,
+        "internalID": 330,
+        "pokemonName": "フシギバナ",
+        "rarity": 4,
+        "np": 77102000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 958702,
+        "internalID": 336,
+        "pokemonName": "カメックス",
+        "rarity": 4,
+        "np": 77102000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 958702,
+        "internalID": 381,
+        "pokemonName": "メガニウム",
+        "rarity": 4,
+        "np": 77102000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 958702,
+        "internalID": 396,
+        "pokemonName": "エーフィ",
+        "rarity": 4,
+        "np": 73112000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 958702,
+        "internalID": 425,
+        "pokemonName": "リーフィア",
+        "rarity": 4,
+        "np": 73112000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 1075709,
+        "internalID": 493,
+        "pokemonName": "サーナイト",
+        "rarity": 2,
+        "np": 38304000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 1075709,
+        "internalID": 506,
+        "pokemonName": "キテルグマ",
+        "rarity": 3,
+        "np": 46208000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 1075709,
+        "internalID": 543,
+        "pokemonName": "マスカーニャ",
+        "rarity": 2,
+        "np": 52706000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 1075709,
+        "internalID": 567,
+        "pokemonName": "ウェーニバル",
+        "rarity": 2,
+        "np": 52706000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 1202596,
+        "internalID": 189,
+        "pokemonName": "ウツボット",
+        "rarity": 3,
+        "np": 48070000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 1202596,
+        "internalID": 447,
+        "pokemonName": "ピクシー",
+        "rarity": 4,
+        "np": 77102000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 1202596,
+        "internalID": 480,
+        "pokemonName": "カイリュー",
+        "rarity": 1,
+        "np": 46208000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 1202596,
+        "internalID": 495,
+        "pokemonName": "サーナイト",
+        "rarity": 4,
+        "np": 97356000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 1202596,
+        "internalID": 507,
+        "pokemonName": "キテルグマ",
+        "rarity": 4,
+        "np": 55594000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 1202596,
+        "internalID": 545,
+        "pokemonName": "マスカーニャ",
+        "rarity": 4,
+        "np": 163742000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 1202596,
+        "internalID": 569,
+        "pokemonName": "ウェーニバル",
+        "rarity": 4,
+        "np": 163742000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 1340143,
+        "internalID": 446,
+        "pokemonName": "ピクシー",
+        "rarity": 3,
+        "np": 62776000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 1340143,
+        "internalID": 497,
+        "pokemonName": "エルレイド",
+        "rarity": 2,
+        "np": 55594000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 1489190,
+        "internalID": 499,
+        "pokemonName": "エルレイド",
+        "rarity": 4,
+        "np": 139612000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 1650645,
+        "internalID": 66,
+        "pokemonName": "フシギバナ",
+        "rarity": 3,
+        "np": 62776000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 1650645,
+        "internalID": 93,
+        "pokemonName": "カメックス",
+        "rarity": 3,
+        "np": 62776000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 1650645,
+        "internalID": 234,
+        "pokemonName": "メガニウム",
+        "rarity": 3,
+        "np": 62776000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 1650645,
+        "internalID": 249,
+        "pokemonName": "エーフィ",
+        "rarity": 3,
+        "np": 59052000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 1650645,
+        "internalID": 270,
+        "pokemonName": "リーフィア",
+        "rarity": 3,
+        "np": 59052000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 1825483,
+        "internalID": 481,
+        "pokemonName": "カイリュー",
+        "rarity": 2,
+        "np": 77102000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 2014758,
+        "internalID": 483,
+        "pokemonName": "カイリュー",
+        "rarity": 4,
+        "np": 185516000
+    },
+    {
+        "sleepType": "すやすや",
+        "energy": 2014758,
+        "internalID": 494,
+        "pokemonName": "サーナイト",
+        "rarity": 3,
+        "np": 81244000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 2014758,
+        "internalID": 544,
+        "pokemonName": "マスカーニャ",
+        "rarity": 3,
+        "np": 139612000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 2014758,
+        "internalID": 568,
+        "pokemonName": "ウェーニバル",
+        "rarity": 3,
+        "np": 139612000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 2441243,
+        "internalID": 498,
+        "pokemonName": "エルレイド",
+        "rarity": 3,
+        "np": 115976000
+    },
+    {
+        "sleepType": "うとうと",
+        "energy": 3188730,
+        "internalID": 482,
+        "pokemonName": "カイリュー",
+        "rarity": 3,
+        "np": 155344000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 850851,
+        "internalID": 578,
+        "pokemonName": "スイクン",
+        "rarity": 1,
+        "np": 46208000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 1340143,
+        "internalID": 579,
+        "pokemonName": "スイクン",
+        "rarity": 2,
+        "np": 130074000
+    },
+    {
+        "sleepType": "ぐっすり",
+        "energy": 2441243,
+        "internalID": 580,
+        "pokemonName": "スイクン",
+        "rarity": 3,
+        "np": 275196000
+    }
+]

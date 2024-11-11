@@ -1,0 +1,21 @@
+{
+  "env": {
+    "browser": true, //window変数とか許可する
+    "node": true,
+    "es2021": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": "module",
+    "tsx": true,
+    "ecmaVersion": "2021",
+    "sourceType": "module" //import,export
+  },
+  "rules": {
+    "indent": ["warn", 2],
+    "quotes": ["warn", "single"],
+    "semi": ["warn", "always"],
+    "no-unused-vars": ["warn"],
+    "camelcase": ["warn"]
+  }
+}
