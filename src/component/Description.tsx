@@ -139,6 +139,8 @@ const Description: React.FC = () => {
             <CustomDialogContentText>
               <p>
                 ポケモン名、フィールド名、エナジーなどの条件を入力すると、1回のリサーチで目的のポケモンが何体出現するか、また1体以上出現する確率がどの程度かを計算し、計算結果を図表で表示します。
+                <br />
+                計算量が増えると処理時間が長くなり、負荷も高くなるため、設定条件は各自で調整してください。
               </p>
             </CustomDialogContentText>
           </DialogContent>

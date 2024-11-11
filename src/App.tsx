@@ -92,7 +92,7 @@ const App: React.FC = () => {
 
   // 全ての入力フォームが空でないときにtrueを返す(fieldNameは空にならない、startNPは0でも良い)
   const allInputsAreValid = (): boolean => {
-    return pokemonName !== '' && expandedEnergy !== 0 && limitNP !== 0 && trialNumber !== 0 && expandedIntervalNP !== 0;
+    return pokemonName !== '' && expandedEnergy !== 0 && limitNP !== 0 && trialNumber >=2 && expandedIntervalNP !== 0;
   };
 
   // 全ての入力フォームが空でなく、計算量過多にならなく(未実装)、かつクリックされたときにtrueになる関数
