@@ -14,8 +14,6 @@ import {
   Link,
   Button
 } from '@mui/material';
-import '../normalize.css';
-import '../dist.css';
 import {styled} from '@mui/material/styles';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
@@ -42,7 +40,11 @@ const CustomDialogContentText = styled(DialogContentText)({
   },
   '& hr': {
     margin: '3px'
-  }
+  },
+  // '& span': {
+  //   width: '4px',
+  //   backgroundColor: 'blue'
+  // }
 });
 const CustomButton = styled(Button)({
   color: '#333',
@@ -138,9 +140,11 @@ const Description: React.FC = () => {
           <DialogContent dividers>
             <CustomDialogContentText>
               <p>
-                ポケモン名、フィールド名、エナジーなどの条件を入力すると、1回のリサーチで目的のポケモンが何体出現するか、また1体以上出現する確率がどの程度かを計算し、計算結果を図表で表示します。
+                　ポケモン名、フィールド名、エナジーなどの条件を入力すると、1回のリサーチで目的のポケモンが何体出現するか、また1体以上出現する確率がどの程度かなどを計算し、計算結果を図表で表示します。
                 <br />
-                計算量が増えると処理時間が長くなり、負荷も高くなるため、設定条件は各自で調整してください。
+                　計算量が増えると処理時間が長くなり、負荷も高くなるため、設定条件は各自で調整してください。
+                <br />
+                　また、計算結果についての厳密性は保証しません。あくまで参考程度にお願いいたします。
               </p>
             </CustomDialogContentText>
           </DialogContent>
@@ -161,7 +165,7 @@ const Description: React.FC = () => {
               <hr />
               <p>
                 　各ポケモンの寝顔には、その寝顔が出現するために必要なねむけパワーが定められている (例:
-                ピチュー☆1の必要ねむけパワー=76000)。
+                コラッタ☆1の必要ねむけパワー=76000)。
                 <br />
                 　仕様変更に伴い、現在の新規の寝顔の必要ねむけパワーの特定は困難であり、実際のリサーチ結果から範囲を地道に絞り込む必要があるため、一部の寝顔の必要ねむけパワーは未確定となっている。
               </p>
@@ -189,7 +193,7 @@ const Description: React.FC = () => {
               <ul>
                 <li>・出現しうるすべての寝顔は、等しい確率で抽選されるものとする。</li>
                 <li>
-                  ・ピッピ族・ライコウ・エンテイ・ニャオハ族・ホゲータ族・クワッス族・ウパー族は、80%の確率で最終枠抽選の対象から外れるものとする。
+                  ・ピッピ族・ライコウ・エンテイ・スイクン・アゴジムシ族、コリンク族・ココドラ族・フワンテ族・ミミッキュは、80%の確率で最終枠抽選の対象から外れるものとする。
                 </li>
                 <li>
                   ・エンテイ、ライコウ、スイクンのような伝説のポケモンは1リサーチに1体までしか出現しないものとする。
@@ -197,9 +201,24 @@ const Description: React.FC = () => {
                 <li>・一部ポケモンについて確定帯のズレが見られるが、この現象は考慮しないものとする。</li>
               </ul>
               <br />
-              <p>
-                　なお、一部ポケモンについての確定帯のズレなど、原理が未解明である仕様も存在するため、計算結果についてはあくまで参考程度にお願いいたします。
-              </p>
+              <h3>必要ねむけパワーが未確定の寝顔と仮の必要ねむけパワーの一覧(2024/11/12)</h3>
+
+              <hr />
+              <ul>
+                <li>・ニャローテ,ウェルカモ,アチゲータ ☆4: 65702000</li>
+                <li>・マスカーニャ,ラウドボーン,ウェーニバル ☆4: 163742000</li>
+                <li>・キュウコン ☆3: 49894000</li>
+                <li>・ココドラ ☆4: 49894000</li>
+                <li>・レントラー ☆3: 172482000</li>
+                <li>・ボスゴドラ ☆3: 182400000</li>
+                <li>・クワガノン ☆3: 205922000</li>
+                <li>・レントラー ☆4: 205922000</li>
+                <li>・ボスゴドラ ☆4: 215422000</li>
+                <li>・クワガノン ☆4: 243390000</li>
+                <li>・ライコウ ☆3: 243390000</li>
+                <li>・エンテイ ☆3: 262428000</li>
+                <li>・スイクン ☆3: 275196000</li>
+              </ul>
             </CustomDialogContentText>
           </DialogContent>
           <DialogActions>
@@ -215,10 +234,8 @@ const Description: React.FC = () => {
           <CustomDialogTitle>参考元、謝辞</CustomDialogTitle>
           <DialogContent dividers>
             <CustomDialogContentText>
-              <p>
-                　寝顔抽選の仕組みや必要ねむけパワーについて調査を行ってくださった先人の皆様に、心より感謝申し上げます。
-              </p>
-              <br />
+              <h3>参考元</h3>
+              <hr />
               <ul>
                 <li>
                   <Link
@@ -237,7 +254,7 @@ const Description: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    ポケモンスリープwiki
+                    ポケモンスリープ攻略・検証wiki
                   </Link>
                 </li>
                 <li>
@@ -250,7 +267,24 @@ const Description: React.FC = () => {
                     くますーん氏のnote記事
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="https://nitoyon.github.io/pokesleep-tool/iv/index.ja.html"
+                    underline="hover"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    個体値計算機 for ポケモンスリープ (UI参考)
+                  </Link>
+                </li>
               </ul>
+              <br />
+              <h3>謝辞</h3>
+              <hr />
+              <p>
+                　寝顔抽選の仕組みや必要ねむけパワーについて調査を行ってくださった先人の皆様に、心より感謝申し上げます。
+              </p>
+
             </CustomDialogContentText>
           </DialogContent>
           <DialogActions>

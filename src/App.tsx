@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import './normalize.css';
+import 'normalize.css';
 import './dist.css';
 import {iResult} from './types';
+import {SelectChangeEvent} from '@mui/material';
+import PokemonNameSelect from './component/PokemonNameSelect';
+import FieldNameSelect from './component/FieldNameSelect';
 import Description from './component/Description';
 import Calculator from './component/Calculator';
 import Chart from './component/Chart';
@@ -10,10 +13,16 @@ import Grid from './component/Grid';
 const App: React.FC = () => {
   // 入力フォームの変数の保持
   type SetNumberState = (value: number) => void;
-  const handleInputChange = (setState: SetNumberState) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Number(e.target.value);
-    setState(value);
-  };
+  type SetStringState = (value: string) => void;
+  const handleInputChange =
+    (setStateBase: SetStringState, setState: SetNumberState) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = String(e.target.value);
+      setStateBase(value);
+      const parsedValue = Number(value);
+      if (!isNaN(parsedValue)) {
+        setState(parsedValue); // 数値の場合のみ更新
+      }
+    };
   // 画面表示用に4桁区切りにする
   const formatNumberWithCommas = (value: number): string => {
     if (value >= 1e11) {
@@ -22,7 +31,6 @@ const App: React.FC = () => {
       return value.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '\u2009');
     }
   };
-
   const updateExpandedValues = (
     value: number,
     index: number,
@@ -34,31 +42,40 @@ const App: React.FC = () => {
     setExpandedValue(expandedValue);
     setExpandedDisplay(expandedDisplay);
   };
-  //test
-  const [pokemonName, setPokemonName] = useState<string>('ピカチュウ');
-  const handlePokemonName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPokemonName(String(e.target.value));
+  const [pokemonName, setPokemonName] = useState<string>('');
+  const handlePokemonName1 = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setPokemonName(event.target.value);
+  };
+  const handlePokemonName2 = (event: React.SyntheticEvent, value: string) => {
+    setPokemonName(value);
   };
   const [fieldName, setFieldName] = useState<string>('ワカクサ本島');
-  const handleFieldName = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleFieldName = (e: SelectChangeEvent<string>) => {
     setFieldName(String(e.target.value));
   };
+  const [energyBase, setEnergyBase] = useState<string>('1');
   const [energy, setEnergy] = useState<number>(1);
-  const handleEnergy = handleInputChange(setEnergy);
+  const handleEnergy = handleInputChange(setEnergyBase, setEnergy);
+  const [energyIndexBase, setEnergyIndexBase] = useState<string>('6');
   const [energyIndex, setEnergyIndex] = useState<number>(6);
-  const handleEnergyIndex = handleInputChange(setEnergyIndex);
+  const handleEnergyIndex = handleInputChange(setEnergyIndexBase, setEnergyIndex);
   const [limitNP, setLimitNP] = useState<number>(0);
   const [limitNPDisplay, setLimitNPDisplay] = useState<string>('');
+  const [trialNumberBase, setTrialNumberBase] = useState<string>('10000');
   const [trialNumber, setTrialNumber] = useState<number>(10000);
-  const handleTrialNumber = handleInputChange(setTrialNumber);
+  const handleTrialNumber = handleInputChange(setTrialNumberBase, setTrialNumber);
+  const [startNPBase, setStartNPBase] = useState<string>('0');
   const [startNP, setStartNP] = useState<number>(0);
-  const handleStartNP = handleInputChange(setStartNP);
+  const handleStartNP = handleInputChange(setStartNPBase, setStartNP);
+  const [startNPIndexBase, setStartNPIndexBase] = useState<string>('1');
   const [startNPIndex, setStartNPIndex] = useState<number>(1);
-  const handleStartNPIndex = handleInputChange(setStartNPIndex);
+  const handleStartNPIndex = handleInputChange(setStartNPIndexBase, setStartNPIndex);
+  const [intervalNPBase, setIntervalNPBase] = useState<string>('1');
   const [intervalNP, setIntervalNP] = useState<number>(1);
-  const handleIntervalNP = handleInputChange(setIntervalNP);
+  const handleIntervalNP = handleInputChange(setIntervalNPBase, setIntervalNP);
+  const [intervalNPIndexBase, setIntervalNPIndexBase] = useState<string>('7');
   const [intervalNPIndex, setIntervalNPIndex] = useState<number>(7);
-  const handleIntervalNPIndex = handleInputChange(setIntervalNPIndex);
+  const handleIntervalNPIndex = handleInputChange(setIntervalNPIndexBase, setIntervalNPIndex);
 
   const [expandedEnergy, setExpandedEnergy] = useState<number>(0);
   const [expandedEnergyDisplay, setExpandedEnergyDisplay] = useState<string>('');
@@ -92,7 +109,7 @@ const App: React.FC = () => {
 
   // 全ての入力フォームが空でないときにtrueを返す(fieldNameは空にならない、startNPは0でも良い)
   const allInputsAreValid = (): boolean => {
-    return pokemonName !== '' && expandedEnergy !== 0 && limitNP !== 0 && trialNumber >=2 && expandedIntervalNP !== 0;
+    return pokemonName !== '' && expandedEnergy !== 0 && limitNP !== 0 && trialNumber >= 2 && expandedIntervalNP !== 0;
   };
 
   // 全ての入力フォームが空でなく、計算量過多にならなく(未実装)、かつクリックされたときにtrueになる関数
@@ -104,9 +121,21 @@ const App: React.FC = () => {
     }
   };
   const [result, setResult] = useState<iResult[]>([
-    {npXAxis: 0, np: 0, ev: 0, leastOne: 0, evUp: 0, evLow: 0, evForGrid: '0 ± 0', leastOneForGrid: 0}
+    {
+      npXAxis: 0,
+      np: 0,
+      ev: 0,
+      leastOne: 0,
+      evUp: 0,
+      evLow: 0,
+      expCandy: 0,
+      researchExp: 0,
+      dreamShard: 0,
+      evForGrid: '0 ± 0'
+    }
   ]);
-  const [chartTitle, setChartTitle] = useState<string[]>(['出現期待値と1体以上出現確率', '']);
+  const [chartTitle1, setChartTitle1] = useState<string[]>(['出現期待値と1体以上出現確率']);
+  const [chartTitle2, setChartTitle2] = useState<string[]>(['出現期待値と1体以上出現確率']);
   const [chartSubTitle, setChartSubTitle] = useState<string>('各NPの試行回数: , NP間隔: , 作成者:?'); // 試行回数,ねむけパワー間隔,作成者
   return (
     <div className="App">
@@ -114,9 +143,11 @@ const App: React.FC = () => {
         <h1 className="font-bold m-0 text-white">
           寝顔シミュレーター <small>for ポケモンスリープ</small>
         </h1>
-        <Description/>
+        <Description />
       </header>
-      <div className="responsive"> {/* 入力欄と出力欄を横並び=flexにするか？ */}
+      <div className="responsive">
+        {' '}
+        {/* 入力欄と出力欄を横並び=flexにするか？ */}
         <section className="mt-3 mb-5 sectionWidth mx-auto">
           <div className="flex mb-3">
             <span className="bg-[#489FFF] w-1.5 mr-1.5"></span>
@@ -130,12 +161,11 @@ const App: React.FC = () => {
                 </div>
               </th>
               <td>
-                <input
-                  type="text"
-                  value={pokemonName}
-                  onChange={(e) => handlePokemonName(e)}
-                  className="font-bold px-2 w-40 py-1 box-border rounded-md border border-[#25d76b] buttonShadow"
-                ></input>
+                <PokemonNameSelect
+                  pokemonName={pokemonName}
+                  handlePokemonName1={handlePokemonName1}
+                  handlePokemonName2={handlePokemonName2}
+                />
               </td>
             </tr>
             <tr className="h-10">
@@ -145,19 +175,7 @@ const App: React.FC = () => {
                 </div>
               </th>
               <td>
-                <select
-                  id="field"
-                  value={fieldName}
-                  onChange={(e) => handleFieldName(e)}
-                  className="font-bold px-1 w-40 py-1 box-border rounded-md border border-[#25d76b] buttonShadow"
-                >
-                  <option value="ワカクサ本島">ワカクサ本島</option>
-                  <option value="シアンの砂浜">シアンの砂浜</option>
-                  <option value="トープ洞窟">トープ洞窟</option>
-                  <option value="ウノハナ雪原">ウノハナ雪原</option>
-                  <option value="ラピスラズリ湖畔">ラピスラズリ湖畔</option>
-                  {/* <option value="ゴールド旧発電所">ゴールド旧発電所</option> */}
-                </select>
+                <FieldNameSelect fieldName={fieldName} handleFieldName={handleFieldName} />
               </td>
             </tr>
             <tr className="h-10">
@@ -169,7 +187,7 @@ const App: React.FC = () => {
               <td className="flex">
                 <input
                   type="figure"
-                  value={energy}
+                  value={energyBase}
                   onChange={(e) => handleEnergy(e)}
                   className="font-bold px-2 w-16 py-1 box-border rounded-md border border-[#25d76b] buttonShadow"
                 ></input>
@@ -177,7 +195,7 @@ const App: React.FC = () => {
                 <sup>
                   <input
                     type="figure"
-                    value={energyIndex}
+                    value={energyIndexBase}
                     onChange={(e) => handleEnergyIndex(e)}
                     className="font-bold px-1 pb-1 w-8 box-border relative top-1.5 rounded-md border border-[#25d76b] buttonShadow"
                   ></input>
@@ -204,7 +222,7 @@ const App: React.FC = () => {
               <td>
                 <input
                   type="figure"
-                  value={trialNumber}
+                  value={trialNumberBase}
                   onChange={(e) => handleTrialNumber(e)}
                   className="font-bold px-2 w-24 py-1 box-border rounded-md border border-[#25d76b] buttonShadow"
                 ></input>
@@ -219,7 +237,7 @@ const App: React.FC = () => {
               <td className="flex">
                 <input
                   type="figure"
-                  value={startNP}
+                  value={startNPBase}
                   onChange={(e) => handleStartNP(e)}
                   className="font-bold px-2 w-16 py-1 box-border rounded-md border border-[#25d76b] buttonShadow"
                 ></input>
@@ -227,7 +245,7 @@ const App: React.FC = () => {
                 <sup>
                   <input
                     type="figure"
-                    value={startNPIndex}
+                    value={startNPIndexBase}
                     onChange={(e) => handleStartNPIndex(e)}
                     className="font-bold px-1 pb-1 w-8 box-border relative top-1.5 rounded-md border border-[#25d76b] buttonShadow"
                   ></input>
@@ -244,7 +262,7 @@ const App: React.FC = () => {
               <td className="flex">
                 <input
                   type="figure"
-                  value={intervalNP}
+                  value={intervalNPBase}
                   onChange={(e) => handleIntervalNP(e)}
                   className="font-bold px-2 w-16 py-1 box-border rounded-md border border-[#25d76b] buttonShadow"
                 ></input>
@@ -252,7 +270,7 @@ const App: React.FC = () => {
                 <sup>
                   <input
                     type="figure"
-                    value={intervalNPIndex}
+                    value={intervalNPIndexBase}
                     onChange={(e) => handleIntervalNPIndex(e)}
                     className="font-bold px-1 pb-1 w-8 box-border relative top-1.5 rounded-md border border-[#25d76b] buttonShadow"
                   ></input>
@@ -285,11 +303,11 @@ const App: React.FC = () => {
           </div>
         </section>
         <section className="mt-3 mb-5 responsiveOutput sectionWidth mx-auto">
-          <div className="flex mb-3">
+          <div className="flex">
             <span className="bg-[#fb6e53] w-1.5 mr-1.5"></span>
             <div className="flex justify-between text-white bg-[#fb6e53] px-2 w-full clipSlant">
               <h2 className="font-bold">出力欄</h2>
-              <sub className="text-xs mx-1  mt-auto mb-1">寝顔データ最終更新日時: 2024/09/25</sub>
+              <sub className="text-xs mx-1  mt-auto mb-1">寝顔データ最終更新日時: 2024/11/12</sub>
             </div>
           </div>
           {/* propsで値をcalculator.tsxに渡す */}
@@ -305,16 +323,17 @@ const App: React.FC = () => {
               startNP={expandedStartNP}
               intervalNP={expandedIntervalNP}
               setResult={setResult}
-              setChartTitle={setChartTitle}
+              setChartTitle1={setChartTitle1}
+              setChartTitle2={setChartTitle2}
               setChartSubTitle={setChartSubTitle}
             />
-            <Chart result={result} chartTitle={chartTitle} chartSubTitle={chartSubTitle} />
-            <Grid result={result}/>
+            <Chart result={result} chartTitle1={chartTitle1} chartTitle2={chartTitle2} chartSubTitle={chartSubTitle} />
+            <Grid result={result} />
           </div>
         </section>
       </div>
     </div>
   );
-}
+};
 
 export default App;

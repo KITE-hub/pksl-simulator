@@ -3,7 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  background-color: rgb(241, 245, 249);
+}
+
 .App{
+  background-color: rgb(241, 245, 249);
   font-family: "M PLUS 1p","Roboto","Noto Sans JP", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Arial", "Yu Gothic", "Meiryo", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -12,14 +17,10 @@
   margin: 0;
   width: 100vw;
   min-height: 100vh;
-  background-color: rgb(241, 245, 249);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-.Description{
-  font-family: "M PLUS 1p","Roboto","Noto Sans JP", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 }
 h1{
   font-size: 20px;
@@ -53,5 +54,18 @@ h1{
   .responsiveOutput{
     width: calc(60% - 112px);
     /* 800pxを超えてから0.6倍で23*16=368pxから拡大される */
+  }
+}
+
+@media screen and (min-width:1554px){
+  .chartsFlex{
+    display: flex;
+    /* legendが2行になるタイミングでflexにする */
+  }
+  .chart1{
+    width:50%;
+  }
+  .chart2{
+    width:50%;
   }
 }

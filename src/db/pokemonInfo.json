@@ -1,0 +1,782 @@
+[
+  {
+      "pokemonName": "フシギダネ",
+      "sleepType": "うとうと",
+      "speciesName": "フシギダネ"
+  },
+  {
+      "pokemonName": "フシギソウ",
+      "sleepType": "うとうと",
+      "speciesName": "フシギダネ"
+  },
+  {
+      "pokemonName": "フシギバナ",
+      "sleepType": "うとうと",
+      "speciesName": "フシギダネ"
+  },
+  {
+      "pokemonName": "ヒトカゲ",
+      "sleepType": "すやすや",
+      "speciesName": "ヒトカゲ"
+  },
+  {
+      "pokemonName": "リザード",
+      "sleepType": "すやすや",
+      "speciesName": "ヒトカゲ"
+  },
+  {
+      "pokemonName": "リザードン",
+      "sleepType": "すやすや",
+      "speciesName": "ヒトカゲ"
+  },
+  {
+      "pokemonName": "ゼニガメ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ゼニガメ"
+  },
+  {
+      "pokemonName": "カメール",
+      "sleepType": "ぐっすり",
+      "speciesName": "ゼニガメ"
+  },
+  {
+      "pokemonName": "カメックス",
+      "sleepType": "ぐっすり",
+      "speciesName": "ゼニガメ"
+  },
+  {
+      "pokemonName": "キャタピー",
+      "sleepType": "うとうと",
+      "speciesName": "キャタピー"
+  },
+  {
+      "pokemonName": "トランセル",
+      "sleepType": "うとうと",
+      "speciesName": "キャタピー"
+  },
+  {
+      "pokemonName": "バタフリー",
+      "sleepType": "うとうと",
+      "speciesName": "キャタピー"
+  },
+  {
+      "pokemonName": "コラッタ",
+      "sleepType": "すやすや",
+      "speciesName": "コラッタ"
+  },
+  {
+      "pokemonName": "ラッタ",
+      "sleepType": "すやすや",
+      "speciesName": "コラッタ"
+  },
+  {
+      "pokemonName": "アーボ",
+      "sleepType": "うとうと",
+      "speciesName": "アーボ"
+  },
+  {
+      "pokemonName": "アーボック",
+      "sleepType": "うとうと",
+      "speciesName": "アーボ"
+  },
+  {
+      "pokemonName": "ピカチュウ",
+      "sleepType": "すやすや",
+      "speciesName": "ピチュー"
+  },
+  {
+      "pokemonName": "ライチュウ",
+      "sleepType": "すやすや",
+      "speciesName": "ピチュー"
+  },
+  {
+      "pokemonName": "ピッピ",
+      "sleepType": "すやすや",
+      "speciesName": "ピィ"
+  },
+  {
+      "pokemonName": "ピクシー",
+      "sleepType": "すやすや",
+      "speciesName": "ピィ"
+  },
+  {
+      "pokemonName": "ロコン",
+      "sleepType": "すやすや",
+      "speciesName": "ロコン"
+  },
+  {
+      "pokemonName": "キュウコン",
+      "sleepType": "すやすや",
+      "speciesName": "ロコン"
+  },
+  {
+      "pokemonName": "プリン",
+      "sleepType": "すやすや",
+      "speciesName": "ププリン"
+  },
+  {
+      "pokemonName": "プクリン",
+      "sleepType": "すやすや",
+      "speciesName": "ププリン"
+  },
+  {
+      "pokemonName": "ディグダ",
+      "sleepType": "すやすや",
+      "speciesName": "ディグダ"
+  },
+  {
+      "pokemonName": "ダグトリオ",
+      "sleepType": "すやすや",
+      "speciesName": "ディグダ"
+  },
+  {
+      "pokemonName": "ニャース",
+      "sleepType": "すやすや",
+      "speciesName": "ニャース"
+  },
+  {
+      "pokemonName": "ペルシアン",
+      "sleepType": "すやすや",
+      "speciesName": "ニャース"
+  },
+  {
+      "pokemonName": "コダック",
+      "sleepType": "うとうと",
+      "speciesName": "コダック"
+  },
+  {
+      "pokemonName": "ゴルダック",
+      "sleepType": "ぐっすり",
+      "speciesName": "コダック"
+  },
+  {
+      "pokemonName": "マンキー",
+      "sleepType": "うとうと",
+      "speciesName": "マンキー"
+  },
+  {
+      "pokemonName": "オコリザル",
+      "sleepType": "うとうと",
+      "speciesName": "マンキー"
+  },
+  {
+      "pokemonName": "ガーディ",
+      "sleepType": "すやすや",
+      "speciesName": "ガーディ"
+  },
+  {
+      "pokemonName": "ウインディ",
+      "sleepType": "すやすや",
+      "speciesName": "ガーディ"
+  },
+  {
+      "pokemonName": "マダツボミ",
+      "sleepType": "うとうと",
+      "speciesName": "マダツボミ"
+  },
+  {
+      "pokemonName": "ウツドン",
+      "sleepType": "うとうと",
+      "speciesName": "マダツボミ"
+  },
+  {
+      "pokemonName": "ウツボット",
+      "sleepType": "うとうと",
+      "speciesName": "マダツボミ"
+  },
+  {
+      "pokemonName": "イシツブテ",
+      "sleepType": "ぐっすり",
+      "speciesName": "イシツブテ"
+  },
+  {
+      "pokemonName": "ゴローン",
+      "sleepType": "ぐっすり",
+      "speciesName": "イシツブテ"
+  },
+  {
+      "pokemonName": "ゴローニャ",
+      "sleepType": "ぐっすり",
+      "speciesName": "イシツブテ"
+  },
+  {
+      "pokemonName": "ヤドン",
+      "sleepType": "すやすや",
+      "speciesName": "ヤドン"
+  },
+  {
+      "pokemonName": "ヤドラン",
+      "sleepType": "すやすや",
+      "speciesName": "ヤドン"
+  },
+  {
+      "pokemonName": "コイル",
+      "sleepType": "ぐっすり",
+      "speciesName": "コイル"
+  },
+  {
+      "pokemonName": "レアコイル",
+      "sleepType": "ぐっすり",
+      "speciesName": "コイル"
+  },
+  {
+      "pokemonName": "ドードー",
+      "sleepType": "ぐっすり",
+      "speciesName": "ドードー"
+  },
+  {
+      "pokemonName": "ドードリオ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ドードー"
+  },
+  {
+      "pokemonName": "ゴース",
+      "sleepType": "うとうと",
+      "speciesName": "ゴース"
+  },
+  {
+      "pokemonName": "ゴースト",
+      "sleepType": "うとうと",
+      "speciesName": "ゴース"
+  },
+  {
+      "pokemonName": "ゲンガー",
+      "sleepType": "うとうと",
+      "speciesName": "ゴース"
+  },
+  {
+      "pokemonName": "イワーク",
+      "sleepType": "ぐっすり",
+      "speciesName": "イワーク"
+  },
+  {
+      "pokemonName": "カラカラ",
+      "sleepType": "ぐっすり",
+      "speciesName": "カラカラ"
+  },
+  {
+      "pokemonName": "ガラガラ",
+      "sleepType": "ぐっすり",
+      "speciesName": "カラカラ"
+  },
+  {
+      "pokemonName": "ガルーラ",
+      "sleepType": "すやすや",
+      "speciesName": "ガルーラ"
+  },
+  {
+      "pokemonName": "バリヤード",
+      "sleepType": "すやすや",
+      "speciesName": "マネネ"
+  },
+  {
+      "pokemonName": "カイロス",
+      "sleepType": "うとうと",
+      "speciesName": "カイロス"
+  },
+  {
+      "pokemonName": "メタモン",
+      "sleepType": "すやすや",
+      "speciesName": "メタモン"
+  },
+  {
+      "pokemonName": "イーブイ",
+      "sleepType": "すやすや",
+      "speciesName": "イーブイ"
+  },
+  {
+      "pokemonName": "シャワーズ",
+      "sleepType": "ぐっすり",
+      "speciesName": "イーブイ"
+  },
+  {
+      "pokemonName": "サンダース",
+      "sleepType": "すやすや",
+      "speciesName": "イーブイ"
+  },
+  {
+      "pokemonName": "ブースター",
+      "sleepType": "すやすや",
+      "speciesName": "イーブイ"
+  },
+  {
+      "pokemonName": "ミニリュウ",
+      "sleepType": "うとうと",
+      "speciesName": "ミニリュウ"
+  },
+  {
+      "pokemonName": "ハクリュー",
+      "sleepType": "うとうと",
+      "speciesName": "ミニリュウ"
+  },
+  {
+      "pokemonName": "カイリュー",
+      "sleepType": "うとうと",
+      "speciesName": "ミニリュウ"
+  },
+  {
+      "pokemonName": "チコリータ",
+      "sleepType": "うとうと",
+      "speciesName": "チコリータ"
+  },
+  {
+      "pokemonName": "ベイリーフ",
+      "sleepType": "うとうと",
+      "speciesName": "チコリータ"
+  },
+  {
+      "pokemonName": "メガニウム",
+      "sleepType": "うとうと",
+      "speciesName": "チコリータ"
+  },
+  {
+      "pokemonName": "ヒノアラシ",
+      "sleepType": "すやすや",
+      "speciesName": "ヒノアラシ"
+  },
+  {
+      "pokemonName": "マグマラシ",
+      "sleepType": "すやすや",
+      "speciesName": "ヒノアラシ"
+  },
+  {
+      "pokemonName": "バクフーン",
+      "sleepType": "すやすや",
+      "speciesName": "ヒノアラシ"
+  },
+  {
+      "pokemonName": "ワニノコ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ワニノコ"
+  },
+  {
+      "pokemonName": "アリゲイツ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ワニノコ"
+  },
+  {
+      "pokemonName": "オーダイル",
+      "sleepType": "ぐっすり",
+      "speciesName": "ワニノコ"
+  },
+  {
+      "pokemonName": "ピチュー",
+      "sleepType": "ぐっすり",
+      "speciesName": "ピチュー"
+  },
+  {
+      "pokemonName": "ピィ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ピィ"
+  },
+  {
+      "pokemonName": "ププリン",
+      "sleepType": "ぐっすり",
+      "speciesName": "ププリン"
+  },
+  {
+      "pokemonName": "トゲピー",
+      "sleepType": "ぐっすり",
+      "speciesName": "トゲピー"
+  },
+  {
+      "pokemonName": "トゲチック",
+      "sleepType": "すやすや",
+      "speciesName": "トゲピー"
+  },
+  {
+      "pokemonName": "メリープ",
+      "sleepType": "すやすや",
+      "speciesName": "メリープ"
+  },
+  {
+      "pokemonName": "モココ",
+      "sleepType": "すやすや",
+      "speciesName": "メリープ"
+  },
+  {
+      "pokemonName": "デンリュウ",
+      "sleepType": "すやすや",
+      "speciesName": "メリープ"
+  },
+  {
+      "pokemonName": "ウソッキー",
+      "sleepType": "ぐっすり",
+      "speciesName": "ウソハチ"
+  },
+  {
+      "pokemonName": "ウパー",
+      "sleepType": "ぐっすり",
+      "speciesName": "ウパー"
+  },
+  {
+      "pokemonName": "ヌオー",
+      "sleepType": "ぐっすり",
+      "speciesName": "ウパー"
+  },
+  {
+      "pokemonName": "エーフィ",
+      "sleepType": "すやすや",
+      "speciesName": "イーブイ"
+  },
+  {
+      "pokemonName": "ブラッキー",
+      "sleepType": "うとうと",
+      "speciesName": "イーブイ"
+  },
+  {
+      "pokemonName": "ヤドキング",
+      "sleepType": "すやすや",
+      "speciesName": "ヤドン"
+  },
+  {
+      "pokemonName": "ソーナンス",
+      "sleepType": "すやすや",
+      "speciesName": "ソーナノ"
+  },
+  {
+      "pokemonName": "ハガネール",
+      "sleepType": "ぐっすり",
+      "speciesName": "イワーク"
+  },
+  {
+      "pokemonName": "ヘラクロス",
+      "sleepType": "うとうと",
+      "speciesName": "ヘラクロス"
+  },
+  {
+      "pokemonName": "デリバード",
+      "sleepType": "うとうと",
+      "speciesName": "デリバード"
+  },
+  {
+      "pokemonName": "デルビル",
+      "sleepType": "うとうと",
+      "speciesName": "デルビル"
+  },
+  {
+      "pokemonName": "ヘルガー",
+      "sleepType": "うとうと",
+      "speciesName": "デルビル"
+  },
+  {
+      "pokemonName": "ライコウ",
+      "sleepType": "すやすや",
+      "speciesName": "ライコウ"
+  },
+  {
+      "pokemonName": "エンテイ",
+      "sleepType": "すやすや",
+      "speciesName": "エンテイ"
+  },
+  {
+      "pokemonName": "スイクン",
+      "sleepType": "ぐっすり",
+      "speciesName": "スイクン"
+  },
+  {
+      "pokemonName": "ヨーギラス",
+      "sleepType": "ぐっすり",
+      "speciesName": "ヨーギラス"
+  },
+  {
+      "pokemonName": "サナギラス",
+      "sleepType": "ぐっすり",
+      "speciesName": "ヨーギラス"
+  },
+  {
+      "pokemonName": "バンギラス",
+      "sleepType": "うとうと",
+      "speciesName": "ヨーギラス"
+  },
+  {
+      "pokemonName": "ラルトス",
+      "sleepType": "すやすや",
+      "speciesName": "ラルトス"
+  },
+  {
+      "pokemonName": "キルリア",
+      "sleepType": "すやすや",
+      "speciesName": "ラルトス"
+  },
+  {
+      "pokemonName": "サーナイト",
+      "sleepType": "すやすや",
+      "speciesName": "ラルトス"
+  },
+  {
+      "pokemonName": "ナマケロ",
+      "sleepType": "すやすや",
+      "speciesName": "ナマケロ"
+  },
+  {
+      "pokemonName": "ヤルキモノ",
+      "sleepType": "うとうと",
+      "speciesName": "ナマケロ"
+  },
+  {
+      "pokemonName": "ケッキング",
+      "sleepType": "すやすや",
+      "speciesName": "ナマケロ"
+  },
+  {
+      "pokemonName": "ヤミラミ",
+      "sleepType": "うとうと",
+      "speciesName": "ヤミラミ"
+  },
+  {
+      "pokemonName": "ココドラ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ココドラ"
+  },
+  {
+      "pokemonName": "コドラ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ココドラ"
+  },
+  {
+      "pokemonName": "ボスゴドラ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ココドラ"
+  },
+  {
+      "pokemonName": "ゴクリン",
+      "sleepType": "うとうと",
+      "speciesName": "ゴクリン"
+  },
+  {
+      "pokemonName": "マルノーム",
+      "sleepType": "うとうと",
+      "speciesName": "ゴクリン"
+  },
+  {
+      "pokemonName": "チルット",
+      "sleepType": "ぐっすり",
+      "speciesName": "チルット"
+  },
+  {
+      "pokemonName": "チルタリス",
+      "sleepType": "うとうと",
+      "speciesName": "チルット"
+  },
+  {
+      "pokemonName": "カゲボウズ",
+      "sleepType": "うとうと",
+      "speciesName": "カゲボウズ"
+  },
+  {
+      "pokemonName": "ジュペッタ",
+      "sleepType": "うとうと",
+      "speciesName": "カゲボウズ"
+  },
+  {
+      "pokemonName": "アブソル",
+      "sleepType": "うとうと",
+      "speciesName": "アブソル"
+  },
+  {
+      "pokemonName": "ソーナノ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ソーナノ"
+  },
+  {
+      "pokemonName": "タマザラシ",
+      "sleepType": "ぐっすり",
+      "speciesName": "タマザラシ"
+  },
+  {
+      "pokemonName": "トドグラー",
+      "sleepType": "ぐっすり",
+      "speciesName": "タマザラシ"
+  },
+  {
+      "pokemonName": "トドゼルガ",
+      "sleepType": "ぐっすり",
+      "speciesName": "タマザラシ"
+  },
+  {
+      "pokemonName": "コリンク",
+      "sleepType": "すやすや",
+      "speciesName": "コリンク"
+  },
+  {
+      "pokemonName": "ルクシオ",
+      "sleepType": "すやすや",
+      "speciesName": "コリンク"
+  },
+  {
+      "pokemonName": "レントラー",
+      "sleepType": "すやすや",
+      "speciesName": "コリンク"
+  },
+  {
+      "pokemonName": "フワンテ",
+      "sleepType": "うとうと",
+      "speciesName": "フワンテ"
+  },
+  {
+      "pokemonName": "フワライド",
+      "sleepType": "うとうと",
+      "speciesName": "フワンテ"
+  },
+  {
+      "pokemonName": "ウソハチ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ウソハチ"
+  },
+  {
+      "pokemonName": "マネネ",
+      "sleepType": "ぐっすり",
+      "speciesName": "マネネ"
+  },
+  {
+      "pokemonName": "リオル",
+      "sleepType": "ぐっすり",
+      "speciesName": "リオル"
+  },
+  {
+      "pokemonName": "ルカリオ",
+      "sleepType": "ぐっすり",
+      "speciesName": "リオル"
+  },
+  {
+      "pokemonName": "グレッグル",
+      "sleepType": "うとうと",
+      "speciesName": "グレッグル"
+  },
+  {
+      "pokemonName": "ドクロッグ",
+      "sleepType": "うとうと",
+      "speciesName": "グレッグル"
+  },
+  {
+      "pokemonName": "ユキカブリ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ユキカブリ"
+  },
+  {
+      "pokemonName": "ユキノオー",
+      "sleepType": "ぐっすり",
+      "speciesName": "ユキカブリ"
+  },
+  {
+      "pokemonName": "ジバコイル",
+      "sleepType": "ぐっすり",
+      "speciesName": "コイル"
+  },
+  {
+      "pokemonName": "トゲキッス",
+      "sleepType": "すやすや",
+      "speciesName": "トゲピー"
+  },
+  {
+      "pokemonName": "リーフィア",
+      "sleepType": "うとうと",
+      "speciesName": "イーブイ"
+  },
+  {
+      "pokemonName": "グレイシア",
+      "sleepType": "ぐっすり",
+      "speciesName": "イーブイ"
+  },
+  {
+      "pokemonName": "エルレイド",
+      "sleepType": "ぐっすり",
+      "speciesName": "ラルトス"
+  },
+  {
+      "pokemonName": "ニンフィア",
+      "sleepType": "すやすや",
+      "speciesName": "イーブイ"
+  },
+  {
+      "pokemonName": "デデンネ",
+      "sleepType": "すやすや",
+      "speciesName": "デデンネ"
+  },
+  {
+      "pokemonName": "アゴジムシ",
+      "sleepType": "うとうと",
+      "speciesName": "アゴジムシ"
+  },
+  {
+      "pokemonName": "デンヂムシ",
+      "sleepType": "うとうと",
+      "speciesName": "アゴジムシ"
+  },
+  {
+      "pokemonName": "クワガノン",
+      "sleepType": "うとうと",
+      "speciesName": "アゴジムシ"
+  },
+  {
+      "pokemonName": "ヌイコグマ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ヌイコグマ"
+  },
+  {
+      "pokemonName": "キテルグマ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ヌイコグマ"
+  },
+  {
+      "pokemonName": "キュワワー",
+      "sleepType": "すやすや",
+      "speciesName": "キュワワー"
+  },
+  {
+      "pokemonName": "ミミッキュ",
+      "sleepType": "うとうと",
+      "speciesName": "ミミッキュ"
+  },
+  {
+      "pokemonName": "ウッウ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ウッウ"
+  },
+  {
+      "pokemonName": "ニャオハ",
+      "sleepType": "うとうと",
+      "speciesName": "ニャオハ"
+  },
+  {
+      "pokemonName": "ニャローテ",
+      "sleepType": "うとうと",
+      "speciesName": "ニャオハ"
+  },
+  {
+      "pokemonName": "マスカーニャ",
+      "sleepType": "うとうと",
+      "speciesName": "ニャオハ"
+  },
+  {
+      "pokemonName": "ホゲータ",
+      "sleepType": "すやすや",
+      "speciesName": "ホゲータ"
+  },
+  {
+      "pokemonName": "アチゲータ",
+      "sleepType": "すやすや",
+      "speciesName": "アチゲータ"
+  },
+  {
+      "pokemonName": "ラウドボーン",
+      "sleepType": "すやすや",
+      "speciesName": "ラウドボーン"
+  },
+  {
+      "pokemonName": "クワッス",
+      "sleepType": "ぐっすり",
+      "speciesName": "クワッス"
+  },
+  {
+      "pokemonName": "ウェルカモ",
+      "sleepType": "ぐっすり",
+      "speciesName": "ウェルカモ"
+  },
+  {
+      "pokemonName": "ウェーニバル",
+      "sleepType": "ぐっすり",
+      "speciesName": "ウェーニバル"
+  }
+]

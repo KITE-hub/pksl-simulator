@@ -1,21 +1,30 @@
 import React, {useState, useEffect} from 'react';
-import {rawISleepFace, procCSleepFace, iResult, CalculatorProps} from '../types';
-import Greengrass from '../db/greengrass0925.json';
-import Cyan from '../db/cyan0925.json';
-import Taupe from '../db/taupe0925.json';
-import Snowdrop from '../db/snowdrop0925.json';
-import Lapis from '../db/lapis0925.json';
+import {iPokemonInfo, rawISleepFace, procCSleepFace, iResult, CalculatorProps} from '../types';
+import pokemonInfoBase from '../db/pokemonInfo.json';
+import Greengrass from '../db/greengrass1113.json';
+import Cyan from '../db/cyan1113.json';
+import Taupe from '../db/taupe1113.json';
+import Snowdrop from '../db/snowdrop1113.json';
+import Lapis from '../db/lapis1113.json';
+import Gold from '../db/gold1113.json';
 import LotteryConfig from '../db/lotteryConfig.json';
 import jStat from 'jstat';
 
 //全寝顔データ
-const rawData: rawISleepFace[][] = [Greengrass, Cyan, Taupe, Snowdrop, Lapis];
+const rawData: rawISleepFace[][] = [Greengrass, Cyan, Taupe, Snowdrop, Lapis, Gold];
 // 基本データをjsonから参照(アプデ時に適宜修正)
 const lastOmit: string[] = LotteryConfig.lastOmit;
 const lastOmitRate: number = LotteryConfig.lastOmitRate;
 const legend: string[] = LotteryConfig.legend;
 const fieldConvert: Record<string, number> = LotteryConfig.fieldConvert;
 // const fieldSize: number = LotteryConfig.fieldSize;
+const pokemonInfo: Record<string, iPokemonInfo> = pokemonInfoBase.reduce(
+  (acc, item) => {
+    acc[item.pokemonName] = item; // pokemonNameをキーにしてオブジェクト全体を値に
+    return acc;
+  },
+  {} as Record<string, iPokemonInfo>
+);
 const parseDraws = (data: any[][][]): [number, number][][] =>
   data.map((row) => row.map(([num, val]) => [num, val === 'Infinity' ? Infinity : val] as [number, number]));
 const draws: [number, number][][] = parseDraws(LotteryConfig.draws);
@@ -57,7 +66,7 @@ const specialBinarySearch2 = (vec: procCSleepFace[], np: number) => {
   }
   return resultIndex;
 };
-//string型のものがstring[]型の要素のどれかと一致するかを確認する
+//string型のものがstring[]型の要素のどれかと一致するかを確認する C++でいうsetでよくね？
 const belongToVec = (name: string, vec: string[]): boolean => {
   let judge: boolean = false;
   for (let i = 0; i < vec.length; i++) {
@@ -103,230 +112,281 @@ const Calculator: React.FC<CalculatorProps> = ({
   calculatorOrder,
   setCalculatorOrder,
   setResult,
-  setChartTitle,
+  setChartTitle1,
+  setChartTitle2,
   setChartSubTitle
 }) => {
   // 出力欄のグラフの横軸用用にnpを規格化(?)する
   const [normalizeValue, setNormalizeValue] = useState<number>(1);
   const [normalizeChar, setNormalizeChar] = useState<string>('');
+  let nowResult: iResult[] = [];
+  let currentIndex = 0;
+  const performCalculations = async (): Promise<iResult[]> => {
+    setResult([]);
+    nowResult = [];
+    currentIndex = 0;
 
-  useEffect(() => {
-    if (!calculatorOrder) return;
-    let nowResult: iResult[] = [];
-    let currentIndex = 0; // 現在のインデックスをトラッキング
+    //添え字に使うためフィールド名を数字に変換
+    const fieldNumber: number = fieldConvert[fieldName];
+    // pokemonNameの睡眠タイプとたねポケモンの名前
+    const targetSleepType: string = pokemonInfo[pokemonName].sleepType;
+    const targetSpeciesName: string = pokemonInfo[pokemonName].speciesName;
 
-    // chartの横軸表示
-    if (limitNP < 10000) {
-      setNormalizeValue(1);
-      setNormalizeChar('');
-    } else if (limitNP < 1e8) {
-      setNormalizeValue(10000);
-      setNormalizeChar('万');
-    } else {
-      setNormalizeValue(100000000);
-      setNormalizeChar('億');
+    let lotteryFaces: procCSleepFace[] = [];
+    let lotteryFacesWo4: procCSleepFace[] = [];
+    let lotteryFacesWoLe: procCSleepFace[] = [];
+    let lotteryFacesWoLo: procCSleepFace[] = [];
+    let lotteryFacesWo4WoLe: procCSleepFace[] = [];
+    let lotteryFacesWo4WoLo: procCSleepFace[] = [];
+    let lotteryFacesWoLeWoLo: procCSleepFace[] = [];
+    let lotteryFacesWo4WoLeWoLo: procCSleepFace[] = [];
+
+    for (let i = 0; i < rawData[fieldNumber].length; i++) {
+      const isLegend: boolean = belongToVec(rawData[fieldNumber][i].speciesName, legend);
+      const isLastOmit: boolean = belongToVec(rawData[fieldNumber][i].speciesName, lastOmit);
+      if (rawData[fieldNumber][i].sleepType === targetSleepType && rawData[fieldNumber][i].energy < energy) {
+        const NP = rawData[fieldNumber][i].np;
+        const energy = rawData[fieldNumber][i].energy;
+        const ID = rawData[fieldNumber][i].ID;
+        const name = rawData[fieldNumber][i].pokemonName; //pokemonName→name
+        const rarity = rawData[fieldNumber][i].rarity;
+        const expCandy = rawData[fieldNumber][i].expCandy;
+        const researchExp = rawData[fieldNumber][i].researchExp;
+        const dreamShard = rawData[fieldNumber][i].dreamShard;
+        const speciesName = rawData[fieldNumber][i].speciesName; //種ポケモンの名前
+
+        lotteryFaces.push(
+          new procCSleepFace(NP, energy, ID, name, rarity, expCandy, researchExp, dreamShard, speciesName)
+        );
+        if (rawData[fieldNumber][i].rarity != 4)
+          lotteryFacesWo4.push(
+            new procCSleepFace(NP, energy, ID, name, rarity, expCandy, researchExp, dreamShard, speciesName)
+          );
+        if (!isLegend)
+          lotteryFacesWoLe.push(
+            new procCSleepFace(NP, energy, ID, name, rarity, expCandy, researchExp, dreamShard, speciesName)
+          );
+        if (!isLastOmit)
+          lotteryFacesWoLo.push(
+            new procCSleepFace(NP, energy, ID, name, rarity, expCandy, researchExp, dreamShard, speciesName)
+          );
+        if (rawData[fieldNumber][i].rarity != 4 && !isLegend)
+          lotteryFacesWo4WoLe.push(
+            new procCSleepFace(NP, energy, ID, name, rarity, expCandy, researchExp, dreamShard, speciesName)
+          );
+        if (rawData[fieldNumber][i].rarity != 4 && !isLastOmit)
+          lotteryFacesWo4WoLo.push(
+            new procCSleepFace(NP, energy, ID, name, rarity, expCandy, researchExp, dreamShard, speciesName)
+          );
+        if (!isLegend && !isLastOmit)
+          lotteryFacesWoLeWoLo.push(
+            new procCSleepFace(NP, energy, ID, name, rarity, expCandy, researchExp, dreamShard, speciesName)
+          );
+        if (rawData[fieldNumber][i].rarity != 4 && !isLegend && !isLastOmit)
+          lotteryFacesWo4WoLeWoLo.push(
+            new procCSleepFace(NP, energy, ID, name, rarity, expCandy, researchExp, dreamShard, speciesName)
+          );
+      }
     }
+    lotteryFaces.sort(procCSleepFace.compare);
+    lotteryFacesWo4.sort(procCSleepFace.compare);
+    lotteryFacesWoLe.sort(procCSleepFace.compare);
+    lotteryFacesWoLo.sort(procCSleepFace.compare);
+    lotteryFacesWo4WoLe.sort(procCSleepFace.compare);
+    lotteryFacesWo4WoLo.sort(procCSleepFace.compare);
+    lotteryFacesWoLeWoLo.sort(procCSleepFace.compare);
+    lotteryFacesWo4WoLeWoLo.sort(procCSleepFace.compare);
 
-    // 期待値の最大値関係、evup,evlowはあと回し
-    const performCalculations = async () => {
-      setResult([]);
-      nowResult = [];
-
-      //添え字に使うためフィールド名を数字に変換
-      const fieldNumber: number = fieldConvert[fieldName];
-      // 睡眠タイプ特定 ポケモン名がフィールドにいないときの処理を考える うまくいかん
-      let targetSleepType: string = '';
-      for (let i = 0; i < rawData[fieldNumber].length; i++) {
-        if (rawData[fieldNumber][i].pokemonName === pokemonName) {
-          targetSleepType = rawData[fieldNumber][i].sleepType;
-          break;
-        }
+    let draftNumDraws: number = 0;
+    //寝顔抽選
+    for (let i = startNP; i <= limitNP; i += intervalNP) {
+      while (i >= draws[fieldNumber][draftNumDraws + 1][1]) {
+        draftNumDraws++; //尺取り法でNPに対する出現数決定
       }
-      if (targetSleepType === '') targetSleepType = 'うとうと'; //フィールド内にポケモンがいないときに結果を0にする
-
-      let lotteryFaces: procCSleepFace[] = [];
-      let lotteryFacesWo4: procCSleepFace[] = [];
-      let lotteryFacesWoLe: procCSleepFace[] = [];
-      let lotteryFacesWoLo: procCSleepFace[] = [];
-      let lotteryFacesWo4WoLe: procCSleepFace[] = [];
-      let lotteryFacesWo4WoLo: procCSleepFace[] = [];
-      let lotteryFacesWoLeWoLo: procCSleepFace[] = [];
-      let lotteryFacesWo4WoLeWoLo: procCSleepFace[] = [];
-
-      for (let i = 0; i < rawData[fieldNumber].length; i++) {
-        const isLegend: boolean = belongToVec(rawData[fieldNumber][i].pokemonName, legend);
-        const isLastOmit: boolean = belongToVec(rawData[fieldNumber][i].pokemonName, lastOmit);
-        if (rawData[fieldNumber][i].sleepType === targetSleepType && rawData[fieldNumber][i].energy < energy) {
-          const NP = rawData[fieldNumber][i].np; //後で修正
-          const energy = rawData[fieldNumber][i].energy;
-          const internalID = rawData[fieldNumber][i].internalID;
-          const name = rawData[fieldNumber][i].pokemonName;
-          const ID = rawData[fieldNumber][i].rarity;
-
-          lotteryFaces.push(new procCSleepFace(NP, energy, internalID, name, ID));
-          if (rawData[fieldNumber][i].rarity != 4)
-            lotteryFacesWo4.push(new procCSleepFace(NP, energy, internalID, name, ID));
-          if (!isLegend) lotteryFacesWoLe.push(new procCSleepFace(NP, energy, internalID, name, ID));
-          if (!isLastOmit) lotteryFacesWoLo.push(new procCSleepFace(NP, energy, internalID, name, ID));
-          if (rawData[fieldNumber][i].rarity != 4 && !isLegend)
-            lotteryFacesWo4WoLe.push(new procCSleepFace(NP, energy, internalID, name, ID));
-          if (rawData[fieldNumber][i].rarity != 4 && !isLastOmit)
-            lotteryFacesWo4WoLo.push(new procCSleepFace(NP, energy, internalID, name, ID));
-          if (!isLegend && !isLastOmit) lotteryFacesWoLeWoLo.push(new procCSleepFace(NP, energy, internalID, name, ID));
-          if (rawData[fieldNumber][i].rarity != 4 && !isLegend && !isLastOmit)
-            lotteryFacesWo4WoLeWoLo.push(new procCSleepFace(NP, energy, internalID, name, ID));
-        }
-      }
-      lotteryFaces.sort(procCSleepFace.compare);
-      lotteryFacesWo4.sort(procCSleepFace.compare);
-      lotteryFacesWoLe.sort(procCSleepFace.compare);
-      lotteryFacesWoLo.sort(procCSleepFace.compare);
-      lotteryFacesWo4WoLe.sort(procCSleepFace.compare);
-      lotteryFacesWo4WoLo.sort(procCSleepFace.compare);
-      lotteryFacesWoLeWoLo.sort(procCSleepFace.compare);
-      lotteryFacesWo4WoLeWoLo.sort(procCSleepFace.compare);
-
-      let draftNumDraws: number = 0;
-      //寝顔抽選
-      for (let i = startNP; i <= limitNP; i += intervalNP) {
-        while (i >= draws[fieldNumber][draftNumDraws + 1][1]) {
-          draftNumDraws++; //尺取り法でNPに対する出現数決定
-        }
-        const numDraws: number = draws[fieldNumber][draftNumDraws][0];
-        let leastOne: number = 0;
-        let ev: number[] = [];
-        for (let j = 0; j < trialNumber; j++) {
-          let encount: number = 0;
-          let encount4: boolean = false;
-          let encountLegend: boolean = false;
-          let remainNP: number = i;
-          for (let k = 0; k < numDraws; k++) {
-            if (remainNP < lotteryFaces[0].NP) {
-              //絶食
-              if (lotteryFaces[0].name === pokemonName) encount++;
+      const numDraws: number = draws[fieldNumber][draftNumDraws][0];
+      let ev: number[] = [];
+      let leastOne: number = 0;
+      let expCandy: number = 0;
+      let researchExp: number = 0;
+      let dreamShard: number = 0;
+      const updateParameter = (vec: procCSleepFace[], index: number) => {
+        if (vec[index].speciesName === targetSpeciesName) expCandy += vec[index].expCandy;
+        researchExp += vec[index].researchExp;
+        dreamShard += vec[index].dreamShard;
+      };
+      for (let j = 0; j < trialNumber; j++) {
+        let encount: number = 0;
+        let encount4: boolean = false;
+        let encountLegend: boolean = false;
+        let remainNP: number = i;
+        for (let k = 0; k < numDraws; k++) {
+          if (remainNP < lotteryFaces[0].NP) {
+            //絶食
+            const index = 0;
+            if (lotteryFaces[index].name === pokemonName) encount++;
+            updateParameter(lotteryFaces, index);
+          } else {
+            if (k != numDraws - 1) {
+              //通常
+              if (!encount4 && !encountLegend) {
+                //おなかのうえ未出現、伝説未遭遇
+                const exindex: number = specialBinarySearch1(lotteryFaces, remainNP);
+                const index: number = randomNumber(exindex);
+                if (lotteryFaces[index].rarity === 4) encount4 = true;
+                encountLegend = belongToVec(lotteryFaces[index].name, legend);
+                if (lotteryFaces[index].name === pokemonName) encount++;
+                updateParameter(lotteryFaces, index);
+                remainNP -= lotteryFaces[index].NP;
+              } else if (!encount4 && encountLegend) {
+                //おなかのうえ未出現、伝説遭遇
+                const exindex: number = specialBinarySearch1(lotteryFacesWoLe, remainNP);
+                const index: number = randomNumber(exindex);
+                if (lotteryFacesWoLe[index].rarity === 4) encount4 = true;
+                if (lotteryFacesWoLe[index].name === pokemonName) encount++;
+                updateParameter(lotteryFacesWoLe, index);
+                remainNP -= lotteryFacesWoLe[index].NP;
+              } else if (encount4 && !encountLegend) {
+                //おなかのうえ出現、伝説未遭遇
+                const exindex = specialBinarySearch1(lotteryFacesWo4, remainNP);
+                const index = randomNumber(exindex);
+                encountLegend = belongToVec(lotteryFacesWo4[index].name, legend);
+                if (lotteryFacesWo4[index].name === pokemonName) encount++;
+                updateParameter(lotteryFacesWo4, index);
+                remainNP -= lotteryFacesWo4[index].NP;
+              } else if (encount4 && encountLegend) {
+                //おなかのうえ出現、伝説遭遇
+                const exindex = specialBinarySearch1(lotteryFacesWo4WoLe, remainNP);
+                const index = randomNumber(exindex);
+                if (lotteryFacesWo4WoLe[index].name === pokemonName) encount++;
+                updateParameter(lotteryFacesWo4WoLe, index);
+                remainNP -= lotteryFacesWo4WoLe[index].NP;
+              }
             } else {
-              if (k != numDraws - 1) {
-                //通常
-                if (!encount4 && !encountLegend) {
-                  //おなかのうえ未出現、伝説未遭遇
-                  const exindex: number = specialBinarySearch1(lotteryFaces, remainNP);
-                  const index: number = randomNumber(exindex);
-                  if (lotteryFaces[index].ID === 4) encount4 = true;
-                  encountLegend = belongToVec(lotteryFaces[index].name, legend);
+              // 飴夢欠片未実装
+              //最終枠
+              const redraw: boolean = mayBeTrue();
+              if (!encount4 && !encountLegend) {
+                //おなかのうえ未出現、伝説未遭遇
+                const index: number = specialBinarySearch2(lotteryFaces, remainNP);
+                const encountLastOmit: boolean = belongToVec(lotteryFaces[index].name, lastOmit);
+                if (encountLastOmit && redraw) {
+                  //名前が除外枠かつそのうち80%再抽選する
+                  const index2: number = specialBinarySearch2(lotteryFacesWoLo, remainNP);
+                  if (lotteryFacesWoLo[index2].name === pokemonName) encount++;
+                  updateParameter(lotteryFacesWoLo, index2);
+                } else {
                   if (lotteryFaces[index].name === pokemonName) encount++;
-                  remainNP -= lotteryFaces[index].NP;
-                } else if (!encount4 && encountLegend) {
-                  //おなかのうえ未出現、伝説遭遇
-                  const exindex: number = specialBinarySearch1(lotteryFacesWoLe, remainNP);
-                  const index: number = randomNumber(exindex);
-                  if (lotteryFacesWoLe[index].ID === 4) encount4 = true;
-                  if (lotteryFacesWoLe[index].name === pokemonName) encount++;
-                  remainNP -= lotteryFacesWoLe[index].NP;
-                } else if (encount4 && !encountLegend) {
-                  //おなかのうえ出現、伝説未遭遇
-                  const exindex = specialBinarySearch1(lotteryFacesWo4, remainNP);
-                  const index = randomNumber(exindex);
-                  encountLegend = belongToVec(lotteryFacesWo4[index].name, legend);
-                  if (lotteryFacesWo4[index].name === pokemonName) encount++;
-                  remainNP -= lotteryFacesWo4[index].NP;
-                } else if (encount4 && encountLegend) {
-                  //おなかのうえ出現、伝説遭遇
-                  const exindex = specialBinarySearch1(lotteryFacesWo4WoLe, remainNP);
-                  const index = randomNumber(exindex);
-                  if (lotteryFacesWo4WoLe[index].name === pokemonName) encount++;
-                  remainNP -= lotteryFacesWo4WoLe[index].NP;
+                  updateParameter(lotteryFaces, index);
                 }
-              } else {
-                //最終枠
-                const redraw: boolean = mayBeTrue();
-                if (!encount4 && !encountLegend) {
-                  //おなかのうえ未出現、伝説未遭遇
-                  const index: number = specialBinarySearch2(lotteryFaces, remainNP);
-                  const encountLastOmit: boolean = belongToVec(lotteryFaces[index].name, lastOmit);
-                  if (encountLastOmit && redraw) {
-                    //名前が除外枠かつそのうち80%再抽選する
-                    const index2: number = specialBinarySearch2(lotteryFacesWoLo, remainNP);
-                    if (lotteryFacesWoLo[index2].name === pokemonName) encount++;
-                  } else {
-                    if (lotteryFaces[index].name === pokemonName) encount++;
-                  }
-                } else if (!encount4 && encountLegend) {
-                  //おなかのうえ未出現、伝説遭遇
-                  const index: number = specialBinarySearch2(lotteryFacesWoLe, remainNP);
-                  const encountLastOmit: boolean = belongToVec(lotteryFacesWoLe[index].name, lastOmit);
-                  if (encountLastOmit && redraw) {
-                    //名前が除外枠かつそのうち80%再抽選する
-                    const index2: number = specialBinarySearch2(lotteryFacesWoLeWoLo, remainNP);
-                    if (lotteryFacesWoLeWoLo[index2].name === pokemonName) encount++;
-                  } else {
-                    if (lotteryFacesWoLe[index].name === pokemonName) encount++;
-                  }
-                } else if (encount4 && !encountLegend) {
-                  //おなかのうえ出現、伝説未遭遇
-                  const index: number = specialBinarySearch2(lotteryFacesWo4, remainNP);
-                  const encountLastOmit: boolean = belongToVec(lotteryFacesWo4[index].name, lastOmit);
-                  if (encountLastOmit && redraw) {
-                    //名前が除外枠かつそのうち80%再抽選する
-                    const index2: number = specialBinarySearch2(lotteryFacesWo4WoLo, remainNP);
-                    if (lotteryFacesWo4WoLo[index2].name === pokemonName) encount++;
-                  } else {
-                    if (lotteryFacesWo4[index].name === pokemonName) encount++;
-                  }
-                } else if (encount4 && encountLegend) {
-                  //おなかのうえ出現、伝説遭遇
-                  const index: number = specialBinarySearch2(lotteryFacesWo4WoLe, remainNP);
-                  const encountLastOmit: boolean = belongToVec(lotteryFacesWo4WoLe[index].name, lastOmit);
-                  if (encountLastOmit && redraw) {
-                    //名前が除外枠かつそのうち80%再抽選する
-                    const index2: number = specialBinarySearch2(lotteryFacesWo4WoLeWoLo, remainNP);
-                    if (lotteryFacesWo4WoLeWoLo[index2].name === pokemonName) encount++;
-                  } else {
-                    if (lotteryFacesWo4WoLe[index].name === pokemonName) encount++;
-                  }
+              } else if (!encount4 && encountLegend) {
+                //おなかのうえ未出現、伝説遭遇
+                const index: number = specialBinarySearch2(lotteryFacesWoLe, remainNP);
+                const encountLastOmit: boolean = belongToVec(lotteryFacesWoLe[index].name, lastOmit);
+                if (encountLastOmit && redraw) {
+                  //名前が除外枠かつそのうち80%再抽選する
+                  const index2: number = specialBinarySearch2(lotteryFacesWoLeWoLo, remainNP);
+                  if (lotteryFacesWoLeWoLo[index2].name === pokemonName) encount++;
+                  updateParameter(lotteryFacesWoLeWoLo, index2);
+                } else {
+                  if (lotteryFacesWoLe[index].name === pokemonName) encount++;
+                  updateParameter(lotteryFacesWoLe, index);
+                }
+              } else if (encount4 && !encountLegend) {
+                //おなかのうえ出現、伝説未遭遇
+                const index: number = specialBinarySearch2(lotteryFacesWo4, remainNP);
+                const encountLastOmit: boolean = belongToVec(lotteryFacesWo4[index].name, lastOmit);
+                if (encountLastOmit && redraw) {
+                  //名前が除外枠かつそのうち80%再抽選する
+                  const index2: number = specialBinarySearch2(lotteryFacesWo4WoLo, remainNP);
+                  if (lotteryFacesWo4WoLo[index2].name === pokemonName) encount++;
+                  updateParameter(lotteryFacesWo4WoLo, index2);
+                } else {
+                  if (lotteryFacesWo4[index].name === pokemonName) encount++;
+                  updateParameter(lotteryFacesWo4, index);
+                }
+              } else if (encount4 && encountLegend) {
+                //おなかのうえ出現、伝説遭遇
+                const index: number = specialBinarySearch2(lotteryFacesWo4WoLe, remainNP);
+                const encountLastOmit: boolean = belongToVec(lotteryFacesWo4WoLe[index].name, lastOmit);
+                if (encountLastOmit && redraw) {
+                  //名前が除外枠かつそのうち80%再抽選する
+                  const index2: number = specialBinarySearch2(lotteryFacesWo4WoLeWoLo, remainNP);
+                  if (lotteryFacesWo4WoLeWoLo[index2].name === pokemonName) encount++;
+                  updateParameter(lotteryFacesWo4WoLeWoLo, index2);
+                } else {
+                  if (lotteryFacesWo4WoLe[index].name === pokemonName) encount++;
+                  updateParameter(lotteryFacesWo4WoLe, index);
                 }
               }
             }
           }
-          if (encount >= 1) leastOne++;
-          ev.push(encount);
         }
-        const npXAxis: number = i / normalizeValue;
-        leastOne /= trialNumber;
-        const {upper: evUp} = confidenceInterval(ev);
-        const {lower: evLow} = confidenceInterval(ev);
-        const {evForGrid: evForGrid} = confidenceInterval(ev);
-        nowResult.push({
-          npXAxis: npXAxis,
-          np: i, // ねむけパワー
-          ev: jStat.mean(ev), // 期待値
-          leastOne: leastOne, // 1体以上
-          evUp: evUp,
-          evLow: evLow,
-          evForGrid: evForGrid,
-          leastOneForGrid: parseFloat(leastOne.toFixed(5))
-        });
+        if (encount >= 1) leastOne++;
+        ev.push(encount);
+      }
+      const npXAxis: number = i / normalizeValue;
+      leastOne /= trialNumber;
+      const {upper: evUp} = confidenceInterval(ev);
+      const {lower: evLow} = confidenceInterval(ev);
+      expCandy /= trialNumber;
+      researchExp /= trialNumber;
+      dreamShard /= trialNumber;
+      const {evForGrid: evForGrid} = confidenceInterval(ev);
+      nowResult.push({
+        npXAxis: npXAxis,
+        np: i, // ねむけパワー
+        ev: parseFloat(jStat.mean(ev).toFixed(5)), // 期待値
+        leastOne: parseFloat(leastOne.toFixed(5)), // 1体以上
+        evUp: parseFloat(evUp.toFixed(5)),
+        evLow: parseFloat(evLow.toFixed(5)),
+        expCandy: parseFloat(expCandy.toFixed(5)),
+        researchExp: parseFloat(researchExp.toFixed(2)),
+        dreamShard: parseFloat(dreamShard.toFixed(2)),
+        evForGrid: evForGrid
+      });
+      currentIndex++;
+    }
+    return nowResult;
+  };
+
+  useEffect(() => {
+    if (!calculatorOrder) return;
+
+    // // chartの横軸表示
+    // if (limitNP < 10000) {
+    //   setNormalizeValue(1);
+    //   setNormalizeChar('');
+    // } else if (limitNP < 1e8) {
+    //   setNormalizeValue(10000);
+    //   setNormalizeChar('万');
+    // } else {
+    //   setNormalizeValue(100000000);
+    //   setNormalizeChar('億');
+    // }
+
+    // 非同期処理をトリガー
+    const startCalculations = async () => {
+      const intervalId = setInterval(() => {
+        setResult([...nowResult]); // 中間結果を更新
         currentIndex++;
+      }, 1000);
+
+      try {
+        nowResult = await performCalculations(); // 計算を実行
+      } finally {
+        clearInterval(intervalId); // Intervalをクリア
+        setChartTitle1([pokemonName + ' (' + fieldName + ', EP=' + energy + ') の', '出現期待値と1体以上出現確率']);
+        setChartTitle2([
+          pokemonName + ' (' + fieldName + ', EP=' + energy + ') の',
+          'アメの個数とリサーチEXPとゆめのかけら獲得量'
+        ]);
+        setChartSubTitle('各NPの試行回数: ' + trialNumber + ', NP間隔: ' + intervalNP + ', 作成者:?');
+        setResult(nowResult); // 最終結果を設定
+        setCalculatorOrder(false); // 計算終了を通知
       }
     };
-    // 計算を開始
-    performCalculations();
 
-    const intervalId = setInterval(() => {
-      setResult([...nowResult]); // 現在の結果を更新
-
-      if (currentIndex >= Math.ceil((limitNP - startNP) / intervalNP)) {
-        clearInterval(intervalId); // 計算が完了したらタイマーをクリア
-        setCalculatorOrder(false); // 計算が完了したことをマーク
-      }
-    }, 500);
-
-    // クリーンアップ関数：コンポーネントがアンマウントされたときにIntervalをクリア
-    return () => {
-      clearInterval(intervalId);
-      setCalculatorOrder(false);
-      setChartTitle([pokemonName + ' (' + fieldName + ', EP=' + energy + ') の', '出現期待値と1体以上出現確率']);
-      setChartSubTitle('各NPの試行回数: ' + trialNumber + ', NP間隔: ' + intervalNP + ', 作成者:?');
-    };
+    startCalculations();
   }, [calculatorOrder]); // 依存配列は空にして、初回マウント時のみ実行
 
   return <div className="Calculator"></div>;

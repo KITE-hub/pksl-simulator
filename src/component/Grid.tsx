@@ -1,6 +1,5 @@
 import React from 'react';
-import '../normalize.css';
-import '../dist.css';
+import 'normalize.css';
 import {GridProps} from '../types';
 import {DataGrid, GridRowsProp, GridColDef} from '@mui/x-data-grid';
 
@@ -13,23 +12,40 @@ const Grid: React.FC<GridProps> = ({result}) => {
     {
       field: 'np',
       headerName: 'ねむけパワー',
-      flex: 6,
-      minWidth: 110
+      flex: 120,
+      minWidth: 120
     },
     {
       field: 'evForGrid',
       headerName: '出現期待値 ± 95%信頼区間',
       headerClassName: 'small-header',
-      flex: 10,
-      minWidth: 185
+      flex: 195,
+      minWidth: 195
     },
-
     {
-      field: 'leastOneForGrid',
+      field: 'leastOne',
       headerName: '1体以上出現確率',
       headerClassName: 'small-header',
-      flex: 7,
-      minWidth: 125
+      flex: 135,
+      minWidth: 135
+    },
+    {
+      field: 'expCandy',
+      headerName: 'アメの個数',
+      flex: 110,
+      minWidth: 110
+    },
+    {
+      field: 'researchExp',
+      headerName: 'リサーチEXP',
+      flex: 120,
+      minWidth: 120
+    },
+    {
+      field: 'dreamShard',
+      headerName: 'ゆめのかけら',
+      flex: 120,
+      minWidth: 120
     }
   ];
 
