@@ -116,9 +116,6 @@ const Calculator: React.FC<CalculatorProps> = ({
   setChartTitle2,
   setChartSubTitle
 }) => {
-  // 出力欄のグラフの横軸用用にnpを規格化(?)する
-  const [normalizeValue, setNormalizeValue] = useState<number>(1);
-  const [normalizeChar, setNormalizeChar] = useState<string>('');
   let nowResult: iResult[] = [];
   let currentIndex = 0;
   const performCalculations = async (): Promise<iResult[]> => {
@@ -324,7 +321,6 @@ const Calculator: React.FC<CalculatorProps> = ({
         if (encount >= 1) leastOne++;
         ev.push(encount);
       }
-      const npXAxis: number = i / normalizeValue;
       leastOne /= trialNumber;
       const {upper: evUp} = confidenceInterval(ev);
       const {lower: evLow} = confidenceInterval(ev);
@@ -333,7 +329,6 @@ const Calculator: React.FC<CalculatorProps> = ({
       dreamShard /= trialNumber;
       const {evForGrid: evForGrid} = confidenceInterval(ev);
       nowResult.push({
-        npXAxis: npXAxis,
         np: i, // ねむけパワー
         ev: parseFloat(jStat.mean(ev).toFixed(5)), // 期待値
         leastOne: parseFloat(leastOne.toFixed(5)), // 1体以上
@@ -351,19 +346,6 @@ const Calculator: React.FC<CalculatorProps> = ({
 
   useEffect(() => {
     if (!calculatorOrder) return;
-
-    // // chartの横軸表示
-    // if (limitNP < 10000) {
-    //   setNormalizeValue(1);
-    //   setNormalizeChar('');
-    // } else if (limitNP < 1e8) {
-    //   setNormalizeValue(10000);
-    //   setNormalizeChar('万');
-    // } else {
-    //   setNormalizeValue(100000000);
-    //   setNormalizeChar('億');
-    // }
-
     // 非同期処理をトリガー
     const startCalculations = async () => {
       const intervalId = setInterval(() => {
@@ -372,6 +354,7 @@ const Calculator: React.FC<CalculatorProps> = ({
       }, 1000);
 
       try {
+        await new Promise((resolve) => setTimeout(resolve, 500)); // 0.5秒待つ
         nowResult = await performCalculations(); // 計算を実行
       } finally {
         clearInterval(intervalId); // Intervalをクリア
@@ -387,7 +370,7 @@ const Calculator: React.FC<CalculatorProps> = ({
     };
 
     startCalculations();
-  }, [calculatorOrder]); // 依存配列は空にして、初回マウント時のみ実行
+  }, [calculatorOrder]);
 
   return <div className="Calculator"></div>;
 };

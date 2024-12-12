@@ -29,7 +29,6 @@ const theme = createTheme({
     }
   }
 });
-
 const StyledAutocomplete = styled(Autocomplete<iPokemonInfo>)(() => ({
   '& .MuiOutlinedInput-root': {
     backgroundColor: 'white',
@@ -67,7 +66,6 @@ const StyledAutocomplete = styled(Autocomplete<iPokemonInfo>)(() => ({
     }
   }
 }));
-
 const StyledTextField = styled(TextField)({
   '& .MuiInputBase-input': {
     fontSize: '16px',
@@ -78,15 +76,13 @@ const StyledTextField = styled(TextField)({
     fontWeight: 'normal' // フォントウェイト
   }
 });
-
-const StyledPaper = styled(Paper)(({theme}) => ({
+const StyledPaper = styled(Paper)(() => ({
   backgroundColor: 'white',
   borderRadius: '8px',
   boxShadow: 'none',
   border: '1px solid #25d76b'
 }));
-
-const StyledListbox = styled('ul')(({theme}) => ({
+const StyledListbox = styled('ul')(() => ({
   padding: 0
 }));
 

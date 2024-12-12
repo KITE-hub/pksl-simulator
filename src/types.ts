@@ -1,4 +1,4 @@
-import { SelectChangeEvent } from '@mui/material';
+import {SelectChangeEvent} from '@mui/material';
 
 export interface iPokemonInfo {
   pokemonName: string;
@@ -8,17 +8,17 @@ export interface iPokemonInfo {
 
 //jsonの生データを格納する型
 export interface rawISleepFace {
-  'sleepType': string;
-  'energy': number;
-  'ID': number;
-  'pokemonName': string;
-  'rarity': number;
-  'np': number;
-  'expCandy': number;
-  'researchExp': number;
-  'dreamShard': number;
-  'speciesName': string;
-};
+  sleepType: string;
+  energy: number;
+  ID: number;
+  pokemonName: string;
+  rarity: number;
+  np: number;
+  expCandy: number;
+  researchExp: number;
+  dreamShard: number;
+  speciesName: string;
+}
 
 //生データの寝顔データから扱いやすいように改修
 export interface procISleepFace {
@@ -44,7 +44,17 @@ export class procCSleepFace implements procISleepFace {
   dreamShard: number;
   speciesName: string;
 
-  constructor(NP: number, energy: number, ID: number, name: string, rarity: number, expCandy: number, researchExp: number, dreamShard: number, speciesName: string) {
+  constructor(
+    NP: number,
+    energy: number,
+    ID: number,
+    name: string,
+    rarity: number,
+    expCandy: number,
+    researchExp: number,
+    dreamShard: number,
+    speciesName: string
+  ) {
     this.NP = NP;
     this.energy = energy;
     this.ID = ID;
@@ -70,8 +80,7 @@ export class procCSleepFace implements procISleepFace {
   }
 }
 
-export interface iResult{
-  npXAxis: number;
+export interface iResult {
   np: number;
   ev: number;
   leastOne: number;
@@ -81,6 +90,34 @@ export interface iResult{
   researchExp: number;
   dreamShard: number;
   evForGrid: string;
+}
+
+export interface InputProps {
+  pokemonName: string;
+  handlePokemonName1: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  handlePokemonName2: (event: React.SyntheticEvent, value: string) => void;
+  fieldName: string;
+  handleFieldName: (e: SelectChangeEvent<string>) => void;
+  energyBase: string;
+  handleEnergy: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  energyIndexBase: string;
+  handleEnergyIndex: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  expandedEnergyDisplay: string;
+  limitNPDisplay: string;
+  trialNumberBase: string;
+  handleTrialNumber: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  startNPBase: string;
+  handleStartNP: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  startNPIndexBase: string;
+  handleStartNPIndex: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  expandedStartNPDisplay: string;
+  intervalNPBase: string;
+  handleIntervalNP: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  intervalNPIndexBase: string;
+  handleIntervalNPIndex: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  expandedIntervalNPDisplay: string;
+  calculatorOrder: boolean;
+  handleClick: () => void;
 }
 
 export interface PokemonNameSelectProps {
@@ -95,15 +132,15 @@ export interface FieldNameSelectProps {
 }
 
 export interface CalculatorProps {
-	pokemonName: string;
-	fieldName: string;
-	energy: number;
-	limitNP: number;
-	trialNumber: number;
-	startNP: number;
-	intervalNP: number;
-	calculatorOrder: boolean;
-	setCalculatorOrder: (value: boolean) => void;
+  pokemonName: string;
+  fieldName: string;
+  energy: number;
+  limitNP: number;
+  trialNumber: number;
+  startNP: number;
+  intervalNP: number;
+  calculatorOrder: boolean;
+  setCalculatorOrder: (value: boolean) => void;
   setResult: React.Dispatch<React.SetStateAction<iResult[]>>;
   setChartTitle1: React.Dispatch<React.SetStateAction<string[]>>;
   setChartTitle2: React.Dispatch<React.SetStateAction<string[]>>;

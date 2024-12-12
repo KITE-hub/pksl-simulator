@@ -15,7 +15,6 @@ const theme = createTheme({
     }
   }
 });
-
 const StyledOutlinedInput = styled(OutlinedInput)(({theme}) => ({
   backgroundColor: 'white',
   height: '36px',
@@ -42,7 +41,6 @@ const StyledOutlinedInput = styled(OutlinedInput)(({theme}) => ({
     // color: '#25d76b',
   }
 }));
-
 const menuProps = {
   PaperProps: {
     style: {
@@ -52,7 +50,6 @@ const menuProps = {
     }
   }
 };
-
 const StyledMenuItem = styled(MenuItem)(({theme}) => ({
   '&.Mui-selected': {
     backgroundColor: 'white',

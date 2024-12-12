@@ -20,7 +20,6 @@ import {Line} from 'react-chartjs-2';
 import {saveAs} from 'file-saver';
 import html2canvas from 'html2canvas';
 
-//グラフで使用するモジュールの登録, グラフのデフォルトのフォントを設定
 const backgroundColorPlugin: Plugin = {
   id: 'backgroundColorPlugin',
   beforeDraw: (chart) => {

@@ -6,7 +6,7 @@ import {DataGrid, GridRowsProp, GridColDef} from '@mui/x-data-grid';
 const Grid: React.FC<GridProps> = ({result}) => {
   const rows: GridRowsProp = result.map((item, index) => ({
     id: index,
-    ...item 
+    ...item
   }));
   const columns: GridColDef[] = [
     {

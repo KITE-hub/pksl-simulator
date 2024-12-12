@@ -3,15 +3,13 @@ import 'normalize.css';
 import './dist.css';
 import {iResult} from './types';
 import {SelectChangeEvent} from '@mui/material';
-import PokemonNameSelect from './component/PokemonNameSelect';
-import FieldNameSelect from './component/FieldNameSelect';
 import Description from './component/Description';
 import Calculator from './component/Calculator';
 import Chart from './component/Chart';
 import Grid from './component/Grid';
+import Input from './component/Input';
 
 const App: React.FC = () => {
-  // 入力フォームの変数の保持
   type SetNumberState = (value: number) => void;
   type SetStringState = (value: string) => void;
   const handleInputChange =
@@ -122,7 +120,6 @@ const App: React.FC = () => {
   };
   const [result, setResult] = useState<iResult[]>([
     {
-      npXAxis: 0,
       np: 0,
       ev: 0,
       leastOne: 0,
@@ -146,163 +143,34 @@ const App: React.FC = () => {
         <Description />
       </header>
       <div className="responsive">
-        {' '}
-        {/* 入力欄と出力欄を横並び=flexにするか？ */}
-        <section className="mt-3 mb-5 sectionWidth mx-auto">
-          <div className="flex mb-3">
-            <span className="bg-[#489FFF] w-1.5 mr-1.5"></span>
-            <h2 className="font-bold text-white bg-[#489FFF] px-2 w-full clipSlant">入力欄</h2>
-          </div>
-          <table className="mx-auto">
-            <tr className="h-10 my-2">
-              <th>
-                <div className="bg-[#6aea4b] text-white textShadow rounded-full w-40 h-6 mr-3 flex items-center justify-center">
-                  ポケモン名
-                </div>
-              </th>
-              <td>
-                <PokemonNameSelect
-                  pokemonName={pokemonName}
-                  handlePokemonName1={handlePokemonName1}
-                  handlePokemonName2={handlePokemonName2}
-                />
-              </td>
-            </tr>
-            <tr className="h-10">
-              <th>
-                <div className="bg-[#6aea4b] text-white rounded-full w-40 h-6 mr-3 flex items-center justify-center">
-                  フィールド名
-                </div>
-              </th>
-              <td>
-                <FieldNameSelect fieldName={fieldName} handleFieldName={handleFieldName} />
-              </td>
-            </tr>
-            <tr className="h-10">
-              <th>
-                <div className="bg-[#6aea4b] text-white rounded-full w-40 h-6 mr-3 flex items-center justify-center">
-                  エナジー
-                </div>
-              </th>
-              <td className="flex">
-                <input
-                  type="figure"
-                  value={energyBase}
-                  onChange={(e) => handleEnergy(e)}
-                  className="font-bold px-2 w-16 py-1 box-border rounded-md border border-[#25d76b] buttonShadow"
-                ></input>
-                <p className="flex items-center mx-2">× 10</p>
-                <sup>
-                  <input
-                    type="figure"
-                    value={energyIndexBase}
-                    onChange={(e) => handleEnergyIndex(e)}
-                    className="font-bold px-1 pb-1 w-8 box-border relative top-1.5 rounded-md border border-[#25d76b] buttonShadow"
-                  ></input>
-                </sup>
-              </td>
-              <p className="flex items-center mx-1.5 text-sm">= {expandedEnergyDisplay}</p>
-            </tr>
-            <tr className="h-8">
-              <th>
-                <div className="bg-[#6aea4b] text-white rounded-full w-40 h-6 mr-3 flex items-center justify-center">
-                  上限ねむけパワー
-                </div>
-              </th>
-              <td>
-                <p className="flex items-center mx-1">{limitNPDisplay}</p>
-              </td>
-            </tr>
-            <tr className="h-10">
-              <th>
-                <div className="bg-[#6aea4b] text-white text-xs rounded-full w-40 h-6 mr-3 flex items-center justify-center">
-                  各ねむけパワーの試行回数
-                </div>
-              </th>
-              <td>
-                <input
-                  type="figure"
-                  value={trialNumberBase}
-                  onChange={(e) => handleTrialNumber(e)}
-                  className="font-bold px-2 w-24 py-1 box-border rounded-md border border-[#25d76b] buttonShadow"
-                ></input>
-              </td>
-            </tr>
-            <tr className="h-10">
-              <th>
-                <div className="bg-[#6aea4b] text-white rounded-full w-40 h-6 mr-3 flex items-center justify-center">
-                  開始ねむけパワー
-                </div>
-              </th>
-              <td className="flex">
-                <input
-                  type="figure"
-                  value={startNPBase}
-                  onChange={(e) => handleStartNP(e)}
-                  className="font-bold px-2 w-16 py-1 box-border rounded-md border border-[#25d76b] buttonShadow"
-                ></input>
-                <p className="flex items-center mx-2">× 10</p>
-                <sup>
-                  <input
-                    type="figure"
-                    value={startNPIndexBase}
-                    onChange={(e) => handleStartNPIndex(e)}
-                    className="font-bold px-1 pb-1 w-8 box-border relative top-1.5 rounded-md border border-[#25d76b] buttonShadow"
-                  ></input>
-                </sup>
-              </td>
-              <p className="flex items-center mx-1.5 text-sm">= {expandedStartNPDisplay}</p>
-            </tr>
-            <tr className="h-10">
-              <th>
-                <div className="bg-[#6aea4b] text-white rounded-full w-40 h-6 mr-3 flex items-center justify-center">
-                  ねむけパワー間隔
-                </div>
-              </th>
-              <td className="flex">
-                <input
-                  type="figure"
-                  value={intervalNPBase}
-                  onChange={(e) => handleIntervalNP(e)}
-                  className="font-bold px-2 w-16 py-1 box-border rounded-md border border-[#25d76b] buttonShadow"
-                ></input>
-                <p className="flex items-center mx-2">× 10</p>
-                <sup>
-                  <input
-                    type="figure"
-                    value={intervalNPIndexBase}
-                    onChange={(e) => handleIntervalNPIndex(e)}
-                    className="font-bold px-1 pb-1 w-8 box-border relative top-1.5 rounded-md border border-[#25d76b] buttonShadow"
-                  ></input>
-                </sup>
-              </td>
-              <p className="flex items-center mx-1.5 text-sm">= {expandedIntervalNPDisplay}</p>
-            </tr>
-          </table>
-          <div className="flex justify-center my-2">
-            {/* <button className="buttonShadow font-bold text-center bg-white rounded-full border border-[#666666] mr-3 py-1.5 w-32">
-							キャンセル
-						</button> */}
-            {calculatorOrder ? (
-              // calculatorOrder が true のときに表示する要素
-              <button
-                className="buttonShadow font-bold text-center text-white bg-gray-400 rounded-full border border-gray-600 py-1.5 w-32"
-                disabled
-              >
-                計算中...
-              </button>
-            ) : (
-              // calculatorOrder が false のときに表示する要素
-              <button
-                onClick={handleClick}
-                className="buttonShadow font-bold text-center text-white bg-[#25d76b] rounded-full border border-[#0d974f] py-1.5 w-32"
-              >
-                計算する
-              </button>
-            )}
-          </div>
-        </section>
-        <section className="mt-3 mb-5 responsiveOutput sectionWidth mx-auto">
+        <Input
+          pokemonName={pokemonName}
+          handlePokemonName1={handlePokemonName1}
+          handlePokemonName2={handlePokemonName2}
+          fieldName={fieldName}
+          handleFieldName={handleFieldName}
+          energyBase={energyBase}
+          handleEnergy={handleEnergy}
+          energyIndexBase={energyIndexBase}
+          handleEnergyIndex={handleEnergyIndex}
+          expandedEnergyDisplay={expandedEnergyDisplay}
+          limitNPDisplay={limitNPDisplay}
+          trialNumberBase={trialNumberBase}
+          handleTrialNumber={handleTrialNumber}
+          startNPBase={startNPBase}
+          handleStartNP={handleStartNP}
+          startNPIndexBase={startNPIndexBase}
+          handleStartNPIndex={handleStartNPIndex}
+          expandedStartNPDisplay={expandedStartNPDisplay}
+          intervalNPBase={intervalNPBase}
+          handleIntervalNP={handleIntervalNP}
+          intervalNPIndexBase={intervalNPIndexBase}
+          handleIntervalNPIndex={handleIntervalNPIndex}
+          expandedIntervalNPDisplay={expandedIntervalNPDisplay}
+          calculatorOrder={calculatorOrder}
+          handleClick={handleClick}
+        />
+        <div className="mt-3 mb-5 responsiveOutput sectionWidth mx-auto">
           <div className="flex">
             <span className="bg-[#fb6e53] w-1.5 mr-1.5"></span>
             <div className="flex justify-between text-white bg-[#fb6e53] px-2 w-full clipSlant">
@@ -310,7 +178,6 @@ const App: React.FC = () => {
               <sub className="text-xs mx-1  mt-auto mb-1">寝顔データ最終更新日時: 2024/11/12</sub>
             </div>
           </div>
-          {/* propsで値をcalculator.tsxに渡す */}
           <div className="">
             <Calculator
               calculatorOrder={calculatorOrder}
@@ -330,7 +197,7 @@ const App: React.FC = () => {
             <Chart result={result} chartTitle1={chartTitle1} chartTitle2={chartTitle2} chartSubTitle={chartSubTitle} />
             <Grid result={result} />
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );
