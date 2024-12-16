@@ -622,6 +622,10 @@ video {
   margin-bottom: 0.25rem;
 }
 
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+
 .mb-3{
   margin-bottom: 0.75rem;
 }
@@ -640,6 +644,10 @@ video {
 
 .mr-3{
   margin-right: 0.75rem;
+}
+
+.mt-1{
+  margin-top: 0.25rem;
 }
 
 .mt-3{
@@ -670,12 +678,12 @@ video {
   height: 2.5rem;
 }
 
-.h-6{
-  height: 1.5rem;
+.h-16{
+  height: 4rem;
 }
 
-.h-8{
-  height: 2rem;
+.h-6{
+  height: 1.5rem;
 }
 
 .w-1\.5{
@@ -860,8 +868,6 @@ video {
   margin: 0;
   width: 100vw;
   min-height: 100vh;
-  -webkit-user-select: none;
-  user-select: none;
 }
 
 h1 {
@@ -930,24 +936,19 @@ h1 {
   border-color: rgb(37 215 107 / var(--tw-border-opacity));
 }
 
+.focus\:px-\[3px\]:focus{
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
 .focus\:px-\[7px\]:focus{
   padding-left: 7px;
   padding-right: 7px;
 }
 
-.focus\:py-\[7px\]:focus{
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
-
 .focus\:py-\[3px\]:focus{
   padding-top: 3px;
   padding-bottom: 3px;
-}
-
-.focus\:px-\[3px\]:focus{
-  padding-left: 3px;
-  padding-right: 3px;
 }
 
 .focus\:pb-\[3px\]:focus{

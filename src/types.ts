@@ -118,6 +118,7 @@ export interface InputProps {
   expandedIntervalNPDisplay: string;
   calculatorOrder: boolean;
   handleClick: () => void;
+  calculateTime: number;
 }
 
 export interface PokemonNameSelectProps {

@@ -71,7 +71,7 @@ const App: React.FC = () => {
   const [intervalNPBase, setIntervalNPBase] = useState<string>('1');
   const [intervalNP, setIntervalNP] = useState<number>(1);
   const handleIntervalNP = handleInputChange(setIntervalNPBase, setIntervalNP);
-  const [intervalNPIndexBase, setIntervalNPIndexBase] = useState<string>('7');
+  const [intervalNPIndexBase, setIntervalNPIndexBase] = useState<string>('6');
   const [intervalNPIndex, setIntervalNPIndex] = useState<number>(7);
   const handleIntervalNPIndex = handleInputChange(setIntervalNPIndexBase, setIntervalNPIndex);
 
@@ -110,7 +110,7 @@ const App: React.FC = () => {
     return pokemonName !== '' && expandedEnergy !== 0 && limitNP !== 0 && trialNumber >= 2 && expandedIntervalNP !== 0;
   };
 
-  // 全ての入力フォームが空でなく、計算量過多にならなく(未実装)、かつクリックされたときにtrueになる関数
+  // 全ての入力フォームが空でなく、かつクリックされたときにtrueになる関数
   const handleClick = () => {
     if (allInputsAreValid()) {
       setCalculatorOrder(true);
@@ -118,6 +118,16 @@ const App: React.FC = () => {
       setCalculatorOrder(false);
     }
   };
+  const calculateConst = 1 / 1000000;
+  const [calculateTime, setCalculateTime] = useState<number>(
+    0.5 + Math.floor((limitNP - expandedStartNP) / expandedIntervalNP) * trialNumber * calculateConst
+  );
+  useEffect(() => {
+    // 計算ロジック
+    const time = 0.5 + Math.floor((limitNP - expandedStartNP) / expandedIntervalNP) * trialNumber * calculateConst;
+    setCalculateTime(time);
+  }, [limitNP, expandedStartNP, expandedIntervalNP, trialNumber]);
+
   const [result, setResult] = useState<iResult[]>([
     {
       np: 0,
@@ -169,11 +179,12 @@ const App: React.FC = () => {
           expandedIntervalNPDisplay={expandedIntervalNPDisplay}
           calculatorOrder={calculatorOrder}
           handleClick={handleClick}
+          calculateTime={calculateTime}
         />
         <div className="mt-3 mb-5 responsiveOutput sectionWidth mx-auto">
           <div className="flex">
-            <span className="bg-[#fb6e53] w-1.5 mr-1.5"></span>
-            <div className="flex justify-between text-white bg-[#fb6e53] px-2 w-full clipSlant">
+            <span className="bg-[#489FFF] w-1.5 mr-1.5"></span>
+            <div className="flex justify-between text-white bg-[#489FFF] px-2 w-full clipSlant">
               <h2 className="font-bold">出力欄</h2>
               <sub className="text-xs mx-1  mt-auto mb-1">寝顔データ最終更新日時: 2024/11/12</sub>
             </div>

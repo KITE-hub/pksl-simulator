@@ -28,13 +28,17 @@ const Input: React.FC<InputProps> = ({
   handleIntervalNPIndex,
   expandedIntervalNPDisplay,
   calculatorOrder,
-  handleClick
+  handleClick,
+  calculateTime
 }) => {
   return (
     <div className="Input mt-3 mb-5 sectionWidth mx-auto">
       <div className="flex mb-3">
-        <span className="bg-[#489FFF] w-1.5 mr-1.5"></span>
-        <h2 className="font-bold text-white bg-[#489FFF] px-2 w-full clipSlant">入力欄</h2>
+        <span className="bg-[#fb6e53] w-1.5 mr-1.5"></span>
+        <div className="flex justify-between text-white bg-[#fb6e53] px-2 w-full clipSlant">
+          <h2 className="font-bold">入力欄</h2>
+          <sub className="text-xs mx-1  mt-auto mb-1">予想計算時間: {calculateTime} s</sub>
+        </div>
       </div>
       <table className="mx-auto">
         <tr className="h-10 my-2">
@@ -86,7 +90,7 @@ const Input: React.FC<InputProps> = ({
           </td>
           <p className="flex items-center mx-1.5 text-sm">= {expandedEnergyDisplay}</p>
         </tr>
-        <tr className="h-8">
+        <tr className="h-16">
           <th>
             <div className="bg-[#6aea4b] text-white rounded-full w-40 h-6 mr-3 flex items-center justify-center">
               上限ねむけパワー
@@ -94,6 +98,7 @@ const Input: React.FC<InputProps> = ({
           </th>
           <td>
             <p className="flex items-center mx-1">{limitNPDisplay}</p>
+            <span className="text-xs mx-1"> (睡眠スコア100固定)</span>
           </td>
         </tr>
         <tr className="h-10">
