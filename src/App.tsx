@@ -35,7 +35,7 @@ const App: React.FC = () => {
     setExpandedValue: (value: number) => void,
     setExpandedDisplay: (display: string) => void
   ) => {
-    const expandedValue = value * Math.pow(10, index);
+    const expandedValue = Math.round(value * Math.pow(10, index) * 100) / 100;
     const expandedDisplay = formatNumberWithCommas(expandedValue);
     setExpandedValue(expandedValue);
     setExpandedDisplay(expandedDisplay);
@@ -72,7 +72,7 @@ const App: React.FC = () => {
   const [intervalNP, setIntervalNP] = useState<number>(1);
   const handleIntervalNP = handleInputChange(setIntervalNPBase, setIntervalNP);
   const [intervalNPIndexBase, setIntervalNPIndexBase] = useState<string>('6');
-  const [intervalNPIndex, setIntervalNPIndex] = useState<number>(7);
+  const [intervalNPIndex, setIntervalNPIndex] = useState<number>(6);
   const handleIntervalNPIndex = handleInputChange(setIntervalNPIndexBase, setIntervalNPIndex);
 
   const [expandedEnergy, setExpandedEnergy] = useState<number>(0);
@@ -81,9 +81,10 @@ const App: React.FC = () => {
     updateExpandedValues(energy, energyIndex, setExpandedEnergy, setExpandedEnergyDisplay);
     if (energy && energyIndex) {
       const value1 = energy * Math.pow(10, energyIndex) * 100;
-      const value2 = formatNumberWithCommas(value1);
-      setLimitNP(value1);
-      setLimitNPDisplay(value2);
+      const value2 = Math.round(value1 * 100) / 100;
+      const value3 = formatNumberWithCommas(value2);
+      setLimitNP(value2);
+      setLimitNPDisplay(value3);
     } else {
       setLimitNP(0);
       setLimitNPDisplay('');
@@ -119,13 +120,11 @@ const App: React.FC = () => {
     }
   };
   const calculateConst = 1 / 1000000;
-  const [calculateTime, setCalculateTime] = useState<number>(
-    0.5 + Math.floor((limitNP - expandedStartNP) / expandedIntervalNP) * trialNumber * calculateConst
-  );
+  const [calculateTime, setCalculateTime] = useState<number>(0.5);
   useEffect(() => {
-    // 計算ロジック
     const time = 0.5 + Math.floor((limitNP - expandedStartNP) / expandedIntervalNP) * trialNumber * calculateConst;
-    setCalculateTime(time);
+    const roundedTime = Math.round(time * 100) / 100;
+    setCalculateTime(roundedTime);
   }, [limitNP, expandedStartNP, expandedIntervalNP, trialNumber]);
 
   const [result, setResult] = useState<iResult[]>([
@@ -143,7 +142,7 @@ const App: React.FC = () => {
   ]);
   const [chartTitle1, setChartTitle1] = useState<string[]>(['出現期待値と1体以上出現確率']);
   const [chartTitle2, setChartTitle2] = useState<string[]>(['出現期待値と1体以上出現確率']);
-  const [chartSubTitle, setChartSubTitle] = useState<string>('各NPの試行回数: , NP間隔: , 作成者:?'); // 試行回数,ねむけパワー間隔,作成者
+  const [chartSubTitle, setChartSubTitle] = useState<string>('各NPの試行回数: , NP間隔: , 作成者:擬き'); // 試行回数,ねむけパワー間隔,作成者
   return (
     <div className="App">
       <header className="flex justify-between items-center bg-[#25d76b] border-b-2 border-[#0d974f] shadow-md m-0 px-3">

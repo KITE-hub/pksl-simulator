@@ -73,7 +73,7 @@ const Input: React.FC<InputProps> = ({
           </th>
           <td className="flex">
             <input
-              type="figure"
+              type="text"
               value={energyBase}
               onChange={handleEnergy}
               className="font-bold px-2 focus:px-[7px] w-16 py-1 focus:py-[3px] box-border rounded-md border border-[#25d76b] buttonShadow focus:outline-none focus:border-2 focus:border-[#25d76b]"
@@ -81,7 +81,7 @@ const Input: React.FC<InputProps> = ({
             <p className="flex items-center mx-2">× 10</p>
             <sup>
               <input
-                type="figure"
+                type="text"
                 value={energyIndexBase}
                 onChange={handleEnergyIndex}
                 className="font-bold px-1 focus:px-[3px] pb-1 focus:pb-[3px] w-8 box-border relative top-1.5 rounded-md border border-[#25d76b] buttonShadow focus:outline-none focus:border-2 focus:border-[#25d76b]"
@@ -109,7 +109,7 @@ const Input: React.FC<InputProps> = ({
           </th>
           <td>
             <input
-              type="figure"
+              type="text"
               value={trialNumberBase}
               onChange={handleTrialNumber}
               className="font-bold px-2 focus:px-[7px] w-24 py-1 focus:py-[3px] box-border rounded-md border border-[#25d76b] buttonShadow focus:outline-none focus:border-2 focus:border-[#25d76b]"
@@ -124,7 +124,7 @@ const Input: React.FC<InputProps> = ({
           </th>
           <td className="flex">
             <input
-              type="figure"
+              type="text"
               value={startNPBase}
               onChange={handleStartNP}
               className="font-bold px-2 focus:px-[7px] w-16 py-1 focus:py-[3px] box-border rounded-md border border-[#25d76b] buttonShadow focus:outline-none focus:border-2 focus:border-[#25d76b]"
@@ -132,7 +132,7 @@ const Input: React.FC<InputProps> = ({
             <p className="flex items-center mx-2">× 10</p>
             <sup>
               <input
-                type="figure"
+                type="text"
                 value={startNPIndexBase}
                 onChange={handleStartNPIndex}
                 className="font-bold px-1 focus:px-[3px] pb-1 focus:pb-[3px] w-8 box-border relative top-1.5 rounded-md border border-[#25d76b] buttonShadow focus:outline-none focus:border-2 focus:border-[#25d76b]"
@@ -149,7 +149,7 @@ const Input: React.FC<InputProps> = ({
           </th>
           <td className="flex">
             <input
-              type="figure"
+              type="text"
               value={intervalNPBase}
               onChange={handleIntervalNP}
               className="font-bold px-2 focus:px-[7px] w-16 py-1 focus:py-[3px] box-border rounded-md border border-[#25d76b] buttonShadow focus:outline-none focus:border-2 focus:border-[#25d76b]"
@@ -157,7 +157,7 @@ const Input: React.FC<InputProps> = ({
             <p className="flex items-center mx-2">× 10</p>
             <sup>
               <input
-                type="figure"
+                type="text"
                 value={intervalNPIndexBase}
                 onChange={handleIntervalNPIndex}
                 className="font-bold px-1 focus:px-[3px] pb-1 focus:pb-[3px] w-8 box-border relative top-1.5 rounded-md border border-[#25d76b] buttonShadow focus:outline-none focus:border-2 focus:border-[#25d76b]"
