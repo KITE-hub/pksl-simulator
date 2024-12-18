@@ -142,7 +142,7 @@ const App: React.FC = () => {
   ]);
   const [chartTitle1, setChartTitle1] = useState<string[]>(['出現期待値と1体以上出現確率']);
   const [chartTitle2, setChartTitle2] = useState<string[]>(['出現期待値と1体以上出現確率']);
-  const [chartSubTitle, setChartSubTitle] = useState<string>('各NPの試行回数: , NP間隔: , 作成者:擬き'); // 試行回数,ねむけパワー間隔,作成者
+  const [chartSubTitle, setChartSubTitle] = useState<string>('各NPの試行回数: , NP間隔: , 作成者: 擬き'); // 試行回数,ねむけパワー間隔,作成者
   return (
     <div className="App">
       <header className="flex justify-between items-center bg-[#25d76b] border-b-2 border-[#0d974f] shadow-md m-0 px-3">

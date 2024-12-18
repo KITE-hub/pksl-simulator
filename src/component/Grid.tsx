@@ -12,40 +12,55 @@ const Grid: React.FC<GridProps> = ({result}) => {
     {
       field: 'np',
       headerName: 'ねむけパワー',
-      flex: 120,
-      minWidth: 120
+      headerClassName: 'small-header',
+      flex: 130,
+      minWidth: 130
     },
     {
       field: 'evForGrid',
       headerName: '出現期待値 ± 95%信頼区間',
+      renderHeader: () => (
+        <div>
+          出現期待値 <br />
+          <span className="text-xs">± 95%信頼区間</span>
+        </div>
+      ),
       headerClassName: 'small-header',
-      flex: 195,
-      minWidth: 195
+      flex: 155,
+      minWidth: 155,
+      sortingOrder: ['desc', null]
     },
     {
       field: 'leastOne',
       headerName: '1体以上出現確率',
       headerClassName: 'small-header',
-      flex: 135,
-      minWidth: 135
+      flex: 155,
+      minWidth: 155,
+      sortingOrder: ['desc', null]
     },
     {
       field: 'expCandy',
       headerName: 'アメの個数',
-      flex: 110,
-      minWidth: 110
+      headerClassName: 'small-header',
+      flex: 120,
+      minWidth: 120,
+      sortingOrder: ['desc', null]
     },
     {
       field: 'researchExp',
       headerName: 'リサーチEXP',
-      flex: 120,
-      minWidth: 120
+      headerClassName: 'small-header',
+      flex: 130,
+      minWidth: 130,
+      sortingOrder: ['desc', null]
     },
     {
       field: 'dreamShard',
       headerName: 'ゆめのかけら',
-      flex: 120,
-      minWidth: 120
+      headerClassName: 'small-header',
+      flex: 130,
+      minWidth: 130,
+      sortingOrder: ['desc', null]
     }
   ];
 

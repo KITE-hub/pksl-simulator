@@ -837,6 +837,11 @@ video {
   font-weight: 700;
 }
 
+.text-\[\#333\] {
+  --tw-text-opacity: 1;
+  color: rgb(51 51 51 / var(--tw-text-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -882,12 +887,6 @@ h1 {
   width: 23rem;
 }
 
-/* レスポンシブ非対応のためコメントアウト */
-
-/* .clipSlant{
-  clip-path: polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%);
-} */
-
 .buttonShadow {
   box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
 }
@@ -900,6 +899,12 @@ h1 {
 @media screen and (max-width: 410px) {
   h1 {
     font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 388px) and (max-width: 749px) {
+  .responsiveOutput {
+    width: 95%;
   }
 }
 

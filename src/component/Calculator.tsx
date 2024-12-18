@@ -363,7 +363,7 @@ const Calculator: React.FC<CalculatorProps> = ({
           pokemonName + ' (' + fieldName + ', EP=' + energy + ') の',
           'アメの個数とリサーチEXPとゆめのかけら獲得量'
         ]);
-        setChartSubTitle('各NPの試行回数: ' + trialNumber + ', NP間隔: ' + intervalNP + ', 作成者:?');
+        setChartSubTitle('各NPの試行回数: ' + trialNumber + ', NP間隔: ' + intervalNP + ', 作成者: 擬き');
         setResult(nowResult); // 最終結果を設定
         setCalculatorOrder(false); // 計算終了を通知
       }

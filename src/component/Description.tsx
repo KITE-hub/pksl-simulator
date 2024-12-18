@@ -22,6 +22,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import DescriptionIcon from '@mui/icons-material/Description';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 const theme = createTheme({
   typography: {
@@ -86,6 +87,7 @@ const Description: React.FC = () => {
   const onDescriptionDialogClose = () => {
     setIsDescriptionDialogOpen(false);
   };
+
   const [isReferenceDialogOpen, setIsReferenceDialogOpen] = useState(false);
   const referenceMenuClick = () => {
     setIsReferenceDialogOpen(true);
@@ -93,6 +95,15 @@ const Description: React.FC = () => {
   };
   const onReferenceDialogClose = () => {
     setIsReferenceDialogOpen(false);
+  };
+
+  const [isDevRequestDialogOpen, setIsDevRequestDialogOpen] = useState(false);
+  const devRequestMenuClick = () => {
+    setIsDevRequestDialogOpen(true);
+    setMoreMenuAnchor(null);
+  };
+  const onDevRequestDialogClose = () => {
+    setIsDevRequestDialogOpen(false);
   };
 
   return (
@@ -139,6 +150,12 @@ const Description: React.FC = () => {
             </ListItemIcon>
             参考元、謝辞
           </MenuItem>
+          <MenuItem onClick={devRequestMenuClick}>
+            <ListItemIcon>
+              <InfoOutlinedIcon />
+            </ListItemIcon>
+            開発者・要望について
+          </MenuItem>
         </Menu>
         <Dialog
           open={isHowToDialogOpen}
@@ -156,6 +173,7 @@ const Description: React.FC = () => {
               <br />
               {'　'}また、計算結果についての厳密性は保証しません。あくまで参考程度にお願いいたします。
             </p>
+            <br />
           </DialogContent>
           <DialogActions>
             <CustomButton onClick={onHowToDialogClose}>閉じる</CustomButton>
@@ -241,6 +259,7 @@ const Description: React.FC = () => {
               <li>・エンテイ ☆3: 262428000</li>
               <li>・スイクン ☆3: 275196000</li>
             </ul>
+            <br />
           </DialogContent>
           <DialogActions>
             <CustomButton onClick={onDescriptionDialogClose}>閉じる</CustomButton>
@@ -282,7 +301,7 @@ const Description: React.FC = () => {
               </li>
               <li>
                 <Link href="https://note.com/cashunoe/all" underline="hover" target="_blank" rel="noopener noreferrer">
-                  くますーん氏のnote記事
+                  note by くますーん
                 </Link>
               </li>
               <li>
@@ -306,9 +325,41 @@ const Description: React.FC = () => {
               {'　'}
               寝顔抽選の仕組みや必要ねむけパワーについて調査を行ってくださった先人の皆様に、心より感謝申し上げます。
             </p>
+            <br />
           </DialogContent>
           <DialogActions>
             <CustomButton onClick={onReferenceDialogClose}>閉じる</CustomButton>
+          </DialogActions>
+        </Dialog>
+        <Dialog
+          open={isDevRequestDialogOpen}
+          onClose={onDevRequestDialogClose}
+          scroll="paper"
+          aria-describedby="scroll-dialog-description"
+        >
+          <CustomDialogTitle>開発者・要望について</CustomDialogTitle>
+          <DialogContent dividers>
+            <div className="text-[#333]">
+              <div>
+                {'　'}
+                このツールは、{' '}
+                <Link href="https://x.com/mdk_pksldev" underline="hover" target="_blank" rel="noopener noreferrer">
+                  擬き(もどき)
+                </Link>{' '}
+                が個人で開発した非公式のツールです。
+                <br />
+                {'　'}
+                不具合報告や要望等は、X (旧Twitter) の{' '}
+                <Link href="https://x.com/mdk_pksldev" underline="hover" target="_blank" rel="noopener noreferrer">
+                  @mdk_pksldev
+                </Link>{' '}
+                のDMまでお願いします (Googleフォームによる対応も検討中) 。
+              </div>
+              <br />
+            </div>
+          </DialogContent>
+          <DialogActions>
+            <CustomButton onClick={onDevRequestDialogClose}>閉じる</CustomButton>
           </DialogActions>
         </Dialog>
       </ThemeProvider>
