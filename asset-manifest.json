@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pksl-simulator/static/css/main.2bf9cf65.css",
-    "main.js": "/pksl-simulator/static/js/main.8a7d917b.js",
+    "main.css": "/pksl-simulator/static/css/main.02e084f0.css",
+    "main.js": "/pksl-simulator/static/js/main.d1d7a10b.js",
     "static/js/453.9599eb16.chunk.js": "/pksl-simulator/static/js/453.9599eb16.chunk.js",
     "index.html": "/pksl-simulator/index.html",
-    "main.2bf9cf65.css.map": "/pksl-simulator/static/css/main.2bf9cf65.css.map",
-    "main.8a7d917b.js.map": "/pksl-simulator/static/js/main.8a7d917b.js.map",
+    "main.02e084f0.css.map": "/pksl-simulator/static/css/main.02e084f0.css.map",
+    "main.d1d7a10b.js.map": "/pksl-simulator/static/js/main.d1d7a10b.js.map",
     "453.9599eb16.chunk.js.map": "/pksl-simulator/static/js/453.9599eb16.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2bf9cf65.css",
-    "static/js/main.8a7d917b.js"
+    "static/css/main.02e084f0.css",
+    "static/js/main.d1d7a10b.js"
   ]
 }
