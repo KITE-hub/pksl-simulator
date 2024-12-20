@@ -2,6 +2,8 @@ import React from 'react';
 import PokemonNameSelect from './PokemonNameSelect';
 import FieldNameSelect from './FieldNameSelect';
 import {InputProps} from '../types';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DangerousIcon from '@mui/icons-material/Dangerous';
 
 const Input: React.FC<InputProps> = ({
   pokemonName,
@@ -27,6 +29,7 @@ const Input: React.FC<InputProps> = ({
   intervalNPIndexBase,
   handleIntervalNPIndex,
   expandedIntervalNPDisplay,
+  isAllInputsAreValid,
   calculatorOrder,
   handleClick,
   calculateTime
@@ -90,7 +93,7 @@ const Input: React.FC<InputProps> = ({
           </td>
           <p className="flex items-center mx-1.5 text-sm">= {expandedEnergyDisplay}</p>
         </tr>
-        <tr className="h-16">
+        <tr className="h-14">
           <th>
             <div className="bg-[#6aea4b] text-white rounded-full w-40 h-6 mr-3 flex items-center justify-center">
               上限ねむけパワー
@@ -98,7 +101,7 @@ const Input: React.FC<InputProps> = ({
           </th>
           <td>
             <p className="flex items-center mx-1">{limitNPDisplay}</p>
-            <span className="text-xs mx-1"> (睡眠スコア100固定)</span>
+            <p className="text-xs mx-1"> (睡眠スコア100固定)</p>
           </td>
         </tr>
         <tr className="h-10">
@@ -168,6 +171,21 @@ const Input: React.FC<InputProps> = ({
         </tr>
       </table>
       <div className="flex justify-center my-2">
+        {isAllInputsAreValid ? (
+          <div className="flex items-center mr-4">
+            <CheckCircleIcon sx={{color: '#168342'}} />
+            <p className="text-xs ml-1 text-[#168342] w-28">計算実行可能です。</p>
+          </div>
+        ) : (
+          <div className="flex items-center mr-4">
+            <DangerousIcon sx={{color: '#C72505'}} />
+            <p className="text-xs ml-1 text-[#C72505] w-28">
+              入力パラメータが
+              <br />
+              不適切です。
+            </p>
+          </div>
+        )}
         {calculatorOrder ? (
           <button
             className="buttonShadow font-bold text-center text-white bg-gray-400 rounded-full border border-gray-600 py-1.5 w-32"

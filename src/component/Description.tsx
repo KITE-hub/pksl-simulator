@@ -223,7 +223,7 @@ const Description: React.FC = () => {
             <br />
             <div className="flex items-center">
               <div className="w-1.5 h-6 bg-[#25d76b] mr-2"></div>
-              <h3 className="font-bold text-base">その他の条件</h3>
+              <h3 className="font-bold text-base">その他の条件 (2024/11/12)</h3>
             </div>
             <hr className="mt-1 mb-2" />
             <ul>
@@ -240,7 +240,7 @@ const Description: React.FC = () => {
             <div className="flex items-center">
               <div className="w-1.5 h-6 bg-[#25d76b] mr-2"></div>
               <h3 className="font-bold text-base">
-                必要ねむけパワーが未確定の寝顔と仮の必要ねむけパワーの一覧(2024/11/12)
+                必要ねむけパワーが未確定の寝顔と仮の必要ねむけパワーの一覧 (2024/11/12)
               </h3>
             </div>
             <hr className="mt-1 mb-2" />
@@ -351,9 +351,18 @@ const Description: React.FC = () => {
                 {'　'}
                 不具合報告や要望等は、X (旧Twitter) の{' '}
                 <Link href="https://x.com/mdk_pksldev" underline="hover" target="_blank" rel="noopener noreferrer">
-                  @mdk_pksldev
+                  @mdk_pksldev (現在凍結中)
                 </Link>{' '}
-                のDMまでお願いします (Googleフォームによる対応も検討中) 。
+                のDMや、
+                <Link
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScoxizZQkinwJKA2h5BjU3CNGjWx_FirvxlWaNDRGhH5Qop4g/viewform?usp=header"
+                  underline="hover"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  問い合わせフォーム
+                </Link>{' '}
+                までお願いします。
               </div>
               <br />
             </div>

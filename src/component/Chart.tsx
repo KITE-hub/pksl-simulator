@@ -150,7 +150,7 @@ const Chart: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, chartSub
         display: true,
         text: chartSubTitle, // 試行回数,ねむけパワー間隔,作成者
         font: {
-          size: 12
+          size: 11
         },
         padding: {
           top: 0,
@@ -163,7 +163,7 @@ const Chart: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, chartSub
           boxWidth: 20,
           boxHeight: 1,
           font: {
-            size: 12.5
+            size: 11
           }
         }
       }
@@ -189,7 +189,7 @@ const Chart: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, chartSub
           // },
           padding: 0, // ラベルの余白
           font: {
-            size: 11
+            size: 10
           }
         },
         title: {
@@ -209,7 +209,7 @@ const Chart: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, chartSub
         ticks: {
           padding: 0,
           font: {
-            size: 12
+            size: 11
           }
         },
         title: {
@@ -249,7 +249,7 @@ const Chart: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, chartSub
         display: true,
         text: chartSubTitle, // 試行回数,ねむけパワー間隔,作成者
         font: {
-          size: 12
+          size: 11
         },
         padding: {
           top: 0,
@@ -262,7 +262,7 @@ const Chart: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, chartSub
           boxWidth: 20,
           boxHeight: 1,
           font: {
-            size: 12.5
+            size: 11
           }
         }
       }
@@ -295,7 +295,7 @@ const Chart: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, chartSub
           padding: 0,
           color: '#966207',
           font: {
-            size: 12
+            size: 11
           }
         },
         title: {
@@ -321,7 +321,7 @@ const Chart: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, chartSub
           padding: 0,
           color: '#136C35',
           font: {
-            size: 12
+            size: 11
           }
         },
         title: {
@@ -366,10 +366,10 @@ const Chart: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, chartSub
     <div className="Chart">
       <div ref={chartContainerRef} className="chartsFlex">
         <div className="chart1">
-          <Line width="100%" height={450} data={data1} options={options1} />
+          <Line width="100%" height={400} data={data1} options={options1} />
         </div>
         <div className="chart2">
-          <Line width="100%" height={450} data={data2} options={options2} />
+          <Line width="100%" height={400} data={data2} options={options2} />
         </div>
       </div>
       <button

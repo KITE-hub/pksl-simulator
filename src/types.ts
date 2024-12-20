@@ -116,6 +116,7 @@ export interface InputProps {
   intervalNPIndexBase: string;
   handleIntervalNPIndex: (e: React.ChangeEvent<HTMLInputElement>) => void;
   expandedIntervalNPDisplay: string;
+  isAllInputsAreValid: boolean;
   calculatorOrder: boolean;
   handleClick: () => void;
   calculateTime: number;

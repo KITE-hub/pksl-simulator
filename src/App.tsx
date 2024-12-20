@@ -51,11 +51,11 @@ const App: React.FC = () => {
   const handleFieldName = (e: SelectChangeEvent<string>) => {
     setFieldName(String(e.target.value));
   };
-  const [energyBase, setEnergyBase] = useState<string>('1');
-  const [energy, setEnergy] = useState<number>(1);
+  const [energyBase, setEnergyBase] = useState<string>('100');
+  const [energy, setEnergy] = useState<number>(100);
   const handleEnergy = handleInputChange(setEnergyBase, setEnergy);
-  const [energyIndexBase, setEnergyIndexBase] = useState<string>('6');
-  const [energyIndex, setEnergyIndex] = useState<number>(6);
+  const [energyIndexBase, setEnergyIndexBase] = useState<string>('4');
+  const [energyIndex, setEnergyIndex] = useState<number>(4);
   const handleEnergyIndex = handleInputChange(setEnergyIndexBase, setEnergyIndex);
   const [limitNP, setLimitNP] = useState<number>(0);
   const [limitNPDisplay, setLimitNPDisplay] = useState<string>('');
@@ -107,13 +107,18 @@ const App: React.FC = () => {
   const [calculatorOrder, setCalculatorOrder] = useState<boolean>(false);
 
   // 全ての入力フォームが空でないときにtrueを返す(fieldNameは空にならない、startNPは0でも良い)
-  const allInputsAreValid = (): boolean => {
-    return pokemonName !== '' && expandedEnergy !== 0 && limitNP !== 0 && trialNumber >= 2 && expandedIntervalNP !== 0;
-  };
+  const [isAllInputsAreValid, setIsAllInputsAreValid] = useState<boolean>(true);
+  useEffect(() => {
+    if (pokemonName !== '' && expandedEnergy !== 0 && limitNP !== 0 && trialNumber >= 2 && expandedIntervalNP !== 0) {
+      setIsAllInputsAreValid(true);
+    } else {
+      setIsAllInputsAreValid(false);
+    }
+  }, [pokemonName, expandedEnergy, limitNP, trialNumber, expandedIntervalNP]);
 
   // 全ての入力フォームが空でなく、かつクリックされたときにtrueになる関数
   const handleClick = () => {
-    if (allInputsAreValid()) {
+    if (isAllInputsAreValid) {
       setCalculatorOrder(true);
     } else {
       setCalculatorOrder(false);
@@ -176,6 +181,7 @@ const App: React.FC = () => {
           intervalNPIndexBase={intervalNPIndexBase}
           handleIntervalNPIndex={handleIntervalNPIndex}
           expandedIntervalNPDisplay={expandedIntervalNPDisplay}
+          isAllInputsAreValid={isAllInputsAreValid}
           calculatorOrder={calculatorOrder}
           handleClick={handleClick}
           calculateTime={calculateTime}

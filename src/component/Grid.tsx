@@ -22,28 +22,34 @@ const Grid: React.FC<GridProps> = ({result}) => {
       renderHeader: () => (
         <div>
           出現期待値 <br />
-          <span className="text-xs">± 95%信頼区間</span>
+          <p className="text-[11px]">± 95%信頼区間</p>
         </div>
       ),
       headerClassName: 'small-header',
-      flex: 155,
-      minWidth: 155,
+      flex: 150,
+      minWidth: 150,
       sortingOrder: ['desc', null]
     },
     {
       field: 'leastOne',
       headerName: '1体以上出現確率',
+      renderHeader: () => (
+        <div>
+            1体以上 <br />
+            出現確率
+        </div>
+      ),
       headerClassName: 'small-header',
-      flex: 155,
-      minWidth: 155,
+      flex: 110,
+      minWidth: 110,
       sortingOrder: ['desc', null]
     },
     {
       field: 'expCandy',
       headerName: 'アメの個数',
       headerClassName: 'small-header',
-      flex: 120,
-      minWidth: 120,
+      flex: 115,
+      minWidth: 115,
       sortingOrder: ['desc', null]
     },
     {
@@ -70,6 +76,7 @@ const Grid: React.FC<GridProps> = ({result}) => {
         rows={rows}
         columns={columns}
         density="compact"
+        rowHeight={42}
         initialState={{
           pagination: {paginationModel: {pageSize: 100}}
         }}
