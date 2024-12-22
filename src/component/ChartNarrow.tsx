@@ -171,10 +171,10 @@ const ChartNarrow: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, ch
               <LineChart data={result} margin={{top: 65, right: 5, left: 5, bottom: 5}}>
                 <text y={5} fill="#333" textAnchor="middle" fontSize={16} fontWeight="bold">
                   <tspan x="50%" dy="1.2em">
-                    {chartTitle1[0]} <tspan fontSize="12">{chartTitle1[1]}</tspan> {chartTitle1[2]}
+                    {chartTitle2[0]} <tspan fontSize="12">{chartTitle2[1]}</tspan> {chartTitle2[2]}
                   </tspan>
                   <tspan x="50%" dy="1.2em">
-                    {chartTitle1[3]}
+                    {chartTitle2[3]}
                   </tspan>
                 </text>
                 <text x="50%" y={60} textAnchor="middle" fontSize={11} fill="#888">
