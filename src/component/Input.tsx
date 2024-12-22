@@ -173,13 +173,13 @@ const Input: React.FC<InputProps> = ({
       <div className="flex justify-center my-2">
         {isAllInputsAreValid ? (
           <div className="flex items-center mr-4">
-            <CheckCircleIcon sx={{color: '#168342'}} />
-            <p className="text-xs ml-1 text-[#168342] w-28">計算実行可能です。</p>
+            <CheckCircleIcon sx={{color: '#21C462'}} />
+            <p className="text-xs ml-1 text-[#21C462] w-28">計算実行可能です。</p>
           </div>
         ) : (
           <div className="flex items-center mr-4">
-            <DangerousIcon sx={{color: '#C72505'}} />
-            <p className="text-xs ml-1 text-[#C72505] w-28">
+            <DangerousIcon sx={{color: '#FA5838'}} />
+            <p className="text-xs ml-1 text-[#FA5838] w-28">
               入力パラメータが
               <br />
               不適切です。

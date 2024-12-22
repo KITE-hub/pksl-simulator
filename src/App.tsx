@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import 'normalize.css';
 import './dist.css';
 import {iResult} from './types';
 import {SelectChangeEvent} from '@mui/material';
 import Description from './component/Description';
 import Calculator from './component/Calculator';
-import Chart from './component/Chart';
+import ChartNarrow from './component/ChartNarrow';
+import ChartWide from './component/ChartWide';
 import Grid from './component/Grid';
 import Input from './component/Input';
 
@@ -103,7 +103,6 @@ const App: React.FC = () => {
     updateExpandedValues(intervalNP, intervalNPIndex, setExpandedIntervalNP, setExpandedIntervalNPDisplay);
   }, [intervalNP, intervalNPIndex]);
 
-  // db関連
   const [calculatorOrder, setCalculatorOrder] = useState<boolean>(false);
 
   // 全ての入力フォームが空でないときにtrueを返す(fieldNameは空にならない、startNPは0でも良い)
@@ -135,19 +134,19 @@ const App: React.FC = () => {
   const [result, setResult] = useState<iResult[]>([
     {
       np: 0,
-      ev: 0,
-      leastOne: 0,
-      evUp: 0,
-      evLow: 0,
-      expCandy: 0,
-      researchExp: 0,
-      dreamShard: 0,
-      evForGrid: '0 ± 0'
+      ev: 1,
+      leastOne: 1,
+      evUp: 1,
+      evLow: 1,
+      expCandy: 1,
+      researchExp: 1,
+      dreamShard: 1,
+      evForGrid: '1 ± 1'
     }
   ]);
-  const [chartTitle1, setChartTitle1] = useState<string[]>(['出現期待値と1体以上出現確率']);
-  const [chartTitle2, setChartTitle2] = useState<string[]>(['出現期待値と1体以上出現確率']);
-  const [chartSubTitle, setChartSubTitle] = useState<string>('各NPの試行回数: , NP間隔: , 作成者: 擬き'); // 試行回数,ねむけパワー間隔,作成者
+  const [chartTitle1, setChartTitle1] = useState<string[]>(['出現期待値と1体以上出現確率', '', '', '']);
+  const [chartTitle2, setChartTitle2] = useState<string[]>(['アメの個数とリサーチEXPとゆめのかけら獲得量', '', '', '']);
+  const [chartSubTitle, setChartSubTitle] = useState<string>('各NPの試行回数: , NP間隔: , 作成者: 擬き');
   return (
     <div className="App">
       <header className="flex justify-between items-center bg-[#25d76b] border-b-2 border-[#0d974f] shadow-md m-0 px-3">
@@ -210,7 +209,18 @@ const App: React.FC = () => {
               setChartTitle2={setChartTitle2}
               setChartSubTitle={setChartSubTitle}
             />
-            <Chart result={result} chartTitle1={chartTitle1} chartTitle2={chartTitle2} chartSubTitle={chartSubTitle} />
+            <ChartNarrow
+              result={result}
+              chartTitle1={chartTitle1}
+              chartTitle2={chartTitle2}
+              chartSubTitle={chartSubTitle}
+            />
+            <ChartWide
+              result={result}
+              chartTitle1={chartTitle1}
+              chartTitle2={chartTitle2}
+              chartSubTitle={chartSubTitle}
+            />
             <Grid result={result} />
           </div>
         </div>

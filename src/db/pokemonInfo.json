@@ -757,12 +757,12 @@
   {
     "pokemonName": "アチゲータ",
     "sleepType": "すやすや",
-    "speciesName": "アチゲータ"
+    "speciesName": "ホゲータ"
   },
   {
     "pokemonName": "ラウドボーン",
-    "sleepType": "すやすや",
-    "speciesName": "ラウドボーン"
+    "sleepType": "うとうと",
+    "speciesName": "ホゲータ"
   },
   {
     "pokemonName": "クワッス",
@@ -772,11 +772,11 @@
   {
     "pokemonName": "ウェルカモ",
     "sleepType": "ぐっすり",
-    "speciesName": "ウェルカモ"
+    "speciesName": "クワッス"
   },
   {
     "pokemonName": "ウェーニバル",
     "sleepType": "ぐっすり",
-    "speciesName": "ウェーニバル"
+    "speciesName": "クワッス"
   }
 ]

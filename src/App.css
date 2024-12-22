@@ -32,6 +32,11 @@ h1 {
   width: 100%;
   height: 275px;
 }
+
+.ChartWide {
+  display: none;
+}
+
 @media screen and (max-width: 410px) {
   h1 {
     font-size: 16px;
@@ -55,10 +60,13 @@ h1 {
   }
 }
 
-@media screen and (min-width: 1554px) {
-  .chartsFlex {
+@media screen and (min-width: 1380px) {
+  .ChartWide {
     display: flex;
-    /* legendが2行になるタイミングでflexにする */
+    /* legendが2行かつ十分な幅になるタイミングでflexにする */
+  }
+  .ChartNarrow {
+    display: none;
   }
   .chart1 {
     width: 50%;

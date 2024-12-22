@@ -12,7 +12,6 @@
   ],
   "lastOmitRate": 0.8,
   "legend": ["エンテイ", "ライコウ", "スイクン"],
-  "fieldSize": 6,
   "fieldConvert": {
     "ワカクサ本島": 0,
     "シアンの砂浜": 1,

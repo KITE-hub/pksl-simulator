@@ -1,5 +1,4 @@
 import React from 'react';
-import 'normalize.css';
 import {GridProps} from '../types';
 import {DataGrid, GridRowsProp, GridColDef} from '@mui/x-data-grid';
 
@@ -35,8 +34,8 @@ const Grid: React.FC<GridProps> = ({result}) => {
       headerName: '1体以上出現確率',
       renderHeader: () => (
         <div>
-            1体以上 <br />
-            出現確率
+          1体以上 <br />
+          出現確率
         </div>
       ),
       headerClassName: 'small-header',
@@ -53,16 +52,16 @@ const Grid: React.FC<GridProps> = ({result}) => {
       sortingOrder: ['desc', null]
     },
     {
-      field: 'researchExp',
-      headerName: 'リサーチEXP',
+      field: 'dreamShard',
+      headerName: 'ゆめのかけら',
       headerClassName: 'small-header',
       flex: 130,
       minWidth: 130,
       sortingOrder: ['desc', null]
     },
     {
-      field: 'dreamShard',
-      headerName: 'ゆめのかけら',
+      field: 'researchExp',
+      headerName: 'リサーチEXP',
       headerClassName: 'small-header',
       flex: 130,
       minWidth: 130,

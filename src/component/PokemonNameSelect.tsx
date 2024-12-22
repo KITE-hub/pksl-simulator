@@ -38,7 +38,7 @@ const StyledAutocomplete = styled(Autocomplete<iPokemonInfo>)(() => ({
     borderRadius: '8px',
     boxShadow: '0px 2px 0px 0px rgba(0, 0, 0, .1)',
     '& .MuiInputBase-input': {
-      padding: '0px' // 内側のpaddingを調整
+      padding: '0px' // 内側のpadding
     },
     '& fieldset': {
       borderColor: '#25d76b'

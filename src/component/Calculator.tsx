@@ -17,7 +17,6 @@ const lastOmit: string[] = LotteryConfig.lastOmit;
 const lastOmitRate: number = LotteryConfig.lastOmitRate;
 const legend: string[] = LotteryConfig.legend;
 const fieldConvert: Record<string, number> = LotteryConfig.fieldConvert;
-// const fieldSize: number = LotteryConfig.fieldSize;
 const pokemonInfo: Record<string, iPokemonInfo> = pokemonInfoBase.reduce(
   (acc, item) => {
     acc[item.pokemonName] = item; // pokemonNameをキーにしてオブジェクト全体を値に
@@ -118,6 +117,7 @@ const Calculator: React.FC<CalculatorProps> = ({
 }) => {
   let nowResult: iResult[] = [];
   let currentIndex = 0;
+
   const performCalculations = async (): Promise<iResult[]> => {
     setResult([]);
     nowResult = [];
@@ -358,9 +358,11 @@ const Calculator: React.FC<CalculatorProps> = ({
         nowResult = await performCalculations(); // 計算を実行
       } finally {
         clearInterval(intervalId); // Intervalをクリア
-        setChartTitle1([pokemonName + ' (' + fieldName + ', EP=' + energy + ') の', '出現期待値と1体以上出現確率']);
+        setChartTitle1([pokemonName, ' (' + fieldName + ', EP=' + energy + ') ', 'の', '出現期待値と1体以上出現確率']);
         setChartTitle2([
-          pokemonName + ' (' + fieldName + ', EP=' + energy + ') の',
+          pokemonName,
+          ' (' + fieldName + ', EP=' + energy + ')',
+          'の',
           'アメの個数とリサーチEXPとゆめのかけら獲得量'
         ]);
         setChartSubTitle('各NPの試行回数: ' + trialNumber + ', NP間隔: ' + intervalNP + ', 作成者: 擬き');
