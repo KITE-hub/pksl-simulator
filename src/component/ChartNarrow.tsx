@@ -1,9 +1,8 @@
 import React, {useReducer, useCallback} from 'react';
-import {ResponsiveContainer, LineChart, Legend, Tooltip, Line, CartesianGrid, XAxis, YAxis, Text} from 'recharts';
-import {ChartProps} from '../types';
+import {ResponsiveContainer, LineChart, Legend, Tooltip, Line, CartesianGrid, XAxis, YAxis} from 'recharts';
+import {ChartNarrowProps} from '../types';
 import {styled} from '@mui/material/styles';
-import {Select, MenuItem, TextField, Button, DialogTitle, Switch, SwitchProps, Tabs, Tab} from '@mui/material';
-import '../App.css';
+import {Tabs, Tab} from '@mui/material';
 
 interface State {
   tabIndex: number; // 初期状態に応じて適切な型を指定
@@ -22,7 +21,7 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
-const ChartNarrow: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, chartSubTitle}) => {
+const ChartNarrow: React.FC<ChartNarrowProps> = ({result, chartTitle1, chartTitle2, chartSubTitle}) => {
   const minX = Math.min(...result.map((d) => d.np));
   const maxX = Math.max(...result.map((d) => d.np));
   const ticksX = Array.from({length: 11}, (_, index) => minX + (maxX - minX) * (index / 10));
@@ -123,6 +122,7 @@ const ChartNarrow: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, ch
                   label={{value: 'ねむけパワー', dy: 35, height: 30, fontSize: 14}}
                   angle={45}
                   domain={['auto', 'auto']}
+                  tickFormatter={(tick) => tick.toLocaleString()}
                 />
                 <YAxis
                   style={{fontSize: '12px'}}
@@ -214,6 +214,7 @@ const ChartNarrow: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, ch
                   label={{value: 'ねむけパワー', dy: 35, height: 30, fontSize: 14}}
                   angle={45}
                   domain={['auto', 'auto']}
+                  tickFormatter={(tick) => tick.toLocaleString()}
                 />
                 <YAxis
                   style={{fontSize: '12px'}}

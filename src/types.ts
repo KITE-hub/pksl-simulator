@@ -1,6 +1,7 @@
 import {SelectChangeEvent} from '@mui/material';
 
 export interface iPokemonInfo {
+  id: number;
   pokemonName: string;
   sleepType: string;
   speciesName: string;
@@ -8,16 +9,16 @@ export interface iPokemonInfo {
 
 //jsonの生データを格納する型
 export interface rawISleepFace {
-  sleepType: string;
+  pokemonName: string;
+  releaseDate: string;
+  rarity: number;
+  sleepFaceName: string;
   energy: number;
   ID: number;
-  pokemonName: string;
-  rarity: number;
   np: number;
   expCandy: number;
   researchExp: number;
   dreamShard: number;
-  speciesName: string;
 }
 
 //生データの寝顔データから扱いやすいように改修
@@ -31,18 +32,20 @@ export interface procISleepFace {
   researchExp: number;
   dreamShard: number;
   speciesName: string;
+  releaseDate: Date;
 }
 
-export class procCSleepFace implements procISleepFace {
+export class procCSleepFace {
   NP: number;
   energy: number;
-  ID: number; //sortは実質ここまで
+  ID: number;
   name: string;
   rarity: number;
   expCandy: number;
   researchExp: number;
   dreamShard: number;
   speciesName: string;
+  releaseDate: Date;
 
   constructor(
     NP: number,
@@ -53,7 +56,8 @@ export class procCSleepFace implements procISleepFace {
     expCandy: number,
     researchExp: number,
     dreamShard: number,
-    speciesName: string
+    speciesName: string,
+    releaseDate: Date
   ) {
     this.NP = NP;
     this.energy = energy;
@@ -64,19 +68,7 @@ export class procCSleepFace implements procISleepFace {
     this.researchExp = researchExp;
     this.dreamShard = dreamShard;
     this.speciesName = speciesName;
-  }
-
-  // ソートのための比較メソッド
-  static compare(a: procISleepFace, b: procISleepFace): number {
-    if (a.NP !== b.NP) return a.NP - b.NP;
-    if (a.energy !== b.energy) return a.energy - b.energy;
-    if (a.ID !== b.ID) return a.ID - b.ID;
-    if (a.name !== b.name) return a.name < b.name ? -1 : 1;
-    if (a.rarity !== b.rarity) return a.rarity - b.rarity;
-    if (a.expCandy !== b.expCandy) return a.expCandy - b.expCandy;
-    if (a.researchExp !== b.researchExp) return a.researchExp - b.researchExp;
-    if (a.speciesName !== b.speciesName) return a.speciesName < b.speciesName ? -1 : 1;
-    return a.dreamShard - b.dreamShard;
+    this.releaseDate = releaseDate;
   }
 }
 
@@ -89,37 +81,34 @@ export interface iResult {
   expCandy: number;
   researchExp: number;
   dreamShard: number;
-  evForGrid: string;
+  evMargin: number;
+}
+
+export interface iNotDecided {
+  pokemonName: string;
+  rarity: number;
+  sleepFaceName: string;
+  np: number;
 }
 
 export interface InputProps {
+  targetEnergy: number;
+  setTargetEnergy: (targetEnergy: number) => void;
+  targetLimitNP: number;
+  setTargetLimitNP: (targetLimitNP: number) => void;
+  targetTrialNumber: number;
+  setTargetTrialNumber: (targetTrialNumber: number) => void;
+  targetStartNP: number;
+  setTargetStartNP: (targetStartNP: number) => void;
+  targetIntervalNP: number;
+  setTargetIntervalNP: (targetIntervalNP: number) => void;
   pokemonName: string;
-  handlePokemonName1: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  handlePokemonName2: (event: React.SyntheticEvent, value: string) => void;
+  setPokemonName: (pokemonName: string) => void;
   fieldName: string;
-  handleFieldName: (e: SelectChangeEvent<string>) => void;
-  energyBase: string;
-  handleEnergy: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  energyIndexBase: string;
-  handleEnergyIndex: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  expandedEnergyDisplay: string;
-  limitNPDisplay: string;
-  trialNumberBase: string;
-  handleTrialNumber: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  startNPBase: string;
-  handleStartNP: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  startNPIndexBase: string;
-  handleStartNPIndex: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  expandedStartNPDisplay: string;
-  intervalNPBase: string;
-  handleIntervalNP: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  intervalNPIndexBase: string;
-  handleIntervalNPIndex: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  expandedIntervalNPDisplay: string;
+  setFieldName: (fieldName: string) => void;
   isAllInputsAreValid: boolean;
   calculatorOrder: boolean;
   handleClick: () => void;
-  calculateTime: number;
 }
 
 export interface PokemonNameSelectProps {
@@ -136,11 +125,11 @@ export interface FieldNameSelectProps {
 export interface CalculatorProps {
   pokemonName: string;
   fieldName: string;
-  energy: number;
-  limitNP: number;
-  trialNumber: number;
-  startNP: number;
-  intervalNP: number;
+  targetEnergy: number;
+  targetLimitNP: number;
+  targetTrialNumber: number;
+  targetStartNP: number;
+  targetIntervalNP: number;
   calculatorOrder: boolean;
   setCalculatorOrder: (value: boolean) => void;
   setResult: React.Dispatch<React.SetStateAction<iResult[]>>;
@@ -149,7 +138,14 @@ export interface CalculatorProps {
   setChartSubTitle: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export interface ChartProps {
+export interface ChartNarrowProps {
+  result: iResult[];
+  chartTitle1: string[];
+  chartTitle2: string[];
+  chartSubTitle: string;
+}
+
+export interface ChartWideProps {
   result: iResult[];
   chartTitle1: string[];
   chartTitle2: string[];

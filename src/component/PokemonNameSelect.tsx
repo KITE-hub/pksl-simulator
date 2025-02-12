@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import pokemonInfo from '../db/pokemonInfo.json';
 import {PokemonNameSelectProps, iPokemonInfo} from '../types';
 import {styled, createTheme, ThemeProvider} from '@mui/material/styles';
@@ -21,6 +21,7 @@ const normalizeString = (str: string | undefined | null): string => {
 const theme = createTheme({
   typography: {
     fontFamily:
+      // eslint-disable-next-line
       "'M PLUS 1p','Roboto','Noto Sans JP', 'Helvetica Neue', 'Helvetica', 'Hiragino Sans', 'Arial', 'Yu Gothic', 'Meiryo', sans-serif"
   },
   palette: {
@@ -32,7 +33,7 @@ const theme = createTheme({
 const StyledAutocomplete = styled(Autocomplete<iPokemonInfo>)(() => ({
   '& .MuiOutlinedInput-root': {
     backgroundColor: 'white',
-    height: '36px',
+    height: '32px',
     width: '180px',
     padding: '0px 0px 0px 10px',
     borderRadius: '8px',
@@ -55,12 +56,14 @@ const StyledAutocomplete = styled(Autocomplete<iPokemonInfo>)(() => ({
     '& .MuiAutocomplete-option': {
       backgroundColor: 'white' // 通常の背景色
     },
+    // eslint-disable-next-line
     "& .MuiAutocomplete-option[aria-selected='true']": {
       backgroundColor: 'hsl(143, 70%, 98%)' // 選択中の背景色
     },
     '& .MuiAutocomplete-option.Mui-focused': {
       backgroundColor: 'hsl(143, 70%, 95%)' // フォーカス時の背景色
     },
+    // eslint-disable-next-line
     "& .MuiAutocomplete-option[aria-selected='true'].Mui-focused": {
       backgroundColor: 'hsl(143, 70%, 95%)' // フォーカス時の背景色
     }

@@ -1,0 +1,152 @@
+[
+  {
+    "pokemonName": "キュウコン",
+    "rarity": 3,
+    "sleepFaceName": "しっぽふとん寝",
+    "np": 49894000
+  },
+  {
+    "pokemonName": "ニューラ",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 91770000
+  },
+  {
+    "pokemonName": "ライコウ",
+    "rarity": 3,
+    "sleepFaceName": "いかずち寝",
+    "np": 243390000
+  },
+  {
+    "pokemonName": "エンテイ",
+    "rarity": 3,
+    "sleepFaceName": "かざん寝",
+    "np": 262428000
+  },
+  {
+    "pokemonName": "スイクン",
+    "rarity": 3,
+    "sleepFaceName": "きたかぜ寝",
+    "np": 275196000
+  },
+  {
+    "pokemonName": "ココドラ",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 49894000
+  },
+  {
+    "pokemonName": "ボスゴドラ",
+    "rarity": 3,
+    "sleepFaceName": "てつたべ寝",
+    "np": 179132000
+  },
+  {
+    "pokemonName": "ボスゴドラ",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 215612000
+  },
+  {
+    "pokemonName": "レントラー",
+    "rarity": 3,
+    "sleepFaceName": "スパーク寝",
+    "np": 172558000
+  },
+  {
+    "pokemonName": "レントラー",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 205884000
+  },
+  {
+    "pokemonName": "マニューラ",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 215612000
+  },
+  {
+    "pokemonName": "マニューラ",
+    "rarity": 3,
+    "sleepFaceName": "ぐうたら寝",
+    "np": 179132000
+  },
+  {
+    "pokemonName": "クワガノン",
+    "rarity": 3,
+    "sleepFaceName": "おなかはつでん寝",
+    "np": 205884000
+  },
+  {
+    "pokemonName": "クワガノン",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 243390000
+  },
+  {
+    "pokemonName": "ニャローテ",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 65702000
+  },
+  {
+    "pokemonName": "マスカーニャ",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 163742000
+  },
+  {
+    "pokemonName": "アチゲータ",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 65702000
+  },
+  {
+    "pokemonName": "ラウドボーン",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 163742000
+  },
+  {
+    "pokemonName": "ウェルカモ",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 65702000
+  },
+  {
+    "pokemonName": "ウェーニバル",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 163742000
+  },
+  {
+    "pokemonName": "パーモット",
+    "rarity": 3,
+    "sleepFaceName": "ほうでん寝",
+    "np": 179132000
+  },
+  {
+    "pokemonName": "パーモット",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 220742000
+  },
+  {
+    "pokemonName": "ドオー",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 91770000
+  },
+  {
+    "pokemonName": "キュウコン(アローラのすがた)",
+    "rarity": 3,
+    "sleepFaceName": "しっぽつつまれ寝",
+    "np": 172558000
+  },
+  {
+    "pokemonName": "キュウコン(アローラのすがた)",
+    "rarity": 4,
+    "sleepFaceName": "おなかのうえ寝",
+    "np": 215612000
+  }
+]

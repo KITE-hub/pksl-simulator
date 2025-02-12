@@ -34,7 +34,7 @@
     "lint": "eslint .",
     "fix": "eslint --fix .",
     "format": "prettier --write .",
-    "tailwind": "tailwindcss -i ./src/App.css -o ./src/dist.css --watch"
+    "tailwind": "tailwindcss -i ./src/index.css -o ./src/dist.css --watch"
   },
   "eslintConfig": {
     "extends": [

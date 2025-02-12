@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {FieldNameSelectProps} from '../types';
 import {styled, createTheme, ThemeProvider} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import {Menu, MenuItem, FormControl, InputLabel, Select, OutlinedInput, SelectChangeEvent} from '@mui/material';
+import {MenuItem, FormControl, InputLabel, Select, OutlinedInput} from '@mui/material';
 
 const theme = createTheme({
   typography: {
     fontFamily:
+      // eslint-disable-next-line
       "'M PLUS 1p','Roboto','Noto Sans JP', 'Helvetica Neue', 'Helvetica', 'Hiragino Sans', 'Arial', 'Yu Gothic', 'Meiryo', sans-serif"
   },
   palette: {
@@ -17,7 +18,7 @@ const theme = createTheme({
 });
 const StyledOutlinedInput = styled(OutlinedInput)(({theme}) => ({
   backgroundColor: 'white',
-  height: '36px',
+  height: '32px',
   width: '180px',
   padding: '0px 0px 0px 10px',
   margin: '1px 0px',

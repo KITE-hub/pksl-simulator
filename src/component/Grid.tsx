@@ -13,10 +13,14 @@ const Grid: React.FC<GridProps> = ({result}) => {
       headerName: 'ねむけパワー',
       headerClassName: 'small-header',
       flex: 130,
-      minWidth: 130
+      minWidth: 130,
+      renderCell: (params) => {
+        return <div>{params.value.toLocaleString()}</div>;
+      },
+      sortingOrder: ['desc', null]
     },
     {
-      field: 'evForGrid',
+      field: 'ev',
       headerName: '出現期待値 ± 95%信頼区間',
       renderHeader: () => (
         <div>
@@ -24,9 +28,16 @@ const Grid: React.FC<GridProps> = ({result}) => {
           <p className="text-[11px]">± 95%信頼区間</p>
         </div>
       ),
+      renderCell: (params) => {
+        return (
+          <div>
+            {params.row.ev} <small>± {params.row.evMargin}</small>
+          </div>
+        );
+      },
       headerClassName: 'small-header',
-      flex: 150,
-      minWidth: 150,
+      flex: 135,
+      minWidth: 135,
       sortingOrder: ['desc', null]
     },
     {
@@ -39,8 +50,8 @@ const Grid: React.FC<GridProps> = ({result}) => {
         </div>
       ),
       headerClassName: 'small-header',
-      flex: 110,
-      minWidth: 110,
+      flex: 105,
+      minWidth: 105,
       sortingOrder: ['desc', null]
     },
     {
@@ -85,6 +96,7 @@ const Grid: React.FC<GridProps> = ({result}) => {
         sx={{
           marginTop: 2,
           fontFamily:
+            // eslint-disable-next-line
             "'M PLUS 1p','Roboto','Noto Sans JP', 'Helvetica Neue', 'Helvetica', 'Hiragino Sans', 'Arial', 'Yu Gothic', 'Meiryo', sans-serif",
           color: '#333',
           '& .small-header': {

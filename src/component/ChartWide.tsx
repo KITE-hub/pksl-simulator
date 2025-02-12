@@ -1,9 +1,8 @@
-import React, {useMemo} from 'react';
-import {ResponsiveContainer, LineChart, Legend, Tooltip, Line, CartesianGrid, XAxis, YAxis, Text} from 'recharts';
-import {ChartProps} from '../types';
-import '../App.css';
+import React from 'react';
+import {ResponsiveContainer, LineChart, Legend, Tooltip, Line, CartesianGrid, XAxis, YAxis} from 'recharts';
+import {ChartWideProps} from '../types';
 
-const ChartWide: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, chartSubTitle}) => {
+const ChartWide: React.FC<ChartWideProps> = ({result, chartTitle1, chartTitle2, chartSubTitle}) => {
   const minX = Math.min(...result.map((d) => d.np));
   const maxX = Math.max(...result.map((d) => d.np));
   const ticksX = Array.from({length: 11}, (_, index) => minX + (maxX - minX) * (index / 10));
@@ -62,6 +61,7 @@ const ChartWide: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, char
               label={{value: 'ねむけパワー', dy: 35, height: 30, fontSize: 14}}
               angle={45}
               domain={['auto', 'auto']}
+              tickFormatter={(tick) => tick.toLocaleString()}
             />
             <YAxis
               style={{fontSize: '12px'}}
@@ -151,6 +151,7 @@ const ChartWide: React.FC<ChartProps> = ({result, chartTitle1, chartTitle2, char
               label={{value: 'ねむけパワー', dy: 35, height: 30, fontSize: 14}}
               angle={45}
               domain={['auto', 'auto']}
+              tickFormatter={(tick) => tick.toLocaleString()}
             />
             <YAxis
               style={{fontSize: '12px'}}

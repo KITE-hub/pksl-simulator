@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import {
@@ -13,20 +13,29 @@ import {
   DialogContent,
   DialogActions,
   Link,
-  Button
+  Button,
+  Snackbar
 } from '@mui/material';
 import '../dist.css';
+import lotteryConfig from '../db/other/lotteryConfig.json';
 import CheckIcon from '@mui/icons-material/Check';
 import {styled} from '@mui/material/styles';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import DeleteIcon from '@mui/icons-material/Delete';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import DescriptionIcon from '@mui/icons-material/Description';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import NotDecidedGrid from './NotDecidedGrid';
+
+const updateDateBase1 = new Date(lotteryConfig.updateDate);
+const updateDateBase2 = new Date(updateDateBase1.getTime() + 9 * 60 * 60 * 1000); // UTC → JST
+const updateDate = updateDateBase2.toISOString().split('T')[0].replace(/-/g, '/');
 
 const theme = createTheme({
   typography: {
     fontFamily:
+      // eslint-disable-next-line
       "'M PLUS 1p','Roboto','Noto Sans JP', 'Helvetica Neue', 'Helvetica', 'Hiragino Sans', 'Arial', 'Yu Gothic', 'Meiryo', sans-serif",
     fontSize: 14
   }
@@ -61,6 +70,10 @@ const Description: React.FC = () => {
   const ingMgmtClick = () => {
     setMoreMenuAnchor(null);
     window.location.href = 'https://kite-hub.github.io/pksl-ing-mgmt-static/';
+  };
+  const slpCtrlClick = () => {
+    setMoreMenuAnchor(null);
+    window.location.href = 'https://kite-hub.github.io/pksl-slp-ctrl/';
   };
   const moreButtonClick = (event: React.MouseEvent<HTMLElement>) => {
     setMoreMenuAnchor(event.currentTarget);
@@ -106,6 +119,23 @@ const Description: React.FC = () => {
     setIsDevRequestDialogOpen(false);
   };
 
+  const [clearStorageMessageVisible, setClearStorageMessageVisible] = useState<boolean>(false);
+  const onClearStorageMessageClose = useCallback(() => {
+    setClearStorageMessageVisible(false);
+  }, [setClearStorageMessageVisible]);
+  const handleClearStorage = () => {
+    localStorage.clear();
+    sessionStorage.setItem('showClearMessage', 'true');
+    window.location.reload();
+  };
+  useEffect(() => {
+    const flag = sessionStorage.getItem('showClearMessage');
+    if (flag === 'true') {
+      setClearStorageMessageVisible(true);
+      sessionStorage.removeItem('showClearMessage');
+    }
+  }, []);
+
   return (
     <div className="Description">
       <ThemeProvider theme={theme}>
@@ -131,6 +161,12 @@ const Description: React.FC = () => {
             </ListItemIcon>
             食材管理ツール
           </MenuItem>
+          <MenuItem onClick={slpCtrlClick}>
+            <ListItemIcon>
+              <Icon />
+            </ListItemIcon>
+            睡眠管理ツール
+          </MenuItem>
           <Divider />
           <MenuItem onClick={howToMenuClick}>
             <ListItemIcon>
@@ -155,6 +191,13 @@ const Description: React.FC = () => {
               <InfoOutlinedIcon />
             </ListItemIcon>
             開発者・要望について
+          </MenuItem>
+          <Divider />
+          <MenuItem onClick={handleClearStorage}>
+            <ListItemIcon>
+              <DeleteIcon />
+            </ListItemIcon>
+            ローカルストレージの全削除
           </MenuItem>
         </Menu>
         <Dialog
@@ -223,16 +266,17 @@ const Description: React.FC = () => {
             <br />
             <div className="flex items-center">
               <div className="w-1.5 h-6 bg-[#25d76b] mr-2"></div>
-              <h3 className="font-bold text-base">その他の条件 (2024/11/12)</h3>
+              <h3 className="font-bold text-base">その他の条件 ({updateDate}時点)</h3>
             </div>
             <hr className="mt-1 mb-2" />
             <ul>
               <li>・出現しうるすべての寝顔は、等しい確率で抽選されるものとする。</li>
-              <li>
-                ・ピッピ族・ライコウ・エンテイ・スイクン・アゴジムシ族、コリンク族・ココドラ族・フワンテ族・ミミッキュは、80%の確率で最終枠抽選の対象から外れるものとする。
-              </li>
+              <li>・おなかのうえ寝の寝顔は1リサーチに1つまでしか出現しないものとする。</li>
               <li>
                 ・エンテイ、ライコウ、スイクンのような伝説のポケモンは1リサーチに1体までしか出現しないものとする。
+              </li>
+              <li>
+                ・ピッピ族、伝説のポケモン、リリース日から2ヶ月以内のポケモンの寝顔は、80%の確率で最終枠抽選の対象から外れるものとする。
               </li>
               <li>・一部ポケモンについて確定帯のズレが見られるが、この現象は考慮しないものとする。</li>
             </ul>
@@ -240,25 +284,11 @@ const Description: React.FC = () => {
             <div className="flex items-center">
               <div className="w-1.5 h-6 bg-[#25d76b] mr-2"></div>
               <h3 className="font-bold text-base">
-                必要ねむけパワーが未確定の寝顔と仮の必要ねむけパワーの一覧 (2024/11/12)
+                必要ねむけパワーが未確定の寝顔と必要ねむけパワー(推定)の一覧 ({updateDate}時点)
               </h3>
             </div>
             <hr className="mt-1 mb-2" />
-            <ul>
-              <li>・ニャローテ,ウェルカモ,アチゲータ ☆4: 65702000</li>
-              <li>・マスカーニャ,ラウドボーン,ウェーニバル ☆4: 163742000</li>
-              <li>・キュウコン ☆3: 49894000</li>
-              <li>・ココドラ ☆4: 49894000</li>
-              <li>・レントラー ☆3: 172482000</li>
-              <li>・ボスゴドラ ☆3: 182400000</li>
-              <li>・クワガノン ☆3: 205922000</li>
-              <li>・レントラー ☆4: 205922000</li>
-              <li>・ボスゴドラ ☆4: 215422000</li>
-              <li>・クワガノン ☆4: 243390000</li>
-              <li>・ライコウ ☆3: 243390000</li>
-              <li>・エンテイ ☆3: 262428000</li>
-              <li>・スイクン ☆3: 275196000</li>
-            </ul>
+            <NotDecidedGrid></NotDecidedGrid>
             <br />
           </DialogContent>
           <DialogActions>
@@ -343,15 +373,15 @@ const Description: React.FC = () => {
               <div>
                 {'　'}
                 このツールは、{' '}
-                <Link href="https://x.com/mdk_pksldev" underline="hover" target="_blank" rel="noopener noreferrer">
+                <Link href="https://x.com/mdk_pksldev2" underline="hover" target="_blank" rel="noopener noreferrer">
                   擬き(もどき)
                 </Link>{' '}
                 が個人で開発した非公式のツールです。
                 <br />
                 {'　'}
                 不具合報告や要望等は、X (旧Twitter) の{' '}
-                <Link href="https://x.com/mdk_pksldev" underline="hover" target="_blank" rel="noopener noreferrer">
-                  @mdk_pksldev (現在凍結中)
+                <Link href="https://x.com/mdk_pksldev2" underline="hover" target="_blank" rel="noopener noreferrer">
+                  @mdk_pksldev
                 </Link>{' '}
                 のDMや、
                 <Link
@@ -371,6 +401,12 @@ const Description: React.FC = () => {
             <CustomButton onClick={onDevRequestDialogClose}>閉じる</CustomButton>
           </DialogActions>
         </Dialog>
+        <Snackbar
+          open={clearStorageMessageVisible}
+          autoHideDuration={2000}
+          onClose={onClearStorageMessageClose}
+          message="ローカルストレージを全て削除しました。"
+        />
       </ThemeProvider>
     </div>
   );
