@@ -2,7 +2,7 @@ import React from 'react';
 import {ResponsiveContainer, LineChart, Legend, Tooltip, Line, CartesianGrid, XAxis, YAxis} from 'recharts';
 import {ChartWideProps} from '../types';
 
-const ChartWide: React.FC<ChartWideProps> = ({result, chartTitle1, chartTitle2, chartSubTitle}) => {
+const ChartWide: React.FC<ChartWideProps> = ({result, isDisplayed95, chartTitle1, chartTitle2, chartSubTitle}) => {
   const minX = Math.min(...result.map((d) => d.np));
   const maxX = Math.max(...result.map((d) => d.np));
   const ticksX = Array.from({length: 11}, (_, index) => minX + (maxX - minX) * (index / 10));
@@ -48,7 +48,7 @@ const ChartWide: React.FC<ChartWideProps> = ({result, chartTitle1, chartTitle2, 
               }}
             />
             <XAxis
-              style={{fontSize: '11px'}}
+              style={{fontSize: '10px'}}
               type="number"
               dataKey="np"
               key={JSON.stringify(ticksX)}
@@ -88,15 +88,16 @@ const ChartWide: React.FC<ChartWideProps> = ({result, chartTitle1, chartTitle2, 
               type="monotone"
               dataKey="evUp"
               name="出現期待値95%信頼区間(+)"
-              stroke="#fb6e53"
+              stroke={isDisplayed95 ? '#fb6e53' : 'transparent'}
               dot={false}
               strokeWidth={0.25}
             />
+
             <Line
               type="monotone"
               dataKey="evLow"
               name="出現期待値95%信頼区間(-)"
-              stroke="#fb6e53"
+              stroke={isDisplayed95 ? '#fb6e53' : 'transparent'}
               dot={false}
               strokeWidth={0.25}
             />
@@ -138,7 +139,7 @@ const ChartWide: React.FC<ChartWideProps> = ({result, chartTitle1, chartTitle2, 
               }}
             />
             <XAxis
-              style={{fontSize: '11px'}}
+              style={{fontSize: '10px'}}
               type="number"
               dataKey="np"
               key={JSON.stringify(ticksX)}

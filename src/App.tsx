@@ -5,6 +5,7 @@ import {useLocalStorageState} from './component/UseLocalStorageState';
 import Description from './component/Description';
 import Calculator from './component/Calculator';
 import lotteryConfig from './db/other/lotteryConfig.json';
+import ChartConfig from './component/ChartConfig';
 import ChartNarrow from './component/ChartNarrow';
 import ChartWide from './component/ChartWide';
 import Grid from './component/Grid';
@@ -59,6 +60,8 @@ const App: React.FC = () => {
       evMargin: 1
     }
   ]);
+
+  const [isDisplayed95, setIsDisplayed95] = useLocalStorageState<boolean>('isDisplayed95', false);
   const [chartTitle1, setChartTitle1] = useState<string[]>(['出現期待値と1体以上出現確率', '', '', '']);
   const [chartTitle2, setChartTitle2] = useState<string[]>(['アメの個数とリサーチEXPとゆめのかけら獲得量', '', '', '']);
   const [chartSubTitle, setChartSubTitle] = useState<string>('各NPの試行回数: , NP間隔: , 作成者: 擬き');
@@ -96,7 +99,8 @@ const App: React.FC = () => {
             <span className="bg-[#489FFF] w-1.5 mr-1.5"></span>
             <div className="flex justify-between text-white bg-[#489FFF] px-2 w-full clipSlant">
               <h2 className="font-bold">出力欄</h2>
-              <sub className="text-xs mx-1  mt-auto mb-1">寝顔データ最終更新日時: {updateDate}</sub>
+              <sub className="text-xs mx-1 mt-auto ml-auto mb-1">寝顔データ更新日: {updateDate} (by raenonX)</sub>
+              <ChartConfig isDisplayed95={isDisplayed95} setIsDisplayed95={setIsDisplayed95} />
             </div>
           </div>
           <div className="">
@@ -117,12 +121,14 @@ const App: React.FC = () => {
             />
             <ChartNarrow
               result={result}
+              isDisplayed95={isDisplayed95}
               chartTitle1={chartTitle1}
               chartTitle2={chartTitle2}
               chartSubTitle={chartSubTitle}
             />
             <ChartWide
               result={result}
+              isDisplayed95={isDisplayed95}
               chartTitle1={chartTitle1}
               chartTitle2={chartTitle2}
               chartSubTitle={chartSubTitle}

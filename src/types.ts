@@ -138,8 +138,14 @@ export interface CalculatorProps {
   setChartSubTitle: React.Dispatch<React.SetStateAction<string>>;
 }
 
+export interface ChartConfigProps {
+  isDisplayed95: boolean;
+  setIsDisplayed95: (isDisplayed95: boolean) => void;
+}
+
 export interface ChartNarrowProps {
   result: iResult[];
+  isDisplayed95: boolean;
   chartTitle1: string[];
   chartTitle2: string[];
   chartSubTitle: string;
@@ -147,6 +153,7 @@ export interface ChartNarrowProps {
 
 export interface ChartWideProps {
   result: iResult[];
+  isDisplayed95: boolean;
   chartTitle1: string[];
   chartTitle2: string[];
   chartSubTitle: string;

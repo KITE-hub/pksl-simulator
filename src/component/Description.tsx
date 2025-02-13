@@ -184,7 +184,7 @@ const Description: React.FC = () => {
             <ListItemIcon>
               <MenuBookIcon />
             </ListItemIcon>
-            参考元、謝辞
+            出典、参考元、謝辞
           </MenuItem>
           <MenuItem onClick={devRequestMenuClick}>
             <ListItemIcon>
@@ -284,7 +284,7 @@ const Description: React.FC = () => {
             <div className="flex items-center">
               <div className="w-1.5 h-6 bg-[#25d76b] mr-2"></div>
               <h3 className="font-bold text-base">
-                必要ねむけパワーが未確定の寝顔と必要ねむけパワー(推定)の一覧 ({updateDate}時点)
+                必要ねむけパワーが未確定である寝顔と必要ねむけパワー(推定)の一覧 ({updateDate}時点)
               </h3>
             </div>
             <hr className="mt-1 mb-2" />
@@ -301,11 +301,11 @@ const Description: React.FC = () => {
           scroll="paper"
           aria-describedby="scroll-dialog-description"
         >
-          <CustomDialogTitle>参考元、謝辞</CustomDialogTitle>
+          <CustomDialogTitle>出典、参考元、謝辞</CustomDialogTitle>
           <DialogContent dividers>
             <div className="flex items-center">
               <div className="w-1.5 h-6 bg-[#25d76b] mr-2"></div>
-              <h3 className="font-bold text-base">参考元</h3>
+              <h3 className="font-bold text-base">出典</h3>
             </div>
             <hr className="mt-1 mb-2" />
             <ul>
@@ -319,6 +319,14 @@ const Description: React.FC = () => {
                   raenonX
                 </Link>
               </li>
+            </ul>
+            <br />
+            <div className="flex items-center">
+              <div className="w-1.5 h-6 bg-[#25d76b] mr-2"></div>
+              <h3 className="font-bold text-base">参考元</h3>
+            </div>
+            <hr className="mt-1 mb-2" />
+            <ul>
               <li>
                 <Link
                   href="https://wikiwiki.jp/poke_sleep/%E7%9D%A1%E7%9C%A0%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81/%E3%81%AD%E3%82%80%E3%81%91%E3%83%91%E3%83%AF%E3%83%BC/%E5%AF%9D%E9%A1%94%E5%87%BA%E7%8F%BE%E3%81%AE%E6%B3%95%E5%89%87"

@@ -21,7 +21,7 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
-const ChartNarrow: React.FC<ChartNarrowProps> = ({result, chartTitle1, chartTitle2, chartSubTitle}) => {
+const ChartNarrow: React.FC<ChartNarrowProps> = ({result, isDisplayed95, chartTitle1, chartTitle2, chartSubTitle}) => {
   const minX = Math.min(...result.map((d) => d.np));
   const maxX = Math.max(...result.map((d) => d.np));
   const ticksX = Array.from({length: 11}, (_, index) => minX + (maxX - minX) * (index / 10));
@@ -109,7 +109,7 @@ const ChartNarrow: React.FC<ChartNarrowProps> = ({result, chartTitle1, chartTitl
                   }}
                 />
                 <XAxis
-                  style={{fontSize: '11px'}}
+                  style={{fontSize: '10px'}}
                   type="number"
                   dataKey="np"
                   key={JSON.stringify(ticksX)}
@@ -149,15 +149,16 @@ const ChartNarrow: React.FC<ChartNarrowProps> = ({result, chartTitle1, chartTitl
                   type="monotone"
                   dataKey="evUp"
                   name="出現期待値95%信頼区間(+)"
-                  stroke="#fb6e53"
+                  stroke={isDisplayed95 ? '#fb6e53' : 'transparent'}
                   dot={false}
                   strokeWidth={0.25}
                 />
+
                 <Line
                   type="monotone"
                   dataKey="evLow"
                   name="出現期待値95%信頼区間(-)"
-                  stroke="#fb6e53"
+                  stroke={isDisplayed95 ? '#fb6e53' : 'transparent'}
                   dot={false}
                   strokeWidth={0.25}
                 />
@@ -201,7 +202,7 @@ const ChartNarrow: React.FC<ChartNarrowProps> = ({result, chartTitle1, chartTitl
                   }}
                 />
                 <XAxis
-                  style={{fontSize: '11px'}}
+                  style={{fontSize: '10px'}}
                   type="number"
                   dataKey="np"
                   key={JSON.stringify(ticksX)}
