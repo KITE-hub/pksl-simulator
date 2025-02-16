@@ -1,6 +1,6 @@
 import React, {useReducer, useCallback} from 'react';
 import {ResponsiveContainer, LineChart, Legend, Tooltip, Line, CartesianGrid, XAxis, YAxis} from 'recharts';
-import {ChartNarrowProps} from '../types';
+import {ChartProps} from '../types';
 import {styled} from '@mui/material/styles';
 import {Tabs, Tab} from '@mui/material';
 
@@ -21,7 +21,7 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
-const ChartNarrow: React.FC<ChartNarrowProps> = ({result, isDisplayed95, chartTitle1, chartTitle2, chartSubTitle}) => {
+const Chart: React.FC<ChartProps> = ({result, showDashedLine, chartText}) => {
   const minX = Math.min(...result.map((d) => d.np));
   const maxX = Math.max(...result.map((d) => d.np));
   const ticksX = Array.from({length: 11}, (_, index) => minX + (maxX - minX) * (index / 10));
@@ -39,7 +39,7 @@ const ChartNarrow: React.FC<ChartNarrowProps> = ({result, isDisplayed95, chartTi
     minHeight: '36px',
     padding: '6px 6px',
     flex: 1,
-    fontSize: '12px',
+    fontSize: '11.5px',
     '&.Mui-selected': {
       color: selectedcolor // 選択中の文字色を変更
     }
@@ -49,6 +49,19 @@ const ChartNarrow: React.FC<ChartNarrowProps> = ({result, isDisplayed95, chartTi
   const onTabChange = useCallback((event: React.SyntheticEvent, newValue: number) => {
     dispatch({type: 'changeUpperTab', payload: {index: newValue}});
   }, []);
+
+  const sleepFaceNames = Array.from(
+    new Set(result.flatMap((item) => item.details.map((detail) => detail.sleepFaceName)))
+  );
+
+  const formattedData = result.map((item) => {
+    const dataEntry: Record<string, number> = {np: item.np};
+    item.details.forEach((detail) => {
+      dataEntry[`${detail.sleepFaceName}_ev`] = detail.ev ?? 0;
+      dataEntry[`${detail.sleepFaceName}_leastOne`] = detail.leastOne ?? 0;
+    });
+    return dataEntry;
+  });
 
   return (
     <div className="ChartNarrow">
@@ -60,32 +73,54 @@ const ChartNarrow: React.FC<ChartNarrowProps> = ({result, isDisplayed95, chartTi
           variant="scrollable"
           scrollButtons="auto"
         >
-          <StyledTab selectedcolor={selectedcolor} label="出現期待値, 1体以上出現確率" />
           <StyledTab
             selectedcolor={selectedcolor}
             label={
-              <span>
-                アメの個数, リサーチEXP
-                <br />
-                ゆめのかけら
+              <span className="space-x-1">
+                <span style={{wordBreak: 'break-all'}}>出現期待値{'\u200A'},</span>
+                <span style={{wordBreak: 'keep-all'}}>1体以上出現確率</span>
+                <span style={{wordBreak: 'keep-all'}}>(合計)</span>
+              </span>
+            }
+          />
+          <StyledTab
+            selectedcolor={selectedcolor}
+            label={
+              <span className="space-x-1">
+                <span style={{wordBreak: 'break-all'}}>出現期待値{'\u200A'},</span>
+                <span style={{wordBreak: 'keep-all'}}>1体以上出現確率</span>
+                <span style={{wordBreak: 'keep-all'}}>(寝顔別)</span>
+              </span>
+            }
+          />
+          <StyledTab
+            selectedcolor={selectedcolor}
+            label={
+              <span className="space-x-1">
+                <span style={{wordBreak: 'keep-all'}}>アメの個数{'\u200A'},</span>
+                <span style={{wordBreak: 'keep-all'}}>リサーチEXP{'\u200A'},</span>
+                <span style={{wordBreak: 'keep-all'}}>ゆめのかけら</span>
               </span>
             }
           />
         </StyledTabs>
         {state.tabIndex === 0 && (
           <div className="chart1">
-            <ResponsiveContainer width="100%" height={450}>
-              <LineChart data={result} margin={{top: 65, right: 25, left: 5, bottom: 5}}>
-                <text y={5} fill="#333" textAnchor="middle" fontSize={16} fontWeight="bold">
+            <ResponsiveContainer width="100%" height={500}>
+              <LineChart data={result} margin={{top: 72, right: 5, left: 5, bottom: 5}}>
+                <text y={0} fill="#333" textAnchor="middle" fontSize={16} fontWeight="bold">
                   <tspan x="50%" dy="1.2em">
-                    {chartTitle1[0]} <tspan fontSize="12">{chartTitle1[1]}</tspan> {chartTitle1[2]}
+                    {chartText[0]}
                   </tspan>
                   <tspan x="50%" dy="1.2em">
-                    {chartTitle1[3]}
+                    出現期待値と1体以上出現確率 (合計)
                   </tspan>
                 </text>
-                <text x="50%" y={60} textAnchor="middle" fontSize={11} fill="#888">
-                  {chartSubTitle}
+                <text x="50%" y={55} textAnchor="middle" fontSize={11.5} fill="#888">
+                  {chartText[1]}
+                </text>
+                <text x="50%" y={69} textAnchor="middle" fontSize={12} fill="#888">
+                  {chartText[2]}
                 </text>
                 <Legend
                   verticalAlign="top"
@@ -149,37 +184,139 @@ const ChartNarrow: React.FC<ChartNarrowProps> = ({result, isDisplayed95, chartTi
                   type="monotone"
                   dataKey="evUp"
                   name="出現期待値95%信頼区間(+)"
-                  stroke={isDisplayed95 ? '#fb6e53' : 'transparent'}
+                  stroke={showDashedLine ? '#fb6e53' : 'transparent'}
                   dot={false}
-                  strokeWidth={0.25}
+                  strokeWidth={0.5}
+                  strokeDasharray="5 5"
                 />
-
                 <Line
                   type="monotone"
                   dataKey="evLow"
                   name="出現期待値95%信頼区間(-)"
-                  stroke={isDisplayed95 ? '#fb6e53' : 'transparent'}
+                  stroke={showDashedLine ? '#fb6e53' : 'transparent'}
                   dot={false}
-                  strokeWidth={0.25}
+                  strokeWidth={0.5}
+                  strokeDasharray="5 5"
                 />
               </LineChart>
             </ResponsiveContainer>
           </div>
         )}
         {state.tabIndex === 1 && (
-          <div className="chart2">
-            <ResponsiveContainer width="100%" height={450}>
-              <LineChart data={result} margin={{top: 65, right: 5, left: 5, bottom: 5}}>
-                <text y={5} fill="#333" textAnchor="middle" fontSize={16} fontWeight="bold">
+          <div className="chart1">
+            <ResponsiveContainer width="100%" height={500}>
+              <LineChart data={formattedData} margin={{top: 72, right: 5, left: 5, bottom: 5}}>
+                <text y={0} fill="#333" textAnchor="middle" fontSize={16} fontWeight="bold">
                   <tspan x="50%" dy="1.2em">
-                    {chartTitle2[0]} <tspan fontSize="12">{chartTitle2[1]}</tspan> {chartTitle2[2]}
+                    {chartText[0]}
                   </tspan>
                   <tspan x="50%" dy="1.2em">
-                    {chartTitle2[3]}
+                    出現期待値と1体以上出現確率 (寝顔別)
                   </tspan>
                 </text>
-                <text x="50%" y={60} textAnchor="middle" fontSize={11} fill="#888">
-                  {chartSubTitle}
+                <text x="50%" y={55} textAnchor="middle" fontSize={11.5} fill="#888">
+                  {chartText[1]}
+                </text>
+                <text x="50%" y={69} textAnchor="middle" fontSize={12} fill="#888">
+                  {chartText[2]}
+                </text>
+                <Legend
+                  verticalAlign="top"
+                  dy={10}
+                  wrapperStyle={{
+                    fontSize: '10px',
+                    paddingBottom: '5px'
+                  }}
+                />
+                <CartesianGrid stroke="#ccc" strokeWidth={0.5} />
+                <Tooltip
+                  wrapperStyle={{
+                    fontSize: '10px'
+                  }}
+                  contentStyle={{
+                    borderRadius: '8px',
+                    border: '1px solid #25d76b',
+                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                    lineHeight: '0.9',
+                    boxShadow: '0px 2px 0px 0px rgba(0, 0, 0, 0.1)'
+                  }}
+                />
+                <XAxis
+                  style={{fontSize: '10px'}}
+                  type="number"
+                  dataKey="np"
+                  key={JSON.stringify(ticksX)}
+                  ticks={ticksX}
+                  tickLine={true}
+                  tickSize={15}
+                  interval={0}
+                  dy={10}
+                  height={80}
+                  label={{value: 'ねむけパワー', dy: 35, height: 30, fontSize: 14}}
+                  angle={45}
+                  domain={['auto', 'auto']}
+                  tickFormatter={(tick) => tick.toLocaleString()}
+                />
+                <YAxis
+                  style={{fontSize: '12px'}}
+                  type="number"
+                  // dataKey="ev"
+                  label={{
+                    value: '出現期待値, 1体以上出現確率',
+                    fontSize: 14,
+                    angle: -90,
+                    textAnchor: 'middle',
+                    dx: -20
+                  }}
+                />
+                {sleepFaceNames.map((name, index) => (
+                  <React.Fragment key={name}>
+                    <Line
+                      type="monotone"
+                      key={`${name}_ev`}
+                      dataKey={`${name}_ev`}
+                      name={`${name} (期待値)`}
+                      stroke={`hsl(${((index * (360 / sleepFaceNames.length)) % 360) - 50}, 55%, 55%)`}
+                      dot={false}
+                      strokeWidth={1.5}
+                    />
+                    <Line
+                      type="monotone"
+                      key={`${name}_leastOne`}
+                      dataKey={`${name}_leastOne`}
+                      name={`${name} (1体以上)`}
+                      stroke={
+                        showDashedLine
+                          ? `hsl(${((index * (360 / sleepFaceNames.length)) % 360) - 50}, 55%, 55%)`
+                          : 'transparent'
+                      }
+                      dot={false}
+                      strokeWidth={1}
+                      strokeDasharray="5 5"
+                    />
+                  </React.Fragment>
+                ))}
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        )}
+        {state.tabIndex === 2 && (
+          <div className="chart2">
+            <ResponsiveContainer width="100%" height={500}>
+              <LineChart data={result} margin={{top: 72, right: 5, left: 5, bottom: 5}}>
+                <text y={0} fill="#333" textAnchor="middle" fontSize={16} fontWeight="bold">
+                  <tspan x="50%" dy="1.2em">
+                    {chartText[0]}
+                  </tspan>
+                  <tspan x="50%" dy="1.2em">
+                    アメの個数とリサーチEXPとゆめのかけら獲得量
+                  </tspan>
+                </text>
+                <text x="50%" y={55} textAnchor="middle" fontSize={11.5} fill="#888">
+                  {chartText[1]}
+                </text>
+                <text x="50%" y={69} textAnchor="middle" fontSize={12} fill="#888">
+                  {chartText[2]}
                 </text>
                 <Legend
                   verticalAlign="top"
@@ -281,4 +418,4 @@ const ChartNarrow: React.FC<ChartNarrowProps> = ({result, isDisplayed95, chartTi
   );
 };
 
-export default ChartNarrow;
+export default Chart;

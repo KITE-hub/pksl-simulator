@@ -28,6 +28,7 @@ export interface procISleepFace {
   ID: number;
   name: string;
   rarity: number;
+  sleepFaceName: string;
   expCandy: number;
   researchExp: number;
   dreamShard: number;
@@ -41,6 +42,7 @@ export class procCSleepFace {
   ID: number;
   name: string;
   rarity: number;
+  sleepFaceName: string;
   expCandy: number;
   researchExp: number;
   dreamShard: number;
@@ -53,6 +55,7 @@ export class procCSleepFace {
     ID: number,
     name: string,
     rarity: number,
+    sleepFaceName: string,
     expCandy: number,
     researchExp: number,
     dreamShard: number,
@@ -64,6 +67,7 @@ export class procCSleepFace {
     this.ID = ID;
     this.name = name;
     this.rarity = rarity;
+    this.sleepFaceName = sleepFaceName;
     this.expCandy = expCandy;
     this.researchExp = researchExp;
     this.dreamShard = dreamShard;
@@ -72,16 +76,24 @@ export class procCSleepFace {
   }
 }
 
+export interface iResultDetail {
+  sleepFaceName: string;
+  ev: number;
+  leastOne: number;
+}
+
 export interface iResult {
   np: number;
   ev: number;
   leastOne: number;
   evUp: number;
   evLow: number;
+  evMargin: number;
   expCandy: number;
   researchExp: number;
   dreamShard: number;
-  evMargin: number;
+
+  details: iResultDetail[];
 }
 
 export interface iNotDecided {
@@ -133,30 +145,19 @@ export interface CalculatorProps {
   calculatorOrder: boolean;
   setCalculatorOrder: (value: boolean) => void;
   setResult: React.Dispatch<React.SetStateAction<iResult[]>>;
-  setChartTitle1: React.Dispatch<React.SetStateAction<string[]>>;
-  setChartTitle2: React.Dispatch<React.SetStateAction<string[]>>;
-  setChartSubTitle: React.Dispatch<React.SetStateAction<string>>;
+  setChartText: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export interface ChartConfigProps {
-  isDisplayed95: boolean;
-  setIsDisplayed95: (isDisplayed95: boolean) => void;
+  showDashedLine: boolean;
+  setShowDashedLine: (showDashedLine: boolean) => void;
 }
 
-export interface ChartNarrowProps {
+export interface ChartProps {
   result: iResult[];
-  isDisplayed95: boolean;
-  chartTitle1: string[];
-  chartTitle2: string[];
-  chartSubTitle: string;
-}
-
-export interface ChartWideProps {
-  result: iResult[];
-  isDisplayed95: boolean;
-  chartTitle1: string[];
-  chartTitle2: string[];
-  chartSubTitle: string;
+  showDashedLine: boolean;
+  pokemonName: string;
+  chartText: string[];
 }
 
 export interface GridProps {

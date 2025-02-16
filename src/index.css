@@ -41,10 +41,6 @@ h1 {
   height: 275px;
 }
 
-.ChartWide {
-  display: none;
-}
-
 @media screen and (max-width: 410px) {
   h1 {
     font-size: 16px;
@@ -65,21 +61,5 @@ h1 {
   .responsiveOutput {
     width: calc(60% - 112px);
     /* 800pxを超えてから0.6倍で23*16=368pxから拡大される */
-  }
-}
-
-@media screen and (min-width: 1380px) {
-  .ChartWide {
-    display: flex;
-    /* legendが2行かつ十分な幅になるタイミングでflexにする */
-  }
-  .ChartNarrow {
-    display: none;
-  }
-  .chart1 {
-    width: 50%;
-  }
-  .chart2 {
-    width: 50%;
   }
 }

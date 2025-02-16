@@ -17,11 +17,11 @@ const theme = createTheme({
   }
 });
 
-const ChartConfig: React.FC<ChartConfigProps> = ({isDisplayed95, setIsDisplayed95}) => {
+const ChartConfig: React.FC<ChartConfigProps> = ({showDashedLine, setShowDashedLine}) => {
   const [moreMenuAnchor, setMoreMenuAnchor] = useState<HTMLElement | null>(null);
   const displayClick = () => {
     setMoreMenuAnchor(null);
-    setIsDisplayed95(!isDisplayed95);
+    setShowDashedLine(!showDashedLine);
   };
   const moreButtonClick = (event: React.MouseEvent<HTMLElement>) => {
     setMoreMenuAnchor(event.currentTarget);
@@ -44,19 +44,19 @@ const ChartConfig: React.FC<ChartConfigProps> = ({isDisplayed95, setIsDisplayed9
           onClose={onMoreMenuClose}
           anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
         >
-          {isDisplayed95 ? (
+          {showDashedLine ? (
             <MenuItem onClick={displayClick}>
               <ListItemIcon>
                 <VisibilityOffIcon />
               </ListItemIcon>
-              <span className="text-sm">出現期待値95%信頼区間を非表示にする</span>
+              <span className="text-sm">破線部を非表示にする</span>
             </MenuItem>
           ) : (
             <MenuItem onClick={displayClick}>
               <ListItemIcon>
                 <VisibilityIcon />
               </ListItemIcon>
-              <span className="text-sm">出現期待値95%信頼区間を表示する</span>
+              <span className="text-sm">破線部を表示する</span>
             </MenuItem>
           )}
         </Menu>

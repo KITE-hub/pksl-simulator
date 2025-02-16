@@ -1,8 +1,39 @@
 import React from 'react';
-import {GridProps} from '../types';
+import {GridProps, iResult, iResultDetail} from '../types';
 import {DataGrid, GridRowsProp, GridColDef} from '@mui/x-data-grid';
 
 const Grid: React.FC<GridProps> = ({result}) => {
+  const generateDetailColumns = (data: iResult[]): GridColDef[] => {
+    const sleepFaceNames = Array.from(new Set(data.flatMap((result) => result.details.map((d) => d.sleepFaceName))));
+
+    return sleepFaceNames.map(
+      (name): GridColDef => ({
+        field: name,
+        headerName: name,
+        type: 'string',
+        renderHeader: () => (
+          <div className="text-xs">
+            {name} <br />
+            <p className="text-[11px]">(期待値, 1体以上)</p>
+          </div>
+        ),
+        renderCell: (params) => {
+          const detail = params.row.details.find((d: iResultDetail) => d.sleepFaceName === params.field);
+          return detail ? (
+            <div>
+              {detail.ev}, <small>{detail.leastOne}</small>
+            </div>
+          ) : (
+            '-'
+          );
+        },
+        flex: 170,
+        minWidth: 170,
+        sortingOrder: ['desc', null]
+      })
+    );
+  };
+
   const rows: GridRowsProp = result.map((item, index) => ({
     id: index,
     ...item
@@ -54,6 +85,7 @@ const Grid: React.FC<GridProps> = ({result}) => {
       minWidth: 105,
       sortingOrder: ['desc', null]
     },
+
     {
       field: 'expCandy',
       headerName: 'アメの個数',
@@ -77,7 +109,8 @@ const Grid: React.FC<GridProps> = ({result}) => {
       flex: 130,
       minWidth: 130,
       sortingOrder: ['desc', null]
-    }
+    },
+    ...generateDetailColumns(result)
   ];
 
   return (

@@ -99,11 +99,11 @@ const Input: React.FC<InputProps> = ({
     }
   }, [targetIntervalNPBase]);
 
-  const calculateConst = 1 / 1000000;
+  const calculateConst = 1 / 500000;
   const [calculateTime, setCalculateTime] = useLocalStorageState<number>('calculateTime', 1);
   useEffect(() => {
     const time =
-      0.5 + Math.floor((targetLimitNP - targetStartNP) / targetIntervalNP) * targetTrialNumber * calculateConst;
+      0.3 + Math.floor((targetLimitNP - targetStartNP) / targetIntervalNP) * targetTrialNumber * calculateConst;
     const roundedTime = Math.round(time * 100) / 100;
     setCalculateTime(roundedTime);
   }, [targetLimitNP, targetStartNP, targetIntervalNP, targetTrialNumber]);

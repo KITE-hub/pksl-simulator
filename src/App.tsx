@@ -6,13 +6,12 @@ import Description from './component/Description';
 import Calculator from './component/Calculator';
 import lotteryConfig from './db/other/lotteryConfig.json';
 import ChartConfig from './component/ChartConfig';
-import ChartNarrow from './component/ChartNarrow';
-import ChartWide from './component/ChartWide';
+import Chart from './component/Chart';
 import Grid from './component/Grid';
 import Input from './component/Input';
 
 const App: React.FC = () => {
-  const [pokemonName, setPokemonName] = useLocalStorageState<string>('pokemonName', '');
+  const [pokemonName, setPokemonName] = useState<string>('');
   const [fieldName, setFieldName] = useLocalStorageState<string>('fieldName', 'ワカクサ本島');
   const [targetEnergy, setTargetEnergy] = useLocalStorageState<number>('targetEnergy', 1000000);
   const [targetLimitNP, setTargetLimitNP] = useLocalStorageState<number>('targetEnergy', 100000000);
@@ -54,17 +53,26 @@ const App: React.FC = () => {
       leastOne: 1,
       evUp: 1,
       evLow: 1,
+      evMargin: 1,
       expCandy: 1,
       researchExp: 1,
       dreamShard: 1,
-      evMargin: 1
+      details: [
+        {
+          sleepFaceName: 'おなかのうえ寝(☆4)',
+          ev: 1,
+          leastOne: 1
+        }
+      ]
     }
   ]);
 
-  const [isDisplayed95, setIsDisplayed95] = useLocalStorageState<boolean>('isDisplayed95', false);
-  const [chartTitle1, setChartTitle1] = useState<string[]>(['出現期待値と1体以上出現確率', '', '', '']);
-  const [chartTitle2, setChartTitle2] = useState<string[]>(['アメの個数とリサーチEXPとゆめのかけら獲得量', '', '', '']);
-  const [chartSubTitle, setChartSubTitle] = useState<string>('各NPの試行回数: , NP間隔: , 作成者: 擬き');
+  const [showDashedLine, setShowDashedLine] = useLocalStorageState<boolean>('showDashedLine', false);
+  const [chartText, setChartText] = useState<string[]>([
+    '',
+    'フィールド: , 睡眠タイプ: , EP: ',
+    '各NPの試行回数: , NP間隔: , 作成者: 擬き'
+  ]);
 
   return (
     <div className="App">
@@ -100,7 +108,7 @@ const App: React.FC = () => {
             <div className="flex justify-between text-white bg-[#489FFF] px-2 w-full clipSlant">
               <h2 className="font-bold">出力欄</h2>
               <sub className="text-xs mx-1 mt-auto ml-auto mb-1">寝顔データ更新日: {updateDate} (by raenonX)</sub>
-              <ChartConfig isDisplayed95={isDisplayed95} setIsDisplayed95={setIsDisplayed95} />
+              <ChartConfig showDashedLine={showDashedLine} setShowDashedLine={setShowDashedLine} />
             </div>
           </div>
           <div className="">
@@ -115,24 +123,9 @@ const App: React.FC = () => {
               targetStartNP={targetStartNP}
               targetIntervalNP={targetIntervalNP}
               setResult={setResult}
-              setChartTitle1={setChartTitle1}
-              setChartTitle2={setChartTitle2}
-              setChartSubTitle={setChartSubTitle}
+              setChartText={setChartText}
             />
-            <ChartNarrow
-              result={result}
-              isDisplayed95={isDisplayed95}
-              chartTitle1={chartTitle1}
-              chartTitle2={chartTitle2}
-              chartSubTitle={chartSubTitle}
-            />
-            <ChartWide
-              result={result}
-              isDisplayed95={isDisplayed95}
-              chartTitle1={chartTitle1}
-              chartTitle2={chartTitle2}
-              chartSubTitle={chartSubTitle}
-            />
+            <Chart result={result} showDashedLine={showDashedLine} pokemonName={pokemonName} chartText={chartText} />
             <Grid result={result} />
           </div>
         </div>
