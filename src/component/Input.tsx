@@ -109,8 +109,8 @@ const Input: React.FC<InputProps> = ({
   }, [targetLimitNP, targetStartNP, targetIntervalNP, targetTrialNumber]);
 
   return (
-    <div className="Input mt-3 mb-5 sectionWidth mx-auto">
-      <div className="flex mb-3">
+    <div className="Input mt-3 mb-4 sectionWidth mx-auto">
+      <div className="flex mb-2">
         <span className="bg-[#fb6e53] w-1.5 mr-1.5"></span>
         <div className="flex justify-between text-white bg-[#fb6e53] px-2 w-full clipSlant">
           <h2 className="font-bold">入力欄</h2>

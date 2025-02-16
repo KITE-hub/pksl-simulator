@@ -77,7 +77,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="flex justify-between items-center bg-[#25d76b] border-b-2 border-[#0d974f] shadow-md m-0 px-3">
-        <h1 className="font-bold m-0 text-white">
+        <h1 className="font-bold m-0 text-white" style={{wordBreak: 'keep-all'}}>
           寝顔シミュレーター <small>for ポケモンスリープ</small>
         </h1>
         <Description />
@@ -102,7 +102,7 @@ const App: React.FC = () => {
           calculatorOrder={calculatorOrder}
           handleClick={handleClick}
         />
-        <div className="mt-3 mb-5 responsiveOutput sectionWidth mx-auto">
+        <div className="mt-3 mb-4 responsiveOutput sectionWidth mx-auto">
           <div className="flex">
             <span className="bg-[#489FFF] w-1.5 mr-1.5"></span>
             <div className="flex justify-between text-white bg-[#489FFF] px-2 w-full clipSlant">
